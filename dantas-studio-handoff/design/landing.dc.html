@@ -1,0 +1,1473 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Dantas Studio — Sites que vendem</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+a{color:inherit}
+.ds{--bg:#FFFFFF;--bg2:#F3F7FC;--card:#FFFFFF;--line:#E2E8F0;--ink:#0E1726;--ink2:#4A5A70;--brandInk:#0B6CB5;--btn:#0B6CB5;--onBtn:#FFFFFF;--soft:#E6F3FC;--shadow:0 1px 2px rgba(14,23,38,.04),0 12px 32px -12px rgba(14,23,38,.14);
+font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;overflow-x:hidden;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased;transition:background .4s ease,color .4s ease;min-height:100vh}
+.ds.dark{--bg:#0B1524;--bg2:#0F1C30;--card:#122238;--line:#22344F;--ink:#E8EEF6;--ink2:#9AABC2;--brandInk:#5CB8F2;--btn:var(--brand);--onBtn:#06101C;--soft:#12304D;--shadow:0 1px 2px rgba(0,0,0,.3),0 16px 40px -16px rgba(0,0,0,.6)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--brandInk);font-weight:600}
+.kicker b{font-weight:500;color:var(--ink2);padding:3px 7px;border:1px solid var(--line);border-radius:6px;font-size:10.5px;letter-spacing:.06em}
+.kicker.full{display:flex}
+.sechead:not(.center) .kicker{align-self:stretch}
+.sechead:not(.center) .kicker:after,.kicker.full:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+h1,h2,h3,p{margin:0}
+.h2{font-size:clamp(32px,4vw,48px);line-height:1.08;letter-spacing:-.03em;font-weight:800;margin-top:14px;text-wrap:balance}
+.lead{font-size:18px;color:var(--ink2);margin-top:16px;max-width:620px}
+.sec{padding:112px 0}
+.sechead{display:flex;flex-direction:column;align-items:flex-start;margin-bottom:56px}
+.center{align-items:center;text-align:center}
+.center .lead{margin-left:auto;margin-right:auto}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:12px;font-weight:700;font-size:16px;white-space:nowrap;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease,background .25s ease}
+.btn svg{transition:transform .25s ease}
+.btn:hover svg{transform:translateX(4px)}
+.btn-p{background:var(--btn);color:var(--onBtn);box-shadow:0 1px 2px rgba(14,23,38,.18),inset 0 1px 0 rgba(255,255,255,.14)}
+.btn-p:hover{transform:translateY(-1px);filter:brightness(1.08);box-shadow:0 8px 20px -8px rgba(11,108,181,.55)}
+.btn-s{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn-s:hover{border-color:var(--brandInk);transform:translateY(-2px)}
+.btn-wa{background:#128C4A;color:#fff}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 16px 32px -14px #128C4A}
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navin{display:flex;align-items:center;gap:20px;height:72px}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;white-space:nowrap;flex:none}
+.wm{font-weight:800;font-size:25px;letter-spacing:-.055em;line-height:1;color:var(--ink)}
+.wm i{display:inline-block;width:.22em;height:.22em;background:var(--brand);border-radius:2px;margin-left:.05em}
+.wsub{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);padding-left:10px;border-left:1px solid var(--line);line-height:1.2}
+.links{display:flex;gap:2px;margin:0 auto}
+.links a{text-decoration:none;color:var(--ink2);font-weight:600;font-size:15px;padding:10px 14px;border-radius:10px;transition:color .2s,background .2s}
+.links a:hover{color:var(--ink);background:var(--bg2)}
+.tools{display:flex;align-items:center;gap:10px;flex:none}
+.prefs{display:flex;align-items:center;border:1px solid var(--line);border-radius:12px;padding:3px;gap:2px}
+.prefs .icon-btn{border:0;background:transparent;width:40px;height:40px}
+.prefs .icon-btn:hover{background:var(--bg2)}
+.sep{width:1px;height:20px;background:var(--line)}
+.sel{appearance:none;-webkit-appearance:none;background-color:transparent;color:var(--ink);border:0;border-radius:9px;height:40px;padding:0 26px 0 10px;font:600 14px "Plus Jakarta Sans",sans-serif;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238C98AB' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 11px center}
+.icon-btn{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;border:1px solid var(--line);background:var(--bg2);color:var(--ink);cursor:pointer;transition:transform .3s ease}
+.icon-btn:hover{transform:rotate(-12deg)}
+.burger{display:none}
+.mmenu{display:none}
+/* hero */
+.hero{position:relative;padding:80px 0 104px}
+.herogrid{position:relative;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:56px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border-radius:99px;background:var(--soft);color:var(--brandInk);font-weight:600;font-size:14px}
+.pill i{width:8px;height:8px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:ping 2s infinite}
+.h1{font-size:clamp(42px,6vw,76px);line-height:1.02;letter-spacing:-.045em;font-weight:800;margin-top:22px}
+.h1 .ac{color:var(--brandInk);position:relative;white-space:nowrap}
+.h1 .mut{color:var(--ink2);font-weight:700}
+.herosub{font-size:19px;color:var(--ink2);margin-top:22px;max-width:560px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:34px;color:var(--ink2);font-size:14px;font-weight:600}
+.trust span{display:inline-flex;align-items:center;gap:8px}
+.trust svg{color:var(--brandInk)}
+.in{animation:rise .8s cubic-bezier(.2,.8,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.18s}.d3{animation-delay:.28s}.d4{animation-delay:.38s}.d5{animation-delay:.5s}
+/* mock */
+.mock{position:relative;padding:58px 16px 50px 30px}
+.shot{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.browser{position:relative;background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;animation:rise 1s .3s cubic-bezier(.2,.8,.2,1) both}
+.bbar{display:flex;align-items:center;gap:7px;padding:14px 16px;border-bottom:1px solid var(--line);background:var(--bg2)}
+.bbar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.url{margin-left:12px;flex:1;height:26px;border-radius:8px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;gap:6px;padding:0 10px;font-size:12px;color:var(--ink2);font-weight:600}
+.bbody{padding:26px 26px 0}
+.sk{height:12px;border-radius:6px;background:var(--bg2);margin-bottom:12px}
+.sk.big{height:26px;background:var(--line)}
+.sk.ac{background:var(--brand);opacity:.85;width:38%;height:36px;border-radius:10px;margin-top:20px}
+.w30{width:30%}.w55{width:55%}.w80{width:80%}.w65{width:65%}
+.chart{margin-top:26px;border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.chart b{font-size:13px;color:var(--ink2);font-weight:600}
+.bars{display:flex;align-items:flex-end;gap:10px;height:110px}
+.bars span{flex:1;background:var(--soft);border-radius:6px 6px 2px 2px;transform-origin:bottom;animation:grow 1.2s cubic-bezier(.2,.8,.2,1) both}
+.bars span:last-child,.bars span:nth-last-child(2){background:var(--brand)}
+.float{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;padding:12px 16px;font-size:14px;font-weight:700}
+.float small{display:block;font-weight:500;color:var(--ink2);font-size:12px}
+.f1{top:0;right:-6px;animation:rise .8s 1s both,bob 6s 2s ease-in-out infinite}
+.f2{bottom:8px;left:0;animation:rise .8s 1.2s both,bob 7s 2.4s ease-in-out infinite}
+.f3{bottom:96px;right:-16px;animation:rise .8s 1.4s both,bob 6.5s 2.8s ease-in-out infinite}
+.ico{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex:none}
+.ico.g{background:#DCFCE7;color:#15803D}
+.ico.b{background:var(--soft);color:var(--brandInk)}
+.dark .ico.g{background:#123B26;color:#4ADE80}
+/* marquee */
+.clients{padding:36px 0 8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+.clients p{text-align:center;color:var(--ink2);font-size:14px;font-weight:600}
+.marq{overflow:hidden;margin-top:20px;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.track{display:flex;gap:64px;width:max-content;animation:marq 38s linear infinite;padding-bottom:28px}
+.track span{font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--ink2);opacity:.75;white-space:nowrap}
+.marq:hover .track{animation-play-state:paused}
+/* pain */
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.pcard{position:relative;background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:0 1px 2px rgba(14,23,38,.05),0 14px 34px -22px rgba(14,23,38,.3);display:flex;flex-direction:column;overflow:hidden;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s,border-color .45s}
+.pcard:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--brand) 45%,var(--line))}
+.prob{position:relative;padding:28px 28px 44px;display:flex;flex-direction:column;gap:12px;flex:1}
+.pnum{position:absolute;top:12px;right:20px;font-size:84px;font-weight:800;letter-spacing:-.06em;line-height:1;color:var(--bg2);pointer-events:none;transition:color .45s}
+.dark .pnum{color:#14243A}
+.pcard:hover .pnum{color:var(--soft)}
+.prow{position:relative;display:flex;align-items:center;gap:12px}
+.badge{position:relative;display:inline-flex;align-items:center;gap:7px;align-self:flex-start;font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:6px 11px;border-radius:999px;transition:background .45s,color .45s}
+.badge.bad{background:#FFF1EA;color:#B23A0B}
+.dark .badge.bad{background:#3A1E12;color:#FDBA8C}
+.badge.good{background:var(--card);color:var(--brandInk)}
+.picon{width:48px;height:48px;border-radius:14px;background:#FFF1EA;color:#C2410C;display:flex;align-items:center;justify-content:center;flex:none}
+.dark .picon{background:#3A1E12;color:#FDBA8C}
+.prob h3{position:relative;font-size:23px;letter-spacing:-.025em;margin-top:6px}
+.prob p{position:relative;color:var(--ink2)}
+.sol{position:relative;background:var(--soft);margin:0 8px 8px;border-radius:18px;border:1px solid color-mix(in srgb,var(--brand) 18%,transparent);padding:36px 20px 22px;display:flex;flex-direction:column;gap:12px;transition:background .45s,color .45s}
+.sol p{font-weight:700;font-size:17px;line-height:1.45;letter-spacing:-.01em}
+.turn{position:absolute;left:20px;top:-22px;width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--line);color:var(--brandInk);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);transition:transform .5s cubic-bezier(.2,.8,.2,1),background .45s,color .45s,border-color .45s}
+.pcard:hover .sol{background:var(--btn);color:var(--onBtn)}
+.pcard:hover .badge.good{background:rgba(255,255,255,.18);color:var(--onBtn)}
+.dark .pcard:hover .badge.good{background:rgba(6,16,28,.16)}
+.pcard:hover .turn{transform:translateY(4px);background:var(--btn);color:var(--onBtn);border-color:var(--card)}
+/* services */
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.scard{position:relative;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:12px;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s}
+.scard:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--brand)}
+.scard .ico{width:48px;height:48px;border-radius:14px;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.scard:hover .ico{transform:scale(1.08) rotate(-6deg)}
+.scard h3{font-size:19px;letter-spacing:-.02em;margin-top:6px}
+.scard p{color:var(--ink2);font-size:15px}
+.tag{font-size:12px;font-weight:700;color:var(--brandInk);background:var(--soft);border-radius:8px;padding:5px 9px;align-self:flex-start}
+.price{margin-top:auto;padding-top:14px;display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
+.price small{display:block;color:var(--ink2);font-size:12px;font-weight:600}
+.price b{font-size:22px;letter-spacing:-.02em}
+.sim{display:inline-flex;align-items:center;min-height:44px;gap:6px;font-weight:700;font-size:14px;color:var(--brandInk);text-decoration:none;white-space:nowrap}
+.sim:hover{text-decoration:underline}
+.tint{background:var(--bg2)}
+.navy .kicker b{color:#A9B7CB;border-color:#2B3F5C}
+.navy .kicker:after{background:linear-gradient(90deg,#2B3F5C,transparent)}
+.status{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line);font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);max-width:560px}
+.live{width:8px;height:8px;border-radius:50%;background:#22C55E;animation:ping 2s infinite;flex:none}
+.dotsep{width:3px;height:3px;border-radius:50%;background:var(--ink2);opacity:.5}
+.frame{position:relative}
+.cross{position:absolute;width:13px;height:13px;pointer-events:none;opacity:.75;animation:fade .8s 1.5s both}
+.cross:before,.cross:after{content:"";position:absolute;background:var(--brandInk)}
+.cross:before{left:6px;top:0;width:1px;height:13px}
+.cross:after{top:6px;left:0;height:1px;width:13px}
+.tl{left:-14px;top:-14px}.tr{right:-14px;top:-14px}.bl{left:-14px;bottom:-14px}.br{right:-14px;bottom:-14px}
+.dim{position:absolute;left:0;right:0;bottom:-32px;display:flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;color:var(--ink2);animation:fade .8s 1.6s both}
+.dim i{flex:1;height:1px;background:var(--line);position:relative}
+.dim i:first-child:before,.dim i:last-child:after{content:"";position:absolute;top:-4px;width:1px;height:9px;background:var(--ink2)}
+.dim i:first-child:before{left:0}.dim i:last-child:after{right:0}
+.dim em{font-style:normal;white-space:nowrap}
+.ftag{position:absolute;left:0;top:-34px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--brandInk);background:var(--soft);padding:4px 9px;border-radius:7px;animation:fade .8s 1.4s both}
+.scard .code{position:absolute;top:26px;right:24px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--ink2)}
+.stack{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.03em;color:var(--ink2);line-height:1.5}
+.wcard{position:relative}
+.scard:before,.wcard:before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--brand) 13%,transparent),transparent 65%);opacity:0;transition:opacity .35s;pointer-events:none;z-index:1}
+.scard:hover:before,.wcard:hover:before{opacity:1}
+.st{width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex:none}
+.ck{color:#4ADE80;animation:pop .45s cubic-bezier(.2,.8,.2,1.4) both}
+.spin{width:14px;height:14px;border-radius:50%;border:2px solid rgba(92,184,242,.25);border-top-color:#5CB8F2;animation:spin .8s linear infinite;flex:none}
+.idle{width:6px;height:6px;border-radius:50%;background:#2B3F5C}
+.scanrow.done{color:#E8EEF6}.scanrow.active{color:#5CB8F2}
+.ok{min-height:54px;animation:rise .4s both}
+.ok.wait{background:#1B2C45;color:#A9B7CB}
+@keyframes pop{from{transform:scale(.3);opacity:0}to{transform:none;opacity:1}}
+@keyframes navprog{to{transform:scaleX(1)}}
+@supports (animation-timeline:scroll()){.nav:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--brand);transform-origin:left;transform:scaleX(0);animation:navprog linear both;animation-timeline:scroll(root)}}
+/* security */
+.navy{background:#16233A;color:#E8EEF6;border-radius:32px;margin:0 16px;padding:96px 0;position:relative;overflow:hidden}
+.navy:before{content:"";position:absolute;width:640px;height:640px;right:-200px;top:-260px;border-radius:50%;border:1px solid rgba(92,184,242,.18);box-shadow:0 0 0 80px rgba(92,184,242,.04),0 0 0 160px rgba(92,184,242,.03)}
+.navy .kicker{color:#5CB8F2}
+.navy .lead{color:#A9B7CB}
+.secgrid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:64px;align-items:center}
+.chk{list-style:none;padding:0;margin:32px 0 0;display:grid;gap:14px}
+.chk li{display:flex;gap:12px;font-weight:600;font-size:16px}
+.chk svg{flex:none;color:#5CB8F2;margin-top:2px}
+.scan{background:#0B1524;border:1px solid #22344F;border-radius:24px;padding:28px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.scanhead{display:flex;justify-content:space-between;align-items:center;font-weight:700}
+.scanhead span{color:#A9B7CB;font-size:13px}
+.prog{height:6px;border-radius:6px;background:#1B2C45;margin:18px 0 22px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:#5CB8F2;border-radius:6px;transition:width .7s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 12px rgba(92,184,242,.6)}
+.scanrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;border-top:1px solid #1B2C45;font-size:15px;color:#8496AF;transition:color .35s}
+.scanrow svg{color:#4ADE80}
+.ok{margin-top:18px;display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;background:#123B26;color:#BBF7D0;font-weight:700}
+.btn-l{background:#5CB8F2;color:#06101C;margin-top:34px}
+.btn-l:hover{transform:translateY(-2px)}
+.note{margin-top:28px;padding:18px 20px;border-radius:16px;border:1px solid #2B3F5C;background:#1B2C45}
+.note b{display:block;color:#E8EEF6;font-size:15px}
+.note p{margin-top:6px;color:#C9D4E3;font-size:14.5px}
+/* work */
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.wcard{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s}
+.wcard:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.wimg{aspect-ratio:16/8;overflow:hidden;background:var(--bg2);border-bottom:1px solid var(--line)}
+.wimg img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.wcard:hover .wimg img{transform:scale(1.05)}
+.wbody{padding:24px 26px 28px;display:flex;flex-direction:column;gap:8px}
+.wmeta{display:flex;gap:8px;flex-wrap:wrap}
+.wbody h3{font-size:22px;letter-spacing:-.02em;margin-top:4px}
+.wbody p{color:var(--ink2)}
+.place{font-size:12px;font-weight:700;color:var(--ink2);border:1px solid var(--line);border-radius:8px;padding:4px 9px}
+/* calculator */
+.calcsec{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.calc{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:24px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:34px;display:flex;flex-direction:column;gap:34px}
+.step{display:flex;flex-direction:column;gap:16px}
+.stephead{display:flex;align-items:center;gap:12px;font-weight:800;font-size:18px;letter-spacing:-.01em}
+.stephead i{font-style:normal;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--btn);color:var(--onBtn);font-size:14px}
+.chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.chip{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:14px;border-radius:16px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:600 14px "Plus Jakarta Sans",sans-serif;text-align:left;cursor:pointer;transition:border-color .25s,background .25s,transform .25s}
+.chip:hover{border-color:var(--brand);transform:translateY(-2px)}
+.chip svg{color:var(--brandInk)}
+.chip.on{border-color:var(--brand);background:var(--soft);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 22%,transparent)}
+.range{display:flex;flex-direction:column;gap:12px;padding:22px;border-radius:18px;background:var(--bg2)}
+.rangetop{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.rangetop b{font-size:28px;letter-spacing:-.03em}
+.rangetop b span{font-size:16px;color:var(--ink2);font-weight:600;margin-left:6px}
+.rangetop small{color:var(--ink2);font-weight:600;font-size:13px}
+.stepper{display:flex;align-items:center;gap:8px}
+.sbtn{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:700 20px "Plus Jakarta Sans",sans-serif;cursor:pointer;transition:background .2s}
+.sbtn:hover{background:var(--soft)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:8px;background:var(--line);outline:none;accent-color:var(--brand)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--btn);border:4px solid var(--card);box-shadow:0 2px 10px rgba(0,0,0,.25);cursor:grab}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--btn);border:4px solid var(--card);cursor:grab}
+.xgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.xcard{display:flex;align-items:flex-start;gap:12px;padding:16px;border-radius:16px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);text-align:left;cursor:pointer;font-family:inherit;transition:border-color .25s,background .25s}
+.xcard:hover{border-color:var(--brand)}
+.xcard.on{border-color:var(--brand);background:var(--soft)}
+.box{width:22px;height:22px;border-radius:7px;border:2px solid var(--line);flex:none;display:flex;align-items:center;justify-content:center;color:var(--onBtn);transition:all .2s;margin-top:1px}
+.xcard.on .box{background:var(--btn);border-color:var(--btn)}
+.xcard b{display:block;font-size:15px}
+.xcard small{display:block;color:var(--ink2);font-size:13px;margin-top:2px}
+.xcard em{font-style:normal;margin-left:auto;font-weight:700;font-size:14px;color:var(--brandInk);white-space:nowrap;padding-left:8px}
+.langx{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px;border-radius:16px;border:1.5px solid var(--line);grid-column:1/-1}
+.langx b{display:block;font-size:15px}
+.langx small{color:var(--ink2);font-size:13px}
+.empty{padding:18px;border-radius:16px;background:var(--bg2);color:var(--ink2);font-weight:600}
+.sum{position:sticky;top:100px;background:#16233A;color:#E8EEF6;border-radius:26px;padding:32px;display:flex;flex-direction:column;gap:20px;box-shadow:0 30px 60px -30px rgba(11,21,36,.6)}
+.sumtop{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.sumtop b{font-size:18px}
+.reg{font-size:12px;color:#A9B7CB;font-weight:600;border:1px solid #2B3F5C;border-radius:8px;padding:5px 9px}
+.tot small{display:block;color:#A9B7CB;font-weight:600;font-size:14px}
+.tot b{display:block;font-size:clamp(40px,4.6vw,56px);letter-spacing:-.04em;line-height:1.1;font-variant-numeric:tabular-nums;margin-top:4px}
+.tot b span{font-size:18px;color:#A9B7CB;letter-spacing:0;margin-left:4px}
+.pa{animation:pulseA .5s ease}.pb{animation:pulseB .5s ease}
+.mline{display:flex;justify-content:space-between;padding:12px 14px;border-radius:12px;background:#1B2C45;font-weight:600;font-size:15px}
+.lines{display:flex;flex-direction:column;gap:9px;padding:16px 0;border-top:1px solid #2B3F5C;border-bottom:1px solid #2B3F5C}
+.line{display:flex;justify-content:space-between;gap:16px;font-size:14px;color:#C9D4E3}
+.line b{color:#E8EEF6;white-space:nowrap}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.meta div{background:#1B2C45;border-radius:12px;padding:12px 14px}
+.meta small{display:block;color:#A9B7CB;font-size:12px;font-weight:600}
+.meta b{font-size:15px}
+.sum .btn{width:100%}
+.or{text-align:center;color:#A9B7CB;font-size:13px;font-weight:600}
+.mail{display:flex;gap:8px}
+.mail input{flex:1;min-width:0;height:52px;border-radius:14px;border:1px solid #2B3F5C;background:#0B1524;color:#E8EEF6;padding:0 16px;font:500 15px "Plus Jakarta Sans",sans-serif}
+.mail input::placeholder{color:#8496AF}
+.mail button{height:52px;padding:0 18px;border-radius:14px;border:1px solid #5CB8F2;background:transparent;color:#5CB8F2;font:700 15px "Plus Jakarta Sans",sans-serif;cursor:pointer}
+.mail button:hover{background:#5CB8F2;color:#06101C}
+.sent{display:flex;align-items:center;gap:10px;padding:14px;border-radius:14px;background:#123B26;color:#BBF7D0;font-weight:700;animation:rise .4s both}
+.disc{font-size:11px;line-height:1.45;color:#8FA1BA;text-align:center}
+.paynote{font-size:13px;color:#C9D4E3;display:flex;gap:8px;align-items:flex-start}
+.paynote svg{flex:none;color:#5CB8F2;margin-top:2px}
+/* process */
+.g4p{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;position:relative}
+.g4p:before{content:"";position:absolute;top:27px;left:6%;right:6%;height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 14px)}
+.ps{position:relative;display:flex;flex-direction:column;gap:12px}
+.ps .n{width:56px;height:56px;border-radius:18px;background:var(--card);border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:var(--brandInk);transition:all .3s}
+.ps:hover .n{background:var(--btn);color:var(--onBtn);border-color:var(--btn);transform:translateY(-4px)}
+.ps h3{font-size:19px;margin-top:8px}
+.ps p{color:var(--ink2);font-size:15px}
+/* guarantees */
+.gbox{margin-top:80px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+.gi{background:var(--card);padding:28px;display:flex;flex-direction:column;gap:8px}
+.gi svg{color:var(--brandInk)}
+.gi b{font-size:17px;margin-top:6px}
+.gi p{color:var(--ink2);font-size:14.5px}
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:center}
+.ph{aspect-ratio:4/5;border-radius:28px;background:#16233A;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:28px}
+.ph .mono{color:#5CB8F2}
+.ph b{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);font-size:120px;font-weight:800;letter-spacing:-.06em;color:#E8EEF6;opacity:.95}
+.ph:before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent 0 70%,rgba(92,184,242,.35) 85%,transparent 100%);animation:spin 9s linear infinite}
+.ph:after{content:"";position:absolute;inset:2px;border-radius:26px;background:#16233A;z-index:0}
+.ph > *{position:relative;z-index:1}
+.role{color:var(--brandInk);font-weight:700;margin-top:10px}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.facts span{padding:9px 14px;border-radius:10px;background:var(--bg2);border:1px solid var(--line);font-weight:600;font-size:14px}
+.langs{margin-top:22px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-weight:600}
+.langs small{color:var(--ink2)}
+/* faq */
+.faq{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.qa{border:1px solid var(--line);border-radius:18px;background:var(--card);overflow:hidden;transition:border-color .25s}
+.qa.open{border-color:var(--brand)}
+.qbtn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 24px;background:transparent;border:0;color:var(--ink);font:700 17px "Plus Jakarta Sans",sans-serif;text-align:left;cursor:pointer;min-height:44px}
+.qbtn svg{flex:none;transition:transform .35s cubic-bezier(.2,.8,.2,1);color:var(--brandInk)}
+.qa.open .qbtn svg{transform:rotate(45deg)}
+.ans{padding:0 24px 22px;color:var(--ink2);animation:rise .4s both}
+/* final */
+.final{background:var(--btn);color:var(--onBtn);border-radius:32px;padding:80px 48px;text-align:center;position:relative;overflow:hidden}
+.final:before,.final:after{content:"";position:absolute;border-radius:50%;border:1px solid currentColor;opacity:.14}
+.final:before{width:520px;height:520px;left:-180px;top:-240px}
+.final:after{width:420px;height:420px;right:-140px;bottom:-240px}
+.final h2{font-size:clamp(32px,4.4vw,54px);letter-spacing:-.035em;line-height:1.06;font-weight:800;max-width:820px;margin:0 auto;position:relative}
+.final p{margin-top:16px;font-size:18px;opacity:.88;position:relative}
+.final .ctas{justify-content:center;position:relative}
+.btn-inv{background:var(--onBtn);color:var(--btn)}
+.btn-inv:hover{transform:translateY(-2px)}
+.btn-gh{background:transparent;color:var(--onBtn);border:1.5px solid currentColor}
+.btn-gh:hover{transform:translateY(-2px)}
+/* footer */
+.foot{padding:56px 0 40px;border-top:1px solid var(--line);margin-top:96px}
+.footg{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.foot p{color:var(--ink2);margin-top:12px;max-width:340px;font-size:15px}
+.flinks{display:flex;gap:48px;flex-wrap:wrap}
+.flinks div{display:flex;flex-direction:column;gap:10px}
+.flinks b{font-size:13px;color:var(--ink2)}
+.flinks a{text-decoration:none;font-weight:600;font-size:15px}
+.flinks a:hover{color:var(--brandInk)}
+.copy{margin-top:40px;padding-top:24px;border-top:1px solid var(--line);color:var(--ink2);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.wa-float{position:fixed;right:24px;bottom:24px;z-index:60;display:flex;align-items:center;gap:10px;height:58px;padding:0 22px 0 18px;border-radius:99px;background:#128C4A;color:#fff;text-decoration:none;font-weight:700;box-shadow:0 14px 30px -10px rgba(18,140,74,.7);animation:rise .6s 1.6s both}
+.wa-float:hover{transform:translateY(-3px)}
+.mbar{display:none;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:60;align-items:center;justify-content:space-between;gap:12px;padding:10px 10px 10px 16px;border-radius:18px;background:#16233A;color:#E8EEF6;box-shadow:0 18px 40px -12px rgba(0,0,0,.45);animation:rise .6s 1.2s both}
+.mbar .tl{text-decoration:none;color:inherit;min-width:0}
+.mbar small{display:block;font-size:11.5px;color:#A9B7CB;font-weight:600}
+.mbar b{font-size:20px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mbar .btn{min-height:46px;padding:0 16px;font-size:15px}
+.wa-float:before{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid #22C55E;animation:ring 2.4s 2.5s infinite}
+/* keyframes */
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes marq{to{transform:translateX(-50%)}}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(34,197,94,.55)}80%,100%{box-shadow:0 0 0 10px rgba(34,197,94,0)}}
+@keyframes fill{0%{width:0}60%,100%{width:100%}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.35);opacity:0}}
+@keyframes pulseA{0%{transform:scale(1)}40%{transform:scale(1.04)}100%{transform:scale(1)}}
+@keyframes pulseB{0%{transform:scale(1)}40%{transform:scale(1.04)}100%{transform:scale(1)}}
+/* revelação ao rolar (IntersectionObserver) */
+@keyframes rvin{from{opacity:0;translate:0 56px;scale:.965;filter:blur(10px)}to{opacity:1;translate:0 0;scale:1;filter:blur(0)}}
+@keyframes wup{from{transform:translateY(118%) rotate(6deg)}to{transform:none}}
+@keyframes imgin{from{clip-path:inset(100% 0 0 0);scale:1.25}to{clip-path:inset(0 0 0 0);scale:1}}
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .02em .1em;margin:0 .2em -.1em -.02em}
+.split .w>span{display:inline-block;transform-origin:0 100%}
+.h1.split .w>span{animation:wup 1.15s cubic-bezier(.16,1,.3,1) both}
+.js-rv .rv .split .w>span{transform:translateY(118%) rotate(6deg)}
+.js-rv .rv.on .split .w>span{animation:wup 1.05s cubic-bezier(.16,1,.3,1) both}
+.js-rv .sechead.rv>.split,.js-rv .sechead.rv.on>.split{opacity:1;animation:none}
+.shot{animation:imgin 1.5s cubic-bezier(.16,1,.3,1) .45s both}
+.js-rv .wcard.rv .wimg img{clip-path:inset(100% 0 0 0)}
+.js-rv .wcard.rv.on .wimg img{animation:imgin 1.4s cubic-bezier(.16,1,.3,1) .2s both}
+.js-rv .ph.rv.on b{animation:wup 1.2s cubic-bezier(.16,1,.3,1) .3s both}
+.js-rv .rv{opacity:0}
+.js-rv .rv.on{animation:rvin .9s cubic-bezier(.2,.8,.2,1) both}
+.js-rv .sechead.rv,.js-rv .sechead.rv.on{opacity:1;animation:none}
+.js-rv .sechead.rv>*{opacity:0}
+.js-rv .sechead.rv.on>*{animation:rvin .9s cubic-bezier(.2,.8,.2,1) both}
+.js-rv .sechead.rv.on>*:nth-child(2){animation-delay:.1s}
+.js-rv .sechead.rv.on>*:nth-child(3){animation-delay:.2s}
+.js-rv .g3>.rv.on:nth-child(2),.js-rv .g4>.rv.on:nth-child(4n+2),.js-rv .g2>.rv.on:nth-child(2n),.js-rv .g4p>.rv.on:nth-child(2){animation-delay:.1s}
+.js-rv .g3>.rv.on:nth-child(3),.js-rv .g4>.rv.on:nth-child(4n+3),.js-rv .g4p>.rv.on:nth-child(3){animation-delay:.2s}
+.js-rv .g4>.rv.on:nth-child(4n),.js-rv .g4p>.rv.on:nth-child(4){animation-delay:.3s}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none !important;transition:none !important}html{scroll-behavior:auto}.js-rv .rv,.js-rv .sechead.rv>*{opacity:1 !important}.split .w>span,.js-rv .rv .split .w>span{transform:none !important}.js-rv .wcard.rv .wimg img,.shot{clip-path:none !important}}
+/* responsive */
+@media (max-width:1100px){
+.calc{grid-template-columns:1fr}.sum{position:relative;top:0}
+.g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+.chips{grid-template-columns:repeat(4,minmax(0,1fr))}
+.gbox{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:1080px){
+.links,.prefs .sel,.prefs .sep,.navcta{display:none}
+.tools{margin-left:auto}
+.burger{display:inline-flex}
+.mmenu{display:flex;flex-direction:column;gap:6px;padding:12px 0 20px;border-top:1px solid var(--line)}
+.mmenu a{text-decoration:none;font-weight:700;font-size:18px;padding:12px 4px}
+.mmenu .row{display:flex;gap:8px;margin-top:8px}
+.mmenu .sel{display:block;flex:1;height:46px;border:1px solid var(--line);background-color:var(--bg2)}
+}
+@media (max-width:920px){
+.herogrid,.secgrid,.about{grid-template-columns:1fr}
+.mock{max-width:580px;width:100%;margin:0 auto;padding:56px 16px 48px}
+.f1{right:0}
+.g3{grid-template-columns:1fr}
+.g4p{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px}.g4p:before{display:none}
+.ph{max-width:360px}
+}
+@media (max-width:640px){
+.wrap{padding:0 16px}
+.navin{height:64px;gap:12px}
+.wm{font-size:22px}
+.wsub{display:none}
+.sec{padding:64px 0}
+.sechead{margin-bottom:28px}
+.h2{font-size:30px}
+.lead{font-size:16px}
+.hero{padding:32px 0 56px}
+.herogrid{gap:36px}
+.pill{font-size:13px}
+.h1{font-size:40px;margin-top:18px}
+.herosub{font-size:16.5px;margin-top:16px}
+.ctas{margin-top:26px}
+.trust{flex-direction:column;gap:10px;margin-top:24px}
+.mock{padding:56px 14px 46px}
+.browser{border-radius:16px}
+.f1{left:auto;right:8px;top:0;padding:10px 12px;font-size:13px}
+.f1 .ico{width:32px;height:32px}
+.clients{padding:28px 0 4px}
+.track{gap:40px}.track span{font-size:18px}
+.g3,.g4,.g2{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -16px;padding:4px 16px 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.g3::-webkit-scrollbar,.g4::-webkit-scrollbar,.g2::-webkit-scrollbar{display:none}
+.g3>*,.g4>*,.g2>*{flex:0 0 84%;scroll-snap-align:center}
+.scard{padding:22px}
+.prob{padding:22px 22px 40px}.sol{padding:32px 16px 20px}.turn{left:14px}.pnum{font-size:68px}
+.pcard:hover,.scard:hover,.wcard:hover{transform:none}
+.xgrid,.gbox,.g4p{grid-template-columns:1fr}
+.chips{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.chip{padding:12px;font-size:13.5px}
+.panel{padding:20px;border-radius:20px;gap:28px}
+.sum{padding:22px;border-radius:20px}
+.navy{margin:0;border-radius:0;padding:64px 0}
+.secgrid{gap:36px}
+.chk li{font-size:15px}
+.final{padding:48px 20px;border-radius:24px}
+.final p{font-size:16px}
+.ctas .btn,.final .btn,.btn-l{width:100%}
+.qbtn{font-size:16px;padding:18px}
+.ans{padding:0 18px 18px}
+.gbox{margin-top:48px}
+.about{gap:32px}
+.ph{aspect-ratio:16/10;max-width:none}
+.ph b{font-size:88px}
+.foot{margin-top:64px;padding-bottom:110px}
+.flinks{gap:32px}
+.wa-float{display:none}
+.mbar{display:flex}
+.mail{flex-direction:column}
+}
+</style>
+</helmet>
+
+<div class="ds {{themeClass}} {{rvClass}}" style="--brand: {{accent}}">
+
+<!-- NAV -->
+<header class="nav">
+<div class="wrap">
+<div class="navin">
+<a class="logo" href="#top" aria-label="Dantas Studio">
+<span class="wm">dantas<i></i></span><span class="wsub">studio</span>
+</a>
+<nav class="links" aria-label="Principal">
+<a href="#servicos">{{t.nav.services}}</a>
+<a href="#resultados">{{t.nav.work}}</a>
+<a href="#seguranca">{{t.nav.security}}</a>
+<a href="#orcamento">{{t.nav.pricing}}</a>
+<a href="#faq">{{t.nav.faq}}</a>
+</nav>
+<div class="tools">
+<div class="prefs">
+<label style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)" for="lang">Idioma</label>
+<select id="lang" class="sel" value="{{lang}}" onChange="{{onLang}}">
+<option value="pt">PT</option>
+<option value="en">EN</option>
+<option value="es">ES</option>
+<option value="fr">FR</option>
+<option value="de">DE</option>
+</select>
+<span class="sep" aria-hidden="true"></span>
+<label style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)" for="region">Moeda</label>
+<select id="region" class="sel" value="{{region}}" onChange="{{onRegion}}">
+<option value="BR">R$ BRL</option>
+<option value="US">$ USD</option>
+<option value="EU">€ EUR</option>
+<option value="UK">£ GBP</option>
+<option value="LATAM">$ LatAm</option>
+</select>
+<span class="sep" aria-hidden="true"></span>
+<button class="icon-btn" type="button" aria-label="{{t.ui.theme}}" onClick="{{toggleTheme}}">
+<sc-if value="{{isDark}}" hint-placeholder-val="{{ false }}">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+</sc-if>
+<sc-if value="{{isLight}}" hint-placeholder-val="{{ true }}">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"></path></svg>
+</sc-if>
+</button>
+</div>
+<a class="btn btn-p navcta" href="#orcamento" style="min-height:44px;padding:0 18px;font-size:14.5px">{{t.nav.cta}}</a>
+<button class="icon-btn burger" type="button" aria-label="{{t.ui.menu}}" onClick="{{toggleMenu}}">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+</button>
+</div>
+</div>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<div class="mmenu">
+<a href="#servicos" onClick="{{closeMenu}}">{{t.nav.services}}</a>
+<a href="#resultados" onClick="{{closeMenu}}">{{t.nav.work}}</a>
+<a href="#seguranca" onClick="{{closeMenu}}">{{t.nav.security}}</a>
+<a href="#orcamento" onClick="{{closeMenu}}">{{t.nav.pricing}}</a>
+<a href="#faq" onClick="{{closeMenu}}">{{t.nav.faq}}</a>
+<div class="row">
+<select class="sel" aria-label="Idioma" value="{{lang}}" onChange="{{onLang}}">
+<option value="pt">Português</option>
+<option value="en">English</option>
+<option value="es">Español</option>
+<option value="fr">Français</option>
+<option value="de">Deutsch</option>
+</select>
+<select class="sel" aria-label="Moeda" value="{{region}}" onChange="{{onRegion}}">
+<option value="BR">Brasil · R$</option>
+<option value="US">USA · US$</option>
+<option value="EU">Europe · €</option>
+<option value="UK">UK · £</option>
+<option value="LATAM">LatAm · US$</option>
+</select>
+</div>
+<a class="btn btn-p" href="#orcamento" onClick="{{closeMenu}}" style="margin-top:8px">{{t.nav.cta}}</a>
+</div>
+</sc-if>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+<div class="wrap herogrid">
+<div>
+<span class="pill in">{{t.hero.eyebrow}}</span>
+<h1 class="h1 split" aria-label="{{heroLabel}}"><sc-for list="{{wh.a}}" as="w" hint-placeholder-count="3"><span class="{{w.cls}}" aria-hidden="true"><span style="animation-delay: {{w.d}}">{{w.t}}</span></span></sc-for><sc-for list="{{wh.b}}" as="w" hint-placeholder-count="2"><span class="{{w.cls}}" aria-hidden="true"><span style="animation-delay: {{w.d}}">{{w.t}}</span></span></sc-for><br><sc-for list="{{wh.c}}" as="w" hint-placeholder-count="3"><span class="{{w.cls}}" aria-hidden="true"><span style="animation-delay: {{w.d}}">{{w.t}}</span></span></sc-for></h1>
+<p class="herosub in d2">{{t.hero.sub}}</p>
+<div class="ctas in d3">
+<a class="btn btn-p" href="#orcamento">{{t.hero.cta1}}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="btn btn-s" href="{{waDirect}}" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"></path><path d="M9 9.5c.3 2.2 2.3 4.3 4.6 4.8l1.2-1.2 1.9.9-.4 1.6c-3.6.4-7.6-3.4-7.3-7.1l1.6-.4.9 1.9z"></path></svg>{{t.hero.cta2}}</a>
+</div>
+<div class="trust in d4">
+<sc-for list="{{t.hero.trust}}" as="x" hint-placeholder-count="3">
+<span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>{{x}}</span>
+</sc-for>
+</div>
+<div class="status in d5"><span class="live"></span><span>{{t.hero.status}}</span><span class="dotsep"></span><span>Rio de Janeiro · {{clock}} UTC−3</span></div>
+</div>
+<div class="mock" aria-hidden="true">
+<div class="frame">
+<span class="ftag">&lt;Landing /&gt;</span>
+<span class="cross tl"></span><span class="cross tr"></span><span class="cross bl"></span><span class="cross br"></span>
+<div class="browser">
+<div class="bbar"><i></i><i></i><i></i><span class="url"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.6" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>puredetail.co.nz</span></div>
+<img class="shot" src="/_blob/bd59f0b971ff203deb3d874b7210e752" alt="">
+</div>
+<span class="dim"><i></i><em>1280 × 800 · responsive</em><i></i></span>
+</div>
+<div class="float f1"><span class="ico g"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"></path></svg></span><span>{{t.hero.notif}}<small>{{t.hero.notifSub}}</small></span></div>
+</div>
+</div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients" aria-label="{{t.clients}}">
+<p>{{t.clients}}</p>
+<div class="marq">
+<div class="track">
+<span>Pure Detail</span><span>Help Baterias</span><span>Italínea Rio</span><span>Guaraviton</span><span>Precnet Investidor</span><span>Parceiros Rubraz</span><span>Corpore</span><span>Mirante do Arvrão</span><span>Carneiro &amp; Carballido</span>
+<span aria-hidden="true">Pure Detail</span><span aria-hidden="true">Help Baterias</span><span aria-hidden="true">Italínea Rio</span><span aria-hidden="true">Guaraviton</span><span aria-hidden="true">Precnet Investidor</span><span aria-hidden="true">Parceiros Rubraz</span><span aria-hidden="true">Corpore</span><span aria-hidden="true">Mirante do Arvrão</span><span aria-hidden="true">Carneiro &amp; Carballido</span>
+</div>
+</div>
+</section>
+
+<!-- PAIN -->
+<section class="sec tint">
+<div class="wrap">
+<div class="sechead rv">
+<span class="kicker mono"><b>01</b>{{t.pain.kicker}}</span>
+<h2 class="h2 split" aria-label="{{t.pain.title}}"><sc-for list="{{wt.pain}}" as="w" hint-placeholder-count="6"><span class="w" aria-hidden="true"><span style="animation-delay: {{w.d}}">{{w.t}}</span></span></sc-for></h2>
+</div>
+<div class="g3">
+<sc-for list="{{pains}}" as="p" hint-placeholder-count="3">
+<article class="pcard rv">
+<div class="prob">
+<span class="pnum" aria-hidden="true">{{p.n}}</span>
+<div class="prow">
+<span class="picon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{p.icon}}"></path></svg></span>
+<span class="badge bad">{{t.pain.probLabel}}</span>
+</div>
+<h3>{{p.t}}</h3>
+<p>{{p.p}}</p>
+</div>
+<div class="sol">
+<span class="turn" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></span>
+<span class="badge good"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"></path></svg>{{t.pain.solLabel}}</span>
+<p>{{p.fix}}</p>
+</div>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="servicos">
+<div class="wrap">
+<div class="sechead rv">
+<span class="kicker mono"><b>02</b>{{t.services.kicker}}</span>
+<h2 class="h2 split" aria-label="{{t.services.title}}"><sc-for list="{{wt.services}}" as="w" hint-placeholder-count="6"><span class="w" aria-hidden="true"><span style="animation-delay: {{w.d}}">{{w.t}}</span></span></sc-for></h2>
+<p class="lead">{{t.services.sub}}</p>
+</div>
+<div class="g4">
+<sc-for list="{{services}}" as="s" hint-placeholder-count="8">
+<article class="scard rv" onMouseMove="{{spot}}">
+<span class="ico b"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{s.icon}}"></path></svg></span>
+<span class="code">{{s.code}}</span>
+<h3>{{s.name}}</h3>
+<p>{{s.desc}}</p>
+<span class="stack">{{s.stack}}</span>
+<span class="tag">{{s.out}}</span>
+<div class="price">
+<div><small>{{t.services.from}}</small><b>{{s.from}}</b></div>
+<a class="sim" href="#orcamento" onClick="{{s.pick}}">{{t.services.simulate}} →</a>
+</div>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- SECURITY -->
+<section class="navy" id="seguranca">
+<div class="wrap secgrid">
+<div class="rv">
+<span class="kicker mono full"><b>03</b>{{t.security.kicker}}</span>
+<h2 class="h2 split" aria-label="{{t.security.title}}"><sc-for list="{{wt.security}}" as="w" hint-placeholder-count="6"><span class="w" aria-hidden="true"><span style="animation-delay: {{w.d}}">{{w.t}}</span></span></sc-for></h2>
+<p class="lead">{{t.security.sub}}</p>
+<ul class="chk">
+<sc-for list="{{t.security.list}}" as="x" hint-placeholder-count="6">
+<li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg>{{x}}</li>
+</sc-for>
+</ul>
+<div class="note"><b>{{t.security.noteTitle}}</b><p>{{t.security.note}}</p></div>
+<a class="btn btn-l" href="{{waSecurity}}" target="_blank" rel="noopener">{{t.security.cta}}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+<div class="scan rv" aria-hidden="true">
+<div class="scanhead">{{t.security.scanTitle}}<span class="mono">{{scanCount}}</span></div>
+<div class="prog"><i style="width: {{scanPct}}"></i></div>
+<sc-for list="{{scan}}" as="x" hint-placeholder-count="5">
+<div class="{{x.cls}}"><span>{{x.label}}</span><span class="st">
+<sc-if value="{{x.done}}" hint-placeholder-val="{{ false }}"><svg class="ck" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></sc-if>
+<sc-if value="{{x.active}}" hint-placeholder-val="{{ false }}"><span class="spin"></span></sc-if>
+<sc-if value="{{x.idle}}" hint-placeholder-val="{{ true }}"><span class="idle"></span></sc-if>
+</span></div>
+</sc-for>
+<sc-if value="{{scanDone}}" hint-placeholder-val="{{ false }}"><div class="ok"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg>{{t.security.scanDone}}</div></sc-if>
+<sc-if value="{{scanWait}}" hint-placeholder-val="{{ true }}"><div class="ok wait"><span class="spin"></span>{{t.security.scanning}}</div></sc-if>
+</div>
+</div>
+</section>
+
+<!-- WORK -->
+<section class="sec" id="resultados">
+<div class="wrap">
+<div class="sechead rv">
+<span class="kicker mono"><b>04</b>{{t.work.kicker}}</span>
+<h2 class="h2 split" aria-label="{{t.work.title}}"><sc-for list="{{wt.work}}" as="w" hint-placeholder-count="6"><span class="w" aria-hidden="true"><span style="animation-delay: {{w.d}}">{{w.t}}</span></span></sc-for></h2>
+<p class="lead">{{t.work.sub}}</p>
+</div>
+<div class="g2">
+<sc-for list="{{work}}" as="w" hint-placeholder-count="4">
+<article class="wcard rv" onMouseMove="{{spot}}">
+<div class="wimg"><img src="{{w.img}}" alt="{{w.name}}" loading="lazy"></div>
+<div class="wbody">
+<div class="wmeta"><span class="tag">{{w.tag}}</span><span class="place">{{w.place}}</span></div>
+<h3>{{w.name}}</h3>
+<p>{{w.desc}}</p>
+</div>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="sec calcsec" id="orcamento">
+<div class="wrap">
+<div class="sechead center rv">
+<span class="kicker mono"><b>05</b>{{t.calc.kicker}}</span>
+<h2 class="h2 split" aria-label="{{t.calc.title}}"><sc-for list="{{wt.calc}}" as="w" hint-placeholder-count="6"><span class="w" aria-hidden="true"><span style="animation-delay: {{w.d}}">{{w.t}}</span></span></sc-for></h2>
+<p class="lead">{{t.calc.sub}}</p>
+</div>
+<div class="calc">
+<div class="panel">
+<div class="step">
+<div class="stephead"><i>1</i>{{t.calc.s1}}</div>
+<div class="chips">
+<sc-for list="{{chips}}" as="c" hint-placeholder-count="8">
+<button type="button" class="{{c.cls}}" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{c.icon}}"></path></svg>{{c.name}}</button>
+</sc-for>
+</div>
+</div>
+<div class="step">
+<div class="stephead"><i>2</i>{{t.calc.s2}}</div>
+<div class="range">
+<div class="rangetop">
+<b>{{calc.units}}<span>{{calc.unitLabel}}</span></b>
+<div class="stepper">
+<button class="sbtn" type="button" aria-label="−" onClick="{{dec}}">−</button>
+<button class="sbtn" type="button" aria-label="+" onClick="{{inc}}">+</button>
+</div>
+</div>
+<label style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)" for="units">{{calc.unitLabel}}</label>
+<input id="units" type="range" min="{{calc.min}}" max="{{calc.max}}" step="{{calc.step}}" value="{{calc.units}}" onChange="{{onUnits}}" onInput="{{onUnits}}">
+<div class="rangetop"><small>{{calc.inclLabel}}</small><small>{{calc.perLabel}}</small></div>
+</div>
+</div>
+<div class="step">
+<div class="stephead"><i>3</i>{{t.calc.s3}}</div>
+<sc-if value="{{calc.noExtras}}" hint-placeholder-val="{{ false }}">
+<div class="empty">{{t.calc.none}}</div>
+</sc-if>
+<div class="xgrid">
+<sc-if value="{{calc.allowLang}}" hint-placeholder-val="{{ true }}">
+<div class="langx">
+<div><b>{{t.calc.x.lang.t}}</b><small>{{t.calc.x.lang.d}} · +{{calc.langPct}}</small></div>
+<div class="stepper">
+<button class="sbtn" type="button" aria-label="−" onClick="{{langDec}}">−</button>
+<b style="min-width:28px;text-align:center;font-size:20px">{{calc.langs}}</b>
+<button class="sbtn" type="button" aria-label="+" onClick="{{langInc}}">+</button>
+</div>
+</div>
+</sc-if>
+<sc-for list="{{calc.extras}}" as="x" hint-placeholder-count="5">
+<button type="button" class="{{x.cls}}" aria-pressed="{{x.pressed}}" onClick="{{x.toggle}}">
+<span class="box"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+<span><b>{{x.t}}</b><small>{{x.d}}</small></span>
+<em>{{x.price}}</em>
+</button>
+</sc-for>
+</div>
+</div>
+</div>
+
+<aside class="sum" aria-live="polite">
+<div class="sumtop"><b>{{t.calc.summary}}</b><span class="reg">{{t.calc.region}} {{calc.regionLabel}}</span></div>
+<div class="tot">
+<small>{{calc.headLabel}}*</small>
+<b class="{{pulseCls}}">{{calc.display}}<span>{{calc.headSuffix}}</span></b>
+</div>
+<sc-if value="{{calc.hasMonthly}}" hint-placeholder-val="{{ false }}">
+<div class="mline"><span>+ {{t.calc.monthly}}</span><span>{{calc.monthlyFmt}}{{t.calc.perMonth}}</span></div>
+</sc-if>
+<div class="lines">
+<sc-for list="{{calc.lines}}" as="l" hint-placeholder-count="3">
+<div class="line"><span>{{l.label}}</span><b>{{l.val}}</b></div>
+</sc-for>
+</div>
+<div class="meta">
+<div><small>{{t.calc.delivery}}</small><b>{{calc.daysLabel}}</b></div>
+<div><small>{{t.calc.service}}</small><b>{{calc.serviceName}}</b></div>
+</div>
+<div class="paynote"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18"></path></svg><span>{{calc.payNote}}</span></div>
+<a class="btn btn-wa" href="{{calc.waLink}}" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"></path></svg>{{t.calc.wa}}</a>
+<div class="or">{{t.calc.or}}</div>
+<sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+<div class="mail">
+<label style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)" for="email">E-mail</label>
+<input id="email" type="email" placeholder="{{t.calc.emailPh}}" value="{{email}}" onChange="{{onEmail}}">
+<button type="button" onClick="{{send}}">{{t.calc.send}}</button>
+</div>
+</sc-if>
+<sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+<div class="sent"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>{{t.calc.sent}}</div>
+</sc-if>
+<p class="disc">{{t.calc.disc}}</p>
+</aside>
+</div>
+</div>
+</section>
+
+<!-- PROCESS + GUARANTEES -->
+<section class="sec">
+<div class="wrap">
+<div class="sechead rv">
+<span class="kicker mono"><b>06</b>{{t.process.kicker}}</span>
+<h2 class="h2 split" aria-label="{{t.process.title}}"><sc-for list="{{wt.process}}" as="w" hint-placeholder-count="6"><span class="w" aria-hidden="true"><span style="animation-delay: {{w.d}}">{{w.t}}</span></span></sc-for></h2>
+</div>
+<div class="g4p">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+<div class="ps rv"><span class="n">{{s.n}}</span><h3>{{s.t}}</h3><p>{{s.p}}</p></div>
+</sc-for>
+</div>
+<div class="gbox rv">
+<sc-for list="{{guar}}" as="g" hint-placeholder-count="4">
+<div class="gi"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{g.icon}}"></path></svg><b>{{g.t}}</b><p>{{g.p}}</p></div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec" style="padding-top:0">
+<div class="wrap about">
+<div class="ph rv"><b>LD</b><span class="mono">Lucas Dantas · Rio de Janeiro</span></div>
+<div class="rv">
+<span class="kicker mono full"><b>07</b>{{t.about.kicker}}</span>
+<h2 class="h2 split" aria-label="Lucas Dantas"><span class="w" aria-hidden="true"><span>Lucas</span></span><span class="w" aria-hidden="true"><span style="animation-delay: .07s">Dantas</span></span></h2>
+<p class="role">{{t.about.role}}</p>
+<p class="lead">{{t.about.p}}</p>
+<div class="langs"><small>{{t.about.langsLabel}}</small><span>Português · English · Español</span></div>
+<div class="facts">
+<span>PHP · Laravel</span><span>React · Next.js</span><span>TypeScript</span><span>Node.js</span><span>Python</span><span>WordPress · WooCommerce</span><span>Docker · Linux</span><span>n8n · IA</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq" style="padding-top:0">
+<div class="wrap">
+<div class="sechead center rv">
+<span class="kicker mono"><b>08</b>{{t.faq.kicker}}</span>
+<h2 class="h2 split" aria-label="{{t.faq.title}}"><sc-for list="{{wt.faq}}" as="w" hint-placeholder-count="3"><span class="w" aria-hidden="true"><span style="animation-delay: {{w.d}}">{{w.t}}</span></span></sc-for></h2>
+</div>
+<div class="faq">
+<sc-for list="{{faqs}}" as="f" hint-placeholder-count="6">
+<div class="{{f.cls}}">
+<button class="qbtn" type="button" aria-expanded="{{f.expanded}}" onClick="{{f.toggle}}">{{f.q}}<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></button>
+<sc-if value="{{f.open}}" hint-placeholder-val="{{ false }}"><p class="ans">{{f.a}}</p></sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="padding:0 16px">
+<div class="wrap" style="padding:0">
+<div class="final rv">
+<h2 class="split" aria-label="{{t.final.title}}"><sc-for list="{{wt.final}}" as="w" hint-placeholder-count="8"><span class="w" aria-hidden="true"><span style="animation-delay: {{w.d}}">{{w.t}}</span></span></sc-for></h2>
+<p>{{t.final.sub}}</p>
+<div class="ctas">
+<a class="btn btn-inv" href="{{waDirect}}" target="_blank" rel="noopener">{{t.final.cta1}}</a>
+<a class="btn btn-gh" href="#orcamento">{{t.final.cta2}}</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+<div class="wrap">
+<div class="footg">
+<div>
+<a class="logo" href="#top" aria-label="Dantas Studio">
+<span class="wm">dantas<i></i></span><span class="wsub">studio</span>
+</a>
+<p>{{t.footer.tag}}</p>
+</div>
+<div class="flinks">
+<div><b class="mono">{{t.nav.services}}</b><a href="#servicos">{{t.services.short1}}</a><a href="#servicos">{{t.services.short2}}</a><a href="#seguranca">{{t.nav.security}}</a></div>
+<div><b class="mono">{{t.footer.contact}}</b><a href="{{waDirect}}" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:contato@dantasstudio.com">contato@dantasstudio.com</a><a href="https://www.linkedin.com/in/lucas-de-sousa-dantas" target="_blank" rel="noopener">LinkedIn</a></div>
+</div>
+</div>
+<div class="copy"><span>© 2026 Dantas Studio · {{t.footer.rights}}</span><span>{{t.footer.made}}</span></div>
+</div>
+</footer>
+
+<div class="mbar">
+<a class="tl" href="#orcamento"><small>{{calc.headLabel}}</small><b>{{calc.display}}{{calc.headSuffix}}</b></a>
+<a class="btn btn-wa" href="{{calc.waLink}}" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"></path></svg>WhatsApp</a>
+</div>
+
+<a class="wa-float" href="{{waDirect}}" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"></path><path d="M9 9.5c.3 2.2 2.3 4.3 4.6 4.8l1.2-1.2 1.9.9-.4 1.6c-3.6.4-7.6-3.4-7.3-7.1l1.6-.4.9 1.9z"></path></svg><span>{{t.ui.float}}</span></a>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#1D94E3","options":["#1D94E3","#0B6CB5","#2563EB","#0EA5E9"]},"startTheme":{"editor":"enum","options":["light","dark"],"default":"light"},"startLang":{"editor":"enum","options":["pt","en","es","fr","de"],"default":"pt"},"$preview":{"width":1440,"height":9200}}'>
+/* =====================================================================
+   CONFIG GLOBAL — troque tudo aqui (marca, WhatsApp, preços, regiões)
+   ===================================================================== */
+const CONFIG = {
+  brand: "Dantas Studio",
+  whatsapp: "5521999999999",              // TROQUE: DDI + DDD + número, só dígitos
+  formEndpoint: "https://formspree.io/f/SEU_ID", // Formspree/FormJS (opcional)
+  langToRegion: { pt: "BR", en: "US", es: "LATAM", fr: "EU", de: "EU" },
+
+  // Cada região tem moeda própria e tabela própria.
+  // prices[serviço] = [preço base, preço por unidade adicional]
+  regions: {
+    BR:    { label: "BRL", currency: "BRL", locale: "pt-BR", pay: "br",
+             prices: { landing:[1800,250], site:[2900,350], ecommerce:[5900,300], system:[9900,1800], design:[2400,300], consulting:[0,250], security:[690,450], care:[290,90] },
+             extras: { seo:600, copy:800, cms:900, integrations:1200 } },
+    US:    { label: "USD", currency: "USD", locale: "en-US", pay: "intl",
+             prices: { landing:[790,90], site:[1290,150], ecommerce:[2690,150], system:[4500,800], design:[990,120], consulting:[0,60], security:[290,190], care:[99,35] },
+             extras: { seo:250, copy:350, cms:390, integrations:490 } },
+    EU:    { label: "EUR", currency: "EUR", locale: "de-DE", pay: "intl",
+             prices: { landing:[750,85], site:[1190,140], ecommerce:[2490,140], system:[4200,750], design:[920,110], consulting:[0,55], security:[270,180], care:[95,32] },
+             extras: { seo:230, copy:320, cms:360, integrations:450 } },
+    UK:    { label: "GBP", currency: "GBP", locale: "en-GB", pay: "intl",
+             prices: { landing:[650,75], site:[1050,120], ecommerce:[2190,120], system:[3700,650], design:[800,95], consulting:[0,48], security:[240,160], care:[85,28] },
+             extras: { seo:200, copy:280, cms:310, integrations:390 } },
+    LATAM: { label: "USD", currency: "USD", locale: "es-419", pay: "intl",
+             prices: { landing:[490,60], site:[790,90], ecommerce:[1590,90], system:[2900,500], design:[590,70], consulting:[0,35], security:[190,120], care:[59,20] },
+             extras: { seo:150, copy:200, cms:240, integrations:300 } }
+  },
+
+  // Regras de cada serviço (iguais em todas as regiões)
+  // incl = unidades já inclusas no preço base | step = tamanho de cada "pacote" adicional
+  services: {
+    landing:    { incl:5,  min:1,  max:15,  step:1,  def:5,  days:7,  daysPer:1,   extras:["lang","seo","copy","cms","integrations","urgency","care"] },
+    site:       { incl:5,  min:1,  max:20,  step:1,  def:5,  days:12, daysPer:1.5, extras:["lang","seo","copy","cms","integrations","urgency","care"] },
+    ecommerce:  { incl:30, min:10, max:500, step:10, def:30, days:25, daysPer:0.5, extras:["lang","seo","copy","integrations","urgency","care"] },
+    system:     { incl:3,  min:1,  max:15,  step:1,  def:3,  days:35, daysPer:8,   extras:["lang","integrations","urgency","care"] },
+    design:     { incl:5,  min:1,  max:40,  step:1,  def:5,  days:7,  daysPer:1,   extras:["copy","urgency"] },
+    consulting: { incl:0,  min:1,  max:20,  step:1,  def:2,  days:2,  daysPer:0,   extras:[] },
+    security:   { incl:1,  min:1,  max:10,  step:1,  def:1,  days:1,  daysPer:0.5, extras:["urgency","care"] },
+    care:       { incl:1,  min:1,  max:20,  step:1,  def:1,  days:1,  daysPer:0,   extras:[], monthly:true }
+  },
+  order: ["landing","site","ecommerce","system","design","consulting","security","care"],
+  langExtraPct: 0.2,   // +20% por idioma extra
+  langExtraMax: 4,
+  urgencyPct: 0.3,     // +30% entrega expressa
+  urgencyDays: 0.6,    // prazo x0.6
+  roundTo: 10
+};
+
+const ICONS = {
+  landing: "M4 4h16v16H4z M4 9h16 M8 13h8 M8 16.5h5",
+  site: "M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18z M3 12h18 M12 3c3 3.5 3 14.5 0 18 M12 3c-3 3.5-3 14.5 0 18",
+  ecommerce: "M5 8h14l-1.2 12H6.2z M9 8V6.5a3 3 0 0 1 6 0V8",
+  system: "M3 5h18v11H3z M8 20h8 M12 16v4 M7 9l2 1.75L7 12.5 M11.5 12.5h4",
+  design: "M12 3l9 5-9 5-9-5z M3 13l9 5 9-5",
+  consulting: "M4 5h16v11H9l-5 4z M8 9h8 M8 12h5",
+  security: "M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z M8.5 12l2.5 2.5 4.5-5",
+  care: "M20 12a8 8 0 1 1-2.34-5.66 M20 4v5h-5",
+  lock: "M5 11h14v10H5z M8 11V7a4 4 0 0 1 8 0v4",
+  clock: "M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18z M12 7v5l3 2",
+  tag: "M3 12V4h8l10 10-8 8z M7.5 8.5h.01",
+  heart: "M12 20s-8-4.6-8-10.2A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 8 2.4C20 15.4 12 20 12 20z"
+};
+
+const STACK = {
+  landing: "Next.js · Tailwind · SEO", site: "Next.js · WordPress · CMS", ecommerce: "WooCommerce · Nuvemshop",
+  system: "Laravel · React · PostgreSQL", design: "Figma · Design System", consulting: "Architecture · Performance",
+  security: "OWASP · SSL · Backups", care: "Uptime · Updates · Backups"
+};
+
+const WORK = [
+  { key: "pure", name: "Pure Detail", img: "/_blob/bd59f0b971ff203deb3d874b7210e752" },
+  { key: "help", name: "Help Baterias", img: "/_blob/003358f0e9fd8a33299ebbc71ff571b7" },
+  { key: "ital", name: "Italínea Rio", img: "/_blob/79605c11e860b50f16524223ccd787ee" },
+  { key: "rubraz", name: "Parceiros Rubraz", img: "/_blob/20a125f292b7fd8b2df8e2a7d6f22b0a" }
+];
+
+/* =====================================================================
+   TRADUÇÕES — mesmo formato em todos os idiomas
+   ===================================================================== */
+const I18N = {
+pt: {
+  nav: { services:"Serviços", work:"Resultados", security:"Segurança", pricing:"Orçamento", faq:"FAQ", cta:"Orçamento grátis" },
+  ui: { theme:"Alternar tema", menu:"Abrir menu", float:"Fale comigo" },
+  hero: { eyebrow:"Sites, sistemas e segurança · Brasil e exterior", t1:"Seu site deveria", t2:"trazer clientes.", t3:"Não só existir.",
+    sub:"Crio sites, landing pages, e-commerces e sistemas rápidos, seguros e pensados para vender — com o rigor de quem desenvolve sistemas críticos para a área da saúde.",
+    status:"Disponível para novos projetos", cta1:"Calcular meu orçamento", cta2:"Falar no WhatsApp",
+    trust:["6+ anos desenvolvendo","100% das entregas no prazo","Clientes no Brasil e na Nova Zelândia"],
+    url:"seunegocio.com", chart:"Visitas → clientes", notif:"Novo pedido de orçamento", notifSub:"via WhatsApp · agora", ssl:"HTTPS · Protegido", sslSub:"Certificado ativo", backup:"Backup concluído", backupSub:"Hoje, 03:00" },
+  clients:"Marcas que já confiaram no meu trabalho",
+  pain: { kicker:"O problema", probLabel:"Problema", solLabel:"Como eu resolvo", title:"Um site bonito que não vende é só custo.", items:[
+    { t:"Lento demais", p:"Cada segundo a mais de carregamento faz visitantes desistirem antes de ver sua oferta.", fix:"Código leve, imagens otimizadas e hospedagem bem configurada." },
+    { t:"Inseguro", p:"Site invadido, com vírus ou spam no Google derruba sua reputação e suas vendas.", fix:"Desenvolvimento seguro, HTTPS, backups e monitoramento." },
+    { t:"Não converte", p:"O visitante entra, não entende o que você vende e vai embora sem chamar.", fix:"Estrutura de venda, texto claro e WhatsApp no lugar certo." } ] },
+  services: { kicker:"Serviços", title:"Tudo o que seu negócio precisa para vender online", sub:"Do primeiro site ao sistema sob medida — com um único responsável técnico do início ao fim.", from:"a partir de", simulate:"Simular", perHour:"/hora", perMonth:"/mês", short1:"Sites e landing pages", short2:"Sistemas e e-commerce",
+    items: {
+      landing:{ name:"Landing page", desc:"Página única focada em uma oferta, feita para transformar anúncio em contato.", out:"Para campanhas e anúncios", unit:"seções" },
+      site:{ name:"Site institucional", desc:"Site profissional com várias páginas, que passa confiança e aparece no Google.", out:"Para empresas e profissionais", unit:"páginas" },
+      ecommerce:{ name:"E-commerce", desc:"Loja virtual com pagamento, frete e painel para você gerenciar pedidos.", out:"Para vender 24 horas por dia", unit:"produtos" },
+      system:{ name:"Sistema web", desc:"Sistemas sob medida, painéis, automações e integrações com IA e WhatsApp.", out:"Para automatizar processos", unit:"módulos" },
+      design:{ name:"Design UI/UX", desc:"Interfaces bonitas e fáceis de usar, com protótipo navegável antes do código.", out:"Para apps e produtos digitais", unit:"telas" },
+      consulting:{ name:"Consultoria", desc:"Diagnóstico técnico, arquitetura, performance e próximos passos com clareza.", out:"Para decidir antes de investir", unit:"horas" },
+      security:{ name:"Segurança e limpeza", desc:"Diagnóstico, limpeza de malware e proteção. A recuperação depende dos acessos e backups disponíveis.", out:"Para site hackeado ou lento", unit:"sites" },
+      care:{ name:"Suporte e backup", desc:"Atualizações, backups, monitoramento e pequenos ajustes todo mês.", out:"Para nunca mais se preocupar", unit:"sites" } } },
+  security: { kicker:"Segurança", title:"Seu site seguro por padrão. Não por sorte.", sub:"Os sites que eu desenvolvo já saem protegidos. Se o seu foi invadido, começo por um diagnóstico e te digo com franqueza o que dá para recuperar — antes de começar o trabalho.",
+    list:["Código seguro contra as falhas mais comuns (OWASP)","HTTPS, cabeçalhos de segurança e formulários protegidos contra spam","Backups automáticos com restauração rápida","Limpeza de vírus, malware e spam de SEO","Recuperação de site invadido, conforme os acessos e backups disponíveis","Atualizações e monitoramento contínuo"],
+    scanTitle:"Diagnóstico antes de tudo", scan:["Acesso à hospedagem e ao servidor","Backup do código","Backup do banco de dados","Arquivos, plugins e dependências","Certificado SSL e e-mails"], scanDone:"Você sabe o que dá para recuperar antes de eu começar", noteTitle:"Sem promessa milagrosa", note:"Para recuperar um site eu preciso de acesso à hospedagem, ao código e, de preferência, de backups do código e do banco de dados. Sem backup, faço o que for tecnicamente possível e te aviso disso antes. A melhor proteção é prevenir: backup automático e manutenção mensal.", cta:"Pedir um diagnóstico", scanning:"Verificando…" },
+  work: { kicker:"Resultados", title:"Projetos reais, no ar, para clientes reais", sub:"Alguns trabalhos entregues no Brasil e no exterior.", items: {
+    pure:{ tag:"Site + orçamento online", place:"Nova Zelândia", desc:"Site para empresa automotiva com formulário de orçamento em etapas e envio de fotos." },
+    help:{ tag:"E-commerce", place:"Brasil", desc:"Loja WooCommerce com plugin próprio de frete e entrega — desenvolvida e mantida por mim." },
+    ital:{ tag:"Site + landing pages", place:"Brasil", desc:"Site das lojas de móveis planejados e várias landing pages de campanha." },
+    rubraz:{ tag:"Sistema web", place:"Brasil", desc:"Sistema de cálculo de frete com Google Maps, login e painel em React." } } },
+  calc: { kicker:"Orçamento instantâneo", title:"Descubra quanto custa em 30 segundos", sub:"Escolha o serviço, ajuste o tamanho e veja o valor na hora. Sem cadastro e sem compromisso.",
+    s1:"Qual serviço você precisa?", s2:"Qual o tamanho do projeto?", s3:"Quer turbinar?", incl:"inclusos no valor base", per:"por adicional", perHour:"por hora", none:"Esse serviço já vem completo. É só enviar.",
+    x: { lang:{ t:"Idiomas extras", d:"Para vender a clientes de outros países" }, seo:{ t:"SEO avançado", d:"Otimizado para aparecer no Google" }, copy:{ t:"Textos que vendem", d:"Copywriting focado em conversão" }, cms:{ t:"Painel de edição", d:"Você edita textos e imagens sozinho" }, integrations:{ t:"Integrações", d:"WhatsApp, CRM, pagamentos ou automações" }, urgency:{ t:"Entrega expressa", d:"Prioridade na fila e prazo menor" }, care:{ t:"Suporte e backup mensal", d:"Atualizações, backups e monitoramento" } },
+    summary:"Seu orçamento", region:"Valores em", total:"Investimento estimado", totalMonthly:"Investimento mensal", monthly:"Plano mensal", perMonth:"/mês", base:"Base", extra:"adicionais", delivery:"Prazo estimado", days:"dias úteis", service:"Serviço", start:"Início imediato",
+    wa:"Enviar orçamento no WhatsApp", or:"ou receba por e-mail", emailPh:"seu@email.com", send:"Enviar", sent:"Recebido! Te respondo em breve.",
+    disc:"* Valores fictícios e apenas ilustrativos. Não constituem proposta comercial e podem ser bem diferentes do preço real, que só é definido após a análise do seu projeto.",
+    pay:{ br:"50% na aprovação e 50% na entrega · Pix ou cartão", intl:"50% para começar e 50% na entrega · Wise, PayPal ou cartão" } },
+  process: { kicker:"Como funciona", title:"Do primeiro oi ao site no ar, sem dor de cabeça", steps:[
+    { t:"Conversa rápida", p:"Você me conta seu objetivo pelo WhatsApp ou numa chamada de 15 minutos." },
+    { t:"Proposta clara", p:"Escopo, prazo e preço fechados por escrito. Sem surpresa no meio do caminho." },
+    { t:"Criação com prévias", p:"Você acompanha e aprova o design e o desenvolvimento em cada etapa." },
+    { t:"Entrega e suporte", p:"Site no ar, treinamento para você usar e suporte depois da entrega." } ] },
+  guar: [ { t:"Preço fechado", p:"O valor combinado é o valor pago. Mudanças só com o seu aval." },
+    { t:"Tudo é seu", p:"Código, domínio e acessos ficam no seu nome." },
+    { t:"Prazo cumprido", p:"100% das entregas dentro do prazo até hoje." },
+    { t:"Suporte pós-entrega", p:"30 dias de ajustes inclusos depois que o site vai ao ar." } ],
+  about: { kicker:"Quem cuida do seu projeto", role:"Desenvolvedor Full Stack · Rio de Janeiro", p:"Há mais de 6 anos desenvolvo aplicações web, APIs, integrações e automações — hoje também em sistemas críticos da área da saúde e numa plataforma SaaS integrada ao WhatsApp e à IA. Você fala direto comigo, do início ao fim.", langsLabel:"Atendo em" },
+  faq: { kicker:"Dúvidas", title:"Perguntas frequentes", items:[
+    { q:"Quanto tempo leva?", a:"Uma landing page fica pronta em cerca de 1 a 2 semanas; sites e lojas, de 3 a 6 semanas. A calculadora mostra uma estimativa para o seu caso." },
+    { q:"Como funciona o pagamento?", a:"50% para começar e 50% na entrega. No Brasil, Pix ou cartão; no exterior, Wise, PayPal ou cartão, na sua moeda." },
+    { q:"Você atende clientes de fora do Brasil?", a:"Sim. Trabalho em português, inglês e espanhol, me adapto ao seu fuso e cobro na sua moeda." },
+    { q:"Meu site foi hackeado. Dá para recuperar?", a:"Depende do que estiver disponível. Primeiro faço um diagnóstico: com acesso à hospedagem e backups do código e do banco, as chances são boas. Sem backup, faço o que for tecnicamente possível e te digo com clareza antes de começar. Depois, configuro proteção e backups para reduzir o risco de acontecer de novo." },
+    { q:"Vou conseguir editar o site sozinho?", a:"Sim, se quiser. Entrego um painel simples para você trocar textos, imagens e produtos sem depender de ninguém." },
+    { q:"E a hospedagem e o domínio?", a:"Eu ajudo a escolher, configuro tudo e deixo no seu nome. Se preferir, cuido de tudo no plano mensal de suporte." } ] },
+  final: { title:"Pronto para ter um site que trabalha por você?", sub:"Me chama no WhatsApp e receba uma proposta sem compromisso.", cta1:"Falar no WhatsApp agora", cta2:"Calcular orçamento" },
+  footer: { tag:"Sites, sistemas e segurança para empresas que querem crescer.", contact:"Contato", rights:"Todos os direitos reservados.", made:"Feito à mão, com código próprio." },
+  wa: { hi:"Olá, Lucas! Fiz uma simulação no seu site:", service:"Serviço", size:"Tamanho", extras:"Extras", total:"Estimativa", monthly:"Mensal", delivery:"Prazo", bye:"Podemos conversar?", direct:"Olá, Lucas! Vim pelo seu site e quero um orçamento.", security:"Olá, Lucas! Preciso de ajuda com a segurança do meu site." }
+},
+en: {
+  nav: { services:"Services", work:"Work", security:"Security", pricing:"Pricing", faq:"FAQ", cta:"Free quote" },
+  ui: { theme:"Toggle theme", menu:"Open menu", float:"Chat with me" },
+  hero: { eyebrow:"Websites, systems and security · Worldwide", t1:"Your website should", t2:"bring in clients.", t3:"Not just exist.",
+    sub:"I build fast, secure websites, landing pages, online stores and web systems designed to sell — with the rigor of someone who builds mission-critical healthcare software.",
+    status:"Available for new projects", cta1:"Get my instant quote", cta2:"Message on WhatsApp",
+    trust:["6+ years building for the web","100% of projects delivered on time","Clients in Brazil and New Zealand"],
+    url:"yourbusiness.com", chart:"Visits → clients", notif:"New quote request", notifSub:"via WhatsApp · just now", ssl:"HTTPS · Secured", sslSub:"Certificate active", backup:"Backup complete", backupSub:"Today, 3:00 AM" },
+  clients:"Brands that have trusted my work",
+  pain: { kicker:"The problem", probLabel:"Problem", solLabel:"How I fix it", title:"A pretty website that doesn’t sell is just a cost.", items:[
+    { t:"Too slow", p:"Every extra second of loading makes visitors leave before they see your offer.", fix:"Lean code, optimized images and properly configured hosting." },
+    { t:"Insecure", p:"A hacked site, malware or spam on Google destroys your reputation and your sales.", fix:"Secure development, HTTPS, backups and monitoring." },
+    { t:"Doesn’t convert", p:"Visitors land, can’t tell what you sell and leave without reaching out.", fix:"Sales-driven structure, clear copy and the right call to action." } ] },
+  services: { kicker:"Services", title:"Everything your business needs to sell online", sub:"From your first website to a custom system — with one technical lead from start to finish.", from:"from", simulate:"Estimate", perHour:"/hour", perMonth:"/month", short1:"Websites & landing pages", short2:"Systems & e-commerce",
+    items: {
+      landing:{ name:"Landing page", desc:"A single page focused on one offer, built to turn ad clicks into leads.", out:"For campaigns and ads", unit:"sections" },
+      site:{ name:"Business website", desc:"A professional multi-page site that builds trust and ranks on Google.", out:"For companies and professionals", unit:"pages" },
+      ecommerce:{ name:"E-commerce", desc:"An online store with payments, shipping and a dashboard to manage orders.", out:"To sell 24/7", unit:"products" },
+      system:{ name:"Web system", desc:"Custom systems, dashboards, automations and AI or WhatsApp integrations.", out:"To automate your operations", unit:"modules" },
+      design:{ name:"UI/UX design", desc:"Beautiful, easy-to-use interfaces with a clickable prototype before any code.", out:"For apps and digital products", unit:"screens" },
+      consulting:{ name:"Consulting", desc:"Technical audit, architecture, performance and clear next steps.", out:"To decide before you invest", unit:"hours" },
+      security:{ name:"Security & cleanup", desc:"Diagnosis, malware cleanup and hardening. Recovery depends on the access and backups available.", out:"For hacked or slow sites", unit:"sites" },
+      care:{ name:"Care & backups", desc:"Updates, backups, monitoring and small fixes every month.", out:"For total peace of mind", unit:"sites" } } },
+  security: { kicker:"Security", title:"Secure by default. Not by luck.", sub:"The sites I build ship protected. If yours was hacked, I start with a diagnosis and tell you honestly what can be recovered — before any work begins.",
+    list:["Code secured against the most common vulnerabilities (OWASP)","HTTPS, security headers and spam-protected forms","Automatic backups with fast restore","Virus, malware and SEO spam cleanup","Recovery of hacked sites, based on the access and backups available","Ongoing updates and monitoring"],
+    scanTitle:"Diagnosis first", scan:["Hosting and server access","Code backup","Database backup","Files, plugins and dependencies","SSL certificate and email"], scanDone:"You know what can be recovered before I start", noteTitle:"No miracle promises", note:"To recover a site I need access to the hosting, the code and, ideally, backups of the code and database. Without backups, I do what is technically possible and tell you that upfront. The best protection is prevention: automatic backups and monthly care.", cta:"Request a diagnosis", scanning:"Checking…" },
+  work: { kicker:"Work", title:"Real projects, live, for real clients", sub:"A few projects delivered in Brazil and abroad.", items: {
+    pure:{ tag:"Website + online quotes", place:"New Zealand", desc:"Website for an automotive company with a multi-step quote form and photo upload." },
+    help:{ tag:"E-commerce", place:"Brazil", desc:"WooCommerce store with a custom shipping and delivery plugin — built and maintained by me." },
+    ital:{ tag:"Website + landing pages", place:"Brazil", desc:"Website for a custom furniture retailer plus several campaign landing pages." },
+    rubraz:{ tag:"Web system", place:"Brazil", desc:"Freight calculation system with Google Maps, authentication and a React dashboard." } } },
+  calc: { kicker:"Instant quote", title:"See what it costs in 30 seconds", sub:"Pick a service, adjust the size and get a price right away. No sign-up, no commitment.",
+    s1:"What do you need?", s2:"How big is the project?", s3:"Want to level it up?", incl:"included in the base price", per:"per extra", perHour:"per hour", none:"This service comes complete. Just send it.",
+    x: { lang:{ t:"Extra languages", d:"To sell to clients in other countries" }, seo:{ t:"Advanced SEO", d:"Optimized to rank on Google" }, copy:{ t:"Copy that sells", d:"Conversion-focused copywriting" }, cms:{ t:"Editing dashboard", d:"Update text and images yourself" }, integrations:{ t:"Integrations", d:"WhatsApp, CRM, payments or automations" }, urgency:{ t:"Express delivery", d:"Priority queue and shorter timeline" }, care:{ t:"Monthly care & backups", d:"Updates, backups and monitoring" } },
+    summary:"Your quote", region:"Prices in", total:"Estimated investment", totalMonthly:"Monthly investment", monthly:"Monthly plan", perMonth:"/mo", base:"Base", extra:"extra", delivery:"Estimated timeline", days:"business days", service:"Service", start:"Starts right away",
+    wa:"Send this quote on WhatsApp", or:"or get it by email", emailPh:"you@email.com", send:"Send", sent:"Got it! I’ll get back to you soon.",
+    disc:"* Fictitious, illustrative figures only. Not a commercial offer; the real price may differ significantly and is only set after reviewing your project.",
+    pay:{ br:"50% on approval, 50% on delivery · Pix or card", intl:"50% to start, 50% on delivery · Wise, PayPal or card" } },
+  process: { kicker:"How it works", title:"From hello to live website, hassle-free", steps:[
+    { t:"Quick chat", p:"Tell me your goal on WhatsApp or in a 15-minute call." },
+    { t:"Clear proposal", p:"Scope, timeline and a fixed price in writing. No surprises along the way." },
+    { t:"Build with previews", p:"You follow along and approve design and development at every stage." },
+    { t:"Launch & support", p:"Site live, a walkthrough so you can use it, and support after launch." } ] },
+  guar: [ { t:"Fixed price", p:"The price we agree on is the price you pay. Changes only with your OK." },
+    { t:"You own everything", p:"Code, domain and credentials are in your name." },
+    { t:"On time", p:"100% of my projects delivered on schedule so far." },
+    { t:"Post-launch support", p:"30 days of tweaks included after your site goes live." } ],
+  about: { kicker:"Who handles your project", role:"Full Stack Developer · Rio de Janeiro, Brazil", p:"For over 6 years I’ve built web apps, APIs, integrations and automations — today also mission-critical healthcare systems and a SaaS platform integrated with WhatsApp and AI. You talk directly to me, start to finish.", langsLabel:"I work in" },
+  faq: { kicker:"Questions", title:"Frequently asked questions", items:[
+    { q:"How long does it take?", a:"A landing page takes about 1–2 weeks; websites and stores, 3–6 weeks. The calculator gives an estimate for your case." },
+    { q:"How does payment work?", a:"50% to start and 50% on delivery, in your currency via Wise, PayPal or card." },
+    { q:"Do you work with clients outside Brazil?", a:"Yes. I work in English, Portuguese and Spanish, adapt to your time zone and bill in your currency." },
+    { q:"My site was hacked. Can it be recovered?", a:"It depends on what’s available. I start with a diagnosis: with hosting access and backups of the code and database, the odds are good. Without backups, I do what’s technically possible and tell you clearly before starting. Then I set up protection and backups to reduce the risk of it happening again." },
+    { q:"Will I be able to edit the site myself?", a:"Yes, if you want. I can deliver a simple dashboard so you can change text, images and products on your own." },
+    { q:"What about hosting and domain?", a:"I help you choose, set everything up and keep it in your name. Or I can handle it all with the monthly care plan." } ] },
+  final: { title:"Ready for a website that works for you?", sub:"Message me on WhatsApp and get a no-obligation proposal.", cta1:"Message me on WhatsApp", cta2:"Get an instant quote" },
+  footer: { tag:"Websites, systems and security for businesses that want to grow.", contact:"Contact", rights:"All rights reserved.", made:"Handcrafted with custom code." },
+  wa: { hi:"Hi Lucas! I ran a quote on your website:", service:"Service", size:"Size", extras:"Extras", total:"Estimate", monthly:"Monthly", delivery:"Timeline", bye:"Can we talk?", direct:"Hi Lucas! I found your website and I’d like a quote.", security:"Hi Lucas! I need help with my website’s security." }
+},
+es: {
+  nav: { services:"Servicios", work:"Proyectos", security:"Seguridad", pricing:"Presupuesto", faq:"FAQ", cta:"Presupuesto gratis" },
+  ui: { theme:"Cambiar tema", menu:"Abrir menú", float:"Escríbeme" },
+  hero: { eyebrow:"Webs, sistemas y seguridad · Para todo el mundo", t1:"Tu web debería", t2:"traer clientes.", t3:"No solo existir.",
+    sub:"Creo webs, landing pages, tiendas online y sistemas rápidos, seguros y pensados para vender — con el rigor de quien desarrolla sistemas críticos para el sector salud.",
+    status:"Disponible para nuevos proyectos", cta1:"Calcular mi presupuesto", cta2:"Hablar por WhatsApp",
+    trust:["Más de 6 años desarrollando","100% de entregas a tiempo","Clientes en Brasil y Nueva Zelanda"],
+    url:"tunegocio.com", chart:"Visitas → clientes", notif:"Nueva solicitud de presupuesto", notifSub:"por WhatsApp · ahora", ssl:"HTTPS · Protegido", sslSub:"Certificado activo", backup:"Copia de seguridad lista", backupSub:"Hoy, 03:00" },
+  clients:"Marcas que ya confiaron en mi trabajo",
+  pain: { kicker:"El problema", probLabel:"Problema", solLabel:"Cómo lo resuelvo", title:"Una web bonita que no vende es solo un gasto.", items:[
+    { t:"Demasiado lenta", p:"Cada segundo extra de carga hace que los visitantes se vayan antes de ver tu oferta.", fix:"Código ligero, imágenes optimizadas y hosting bien configurado." },
+    { t:"Insegura", p:"Una web hackeada, con virus o spam en Google destruye tu reputación y tus ventas.", fix:"Desarrollo seguro, HTTPS, copias de seguridad y monitoreo." },
+    { t:"No convierte", p:"El visitante entra, no entiende qué vendes y se va sin contactarte.", fix:"Estructura de venta, textos claros y WhatsApp en el lugar correcto." } ] },
+  services: { kicker:"Servicios", title:"Todo lo que tu negocio necesita para vender online", sub:"Desde tu primera web hasta un sistema a medida — con un único responsable técnico de principio a fin.", from:"desde", simulate:"Simular", perHour:"/hora", perMonth:"/mes", short1:"Webs y landing pages", short2:"Sistemas y e-commerce",
+    items: {
+      landing:{ name:"Landing page", desc:"Una página enfocada en una oferta, hecha para convertir anuncios en contactos.", out:"Para campañas y anuncios", unit:"secciones" },
+      site:{ name:"Web corporativa", desc:"Web profesional de varias páginas que transmite confianza y aparece en Google.", out:"Para empresas y profesionales", unit:"páginas" },
+      ecommerce:{ name:"E-commerce", desc:"Tienda online con pagos, envíos y un panel para gestionar pedidos.", out:"Para vender 24/7", unit:"productos" },
+      system:{ name:"Sistema web", desc:"Sistemas a medida, paneles, automatizaciones e integraciones con IA y WhatsApp.", out:"Para automatizar procesos", unit:"módulos" },
+      design:{ name:"Diseño UI/UX", desc:"Interfaces bonitas y fáciles de usar, con prototipo navegable antes del código.", out:"Para apps y productos digitales", unit:"pantallas" },
+      consulting:{ name:"Consultoría", desc:"Diagnóstico técnico, arquitectura, rendimiento y próximos pasos claros.", out:"Para decidir antes de invertir", unit:"horas" },
+      security:{ name:"Seguridad y limpieza", desc:"Diagnóstico, limpieza de malware y protección. La recuperación depende de los accesos y backups disponibles.", out:"Para webs hackeadas o lentas", unit:"webs" },
+      care:{ name:"Soporte y backup", desc:"Actualizaciones, copias de seguridad, monitoreo y pequeños ajustes cada mes.", out:"Para olvidarte de problemas", unit:"webs" } } },
+  security: { kicker:"Seguridad", title:"Tu web segura por defecto. No por suerte.", sub:"Las webs que desarrollo salen protegidas. Si hackearon la tuya, empiezo con un diagnóstico y te digo con honestidad qué se puede recuperar — antes de empezar el trabajo.",
+    list:["Código seguro contra las vulnerabilidades más comunes (OWASP)","HTTPS, cabeceras de seguridad y formularios protegidos contra spam","Copias de seguridad automáticas con restauración rápida","Limpieza de virus, malware y spam SEO","Recuperación de webs hackeadas, según los accesos y backups disponibles","Actualizaciones y monitoreo continuo"],
+    scanTitle:"Primero, el diagnóstico", scan:["Acceso al hosting y al servidor","Backup del código","Backup de la base de datos","Archivos, plugins y dependencias","Certificado SSL y correos"], scanDone:"Sabes qué se puede recuperar antes de que empiece", noteTitle:"Sin promesas milagrosas", note:"Para recuperar una web necesito acceso al hosting, al código y, idealmente, backups del código y de la base de datos. Sin backup, hago lo técnicamente posible y te lo aviso antes. La mejor protección es prevenir: backups automáticos y mantenimiento mensual.", cta:"Pedir un diagnóstico", scanning:"Verificando…" },
+  work: { kicker:"Proyectos", title:"Proyectos reales, online, para clientes reales", sub:"Algunos trabajos entregados en Brasil y en el exterior.", items: {
+    pure:{ tag:"Web + presupuestos online", place:"Nueva Zelanda", desc:"Web para una empresa automotriz con formulario de presupuesto por etapas y subida de fotos." },
+    help:{ tag:"E-commerce", place:"Brasil", desc:"Tienda WooCommerce con plugin propio de envíos — desarrollada y mantenida por mí." },
+    ital:{ tag:"Web + landing pages", place:"Brasil", desc:"Web de tiendas de muebles a medida y varias landing pages de campaña." },
+    rubraz:{ tag:"Sistema web", place:"Brasil", desc:"Sistema de cálculo de fletes con Google Maps, login y panel en React." } } },
+  calc: { kicker:"Presupuesto al instante", title:"Descubre cuánto cuesta en 30 segundos", sub:"Elige el servicio, ajusta el tamaño y ve el precio al momento. Sin registro y sin compromiso.",
+    s1:"¿Qué servicio necesitas?", s2:"¿De qué tamaño es el proyecto?", s3:"¿Quieres potenciarlo?", incl:"incluidos en el precio base", per:"por adicional", perHour:"por hora", none:"Este servicio ya viene completo. Solo envíalo.",
+    x: { lang:{ t:"Idiomas extra", d:"Para vender a clientes de otros países" }, seo:{ t:"SEO avanzado", d:"Optimizado para aparecer en Google" }, copy:{ t:"Textos que venden", d:"Copywriting enfocado en conversión" }, cms:{ t:"Panel de edición", d:"Editas textos e imágenes tú mismo" }, integrations:{ t:"Integraciones", d:"WhatsApp, CRM, pagos o automatizaciones" }, urgency:{ t:"Entrega exprés", d:"Prioridad y plazo más corto" }, care:{ t:"Soporte y backup mensual", d:"Actualizaciones, backups y monitoreo" } },
+    summary:"Tu presupuesto", region:"Precios en", total:"Inversión estimada", totalMonthly:"Inversión mensual", monthly:"Plan mensual", perMonth:"/mes", base:"Base", extra:"adicionales", delivery:"Plazo estimado", days:"días hábiles", service:"Servicio", start:"Inicio inmediato",
+    wa:"Enviar presupuesto por WhatsApp", or:"o recíbelo por e-mail", emailPh:"tu@email.com", send:"Enviar", sent:"¡Recibido! Te respondo pronto.",
+    disc:"* Valores ficticios y solo ilustrativos. No constituyen una propuesta comercial y pueden ser muy distintos del precio real, que solo se define tras analizar tu proyecto.",
+    pay:{ br:"50% al aprobar y 50% en la entrega · Pix o tarjeta", intl:"50% para empezar y 50% en la entrega · Wise, PayPal o tarjeta" } },
+  process: { kicker:"Cómo funciona", title:"Del primer hola a la web online, sin dolores de cabeza", steps:[
+    { t:"Charla rápida", p:"Me cuentas tu objetivo por WhatsApp o en una llamada de 15 minutos." },
+    { t:"Propuesta clara", p:"Alcance, plazo y precio cerrados por escrito. Sin sorpresas." },
+    { t:"Creación con avances", p:"Sigues y apruebas el diseño y el desarrollo en cada etapa." },
+    { t:"Entrega y soporte", p:"Web online, capacitación para usarla y soporte después de la entrega." } ] },
+  guar: [ { t:"Precio cerrado", p:"El precio acordado es el que pagas. Cambios solo con tu aprobación." },
+    { t:"Todo es tuyo", p:"Código, dominio y accesos quedan a tu nombre." },
+    { t:"Plazos cumplidos", p:"100% de las entregas a tiempo hasta hoy." },
+    { t:"Soporte post-entrega", p:"30 días de ajustes incluidos después del lanzamiento." } ],
+  about: { kicker:"Quién cuida tu proyecto", role:"Desarrollador Full Stack · Río de Janeiro, Brasil", p:"Desde hace más de 6 años desarrollo aplicaciones web, APIs, integraciones y automatizaciones — hoy también sistemas críticos del sector salud y una plataforma SaaS integrada con WhatsApp e IA. Hablas directamente conmigo, de principio a fin.", langsLabel:"Atiendo en" },
+  faq: { kicker:"Dudas", title:"Preguntas frecuentes", items:[
+    { q:"¿Cuánto tiempo lleva?", a:"Una landing page está lista en 1 a 2 semanas; webs y tiendas, de 3 a 6 semanas. La calculadora te da una estimación para tu caso." },
+    { q:"¿Cómo es el pago?", a:"50% para empezar y 50% en la entrega, en tu moneda, por Wise, PayPal o tarjeta." },
+    { q:"¿Trabajas con clientes fuera de Brasil?", a:"Sí. Trabajo en español, inglés y portugués, me adapto a tu zona horaria y cobro en tu moneda." },
+    { q:"Hackearon mi web. ¿Se puede recuperar?", a:"Depende de lo que esté disponible. Primero hago un diagnóstico: con acceso al hosting y backups del código y de la base de datos, las posibilidades son buenas. Sin backup, hago lo técnicamente posible y te lo digo con claridad antes de empezar. Después configuro protección y backups para reducir el riesgo de que vuelva a pasar." },
+    { q:"¿Podré editar la web yo mismo?", a:"Sí, si quieres. Entrego un panel sencillo para cambiar textos, imágenes y productos sin depender de nadie." },
+    { q:"¿Y el hosting y el dominio?", a:"Te ayudo a elegir, configuro todo y lo dejo a tu nombre. O me encargo de todo con el plan mensual de soporte." } ] },
+  final: { title:"¿Listo para tener una web que trabaje por ti?", sub:"Escríbeme por WhatsApp y recibe una propuesta sin compromiso.", cta1:"Hablar por WhatsApp ahora", cta2:"Calcular presupuesto" },
+  footer: { tag:"Webs, sistemas y seguridad para empresas que quieren crecer.", contact:"Contacto", rights:"Todos los derechos reservados.", made:"Hecho a mano, con código propio." },
+  wa: { hi:"¡Hola, Lucas! Hice una simulación en tu web:", service:"Servicio", size:"Tamaño", extras:"Extras", total:"Estimación", monthly:"Mensual", delivery:"Plazo", bye:"¿Podemos hablar?", direct:"¡Hola, Lucas! Vengo de tu web y quiero un presupuesto.", security:"¡Hola, Lucas! Necesito ayuda con la seguridad de mi web." }
+},
+fr: {
+  nav: { services:"Services", work:"Réalisations", security:"Sécurité", pricing:"Devis", faq:"FAQ", cta:"Devis gratuit" },
+  ui: { theme:"Changer de thème", menu:"Ouvrir le menu", float:"Écrivez-moi" },
+  hero: { eyebrow:"Sites, systèmes et sécurité · Partout dans le monde", t1:"Votre site devrait", t2:"attirer des clients.", t3:"Pas seulement exister.",
+    sub:"Je crée des sites, landing pages, boutiques en ligne et systèmes rapides, sécurisés et pensés pour vendre — avec la rigueur de quelqu’un qui développe des systèmes critiques pour la santé.",
+    status:"Disponible pour de nouveaux projets", cta1:"Calculer mon devis", cta2:"Écrire sur WhatsApp",
+    trust:["Plus de 6 ans d’expérience","100 % des projets livrés à temps","Clients au Brésil et en Nouvelle-Zélande"],
+    url:"votreentreprise.com", chart:"Visites → clients", notif:"Nouvelle demande de devis", notifSub:"via WhatsApp · à l’instant", ssl:"HTTPS · Protégé", sslSub:"Certificat actif", backup:"Sauvegarde terminée", backupSub:"Aujourd’hui, 03:00" },
+  clients:"Ils m’ont fait confiance",
+  pain: { kicker:"Le problème", probLabel:"Problème", solLabel:"Ma solution", title:"Un beau site qui ne vend pas n’est qu’une dépense.", items:[
+    { t:"Trop lent", p:"Chaque seconde de chargement en plus fait fuir les visiteurs avant qu’ils voient votre offre.", fix:"Code léger, images optimisées et hébergement bien configuré." },
+    { t:"Pas sécurisé", p:"Un site piraté, infecté ou plein de spam sur Google ruine votre réputation et vos ventes.", fix:"Développement sécurisé, HTTPS, sauvegardes et surveillance." },
+    { t:"Ne convertit pas", p:"Le visiteur arrive, ne comprend pas ce que vous vendez et repart sans vous contacter.", fix:"Structure de vente, textes clairs et bon appel à l’action." } ] },
+  services: { kicker:"Services", title:"Tout ce dont votre entreprise a besoin pour vendre en ligne", sub:"Du premier site au système sur mesure — avec un seul responsable technique du début à la fin.", from:"à partir de", simulate:"Simuler", perHour:"/heure", perMonth:"/mois", short1:"Sites et landing pages", short2:"Systèmes et e-commerce",
+    items: {
+      landing:{ name:"Landing page", desc:"Une page centrée sur une offre, conçue pour transformer vos annonces en contacts.", out:"Pour campagnes et annonces", unit:"sections" },
+      site:{ name:"Site vitrine", desc:"Un site professionnel de plusieurs pages qui inspire confiance et se positionne sur Google.", out:"Pour entreprises et indépendants", unit:"pages" },
+      ecommerce:{ name:"E-commerce", desc:"Boutique en ligne avec paiement, livraison et tableau de bord des commandes.", out:"Pour vendre 24 h/24", unit:"produits" },
+      system:{ name:"Système web", desc:"Systèmes sur mesure, tableaux de bord, automatisations et intégrations IA ou WhatsApp.", out:"Pour automatiser vos processus", unit:"modules" },
+      design:{ name:"Design UI/UX", desc:"Interfaces belles et simples, avec prototype cliquable avant le code.", out:"Pour apps et produits digitaux", unit:"écrans" },
+      consulting:{ name:"Conseil", desc:"Audit technique, architecture, performance et prochaines étapes claires.", out:"Pour décider avant d’investir", unit:"heures" },
+      security:{ name:"Sécurité et nettoyage", desc:"Diagnostic, nettoyage des malwares et renforcement. La récupération dépend des accès et sauvegardes disponibles.", out:"Pour site piraté ou lent", unit:"sites" },
+      care:{ name:"Maintenance et sauvegarde", desc:"Mises à jour, sauvegardes, surveillance et petites retouches chaque mois.", out:"Pour avoir l’esprit tranquille", unit:"sites" } } },
+  security: { kicker:"Sécurité", title:"Sécurisé par défaut. Pas par chance.", sub:"Les sites que je développe sont livrés protégés. Si le vôtre a été piraté, je commence par un diagnostic et je vous dis honnêtement ce qui peut être récupéré — avant de commencer.",
+    list:["Code protégé contre les failles les plus courantes (OWASP)","HTTPS, en-têtes de sécurité et formulaires protégés du spam","Sauvegardes automatiques et restauration rapide","Nettoyage de virus, malwares et spam SEO","Récupération de sites piratés, selon les accès et sauvegardes disponibles","Mises à jour et surveillance continues"],
+    scanTitle:"D’abord, le diagnostic", scan:["Accès à l’hébergement et au serveur","Sauvegarde du code","Sauvegarde de la base de données","Fichiers, plugins et dépendances","Certificat SSL et e-mails"], scanDone:"Vous savez ce qui est récupérable avant que je commence", noteTitle:"Pas de promesse miracle", note:"Pour récupérer un site, j’ai besoin d’un accès à l’hébergement, au code et, idéalement, de sauvegardes du code et de la base de données. Sans sauvegarde, je fais ce qui est techniquement possible et je vous le dis avant. La meilleure protection reste la prévention : sauvegardes automatiques et maintenance mensuelle.", cta:"Demander un diagnostic", scanning:"Vérification…" },
+  work: { kicker:"Réalisations", title:"Des projets réels, en ligne, pour de vrais clients", sub:"Quelques projets livrés au Brésil et à l’étranger.", items: {
+    pure:{ tag:"Site + devis en ligne", place:"Nouvelle-Zélande", desc:"Site pour une entreprise automobile avec formulaire de devis en étapes et envoi de photos." },
+    help:{ tag:"E-commerce", place:"Brésil", desc:"Boutique WooCommerce avec plugin de livraison sur mesure — développée et maintenue par moi." },
+    ital:{ tag:"Site + landing pages", place:"Brésil", desc:"Site d’un réseau de magasins de meubles sur mesure et plusieurs landing pages de campagne." },
+    rubraz:{ tag:"Système web", place:"Brésil", desc:"Système de calcul de fret avec Google Maps, authentification et tableau de bord React." } } },
+  calc: { kicker:"Devis instantané", title:"Découvrez le prix en 30 secondes", sub:"Choisissez le service, ajustez la taille et voyez le prix immédiatement. Sans inscription, sans engagement.",
+    s1:"De quoi avez-vous besoin ?", s2:"Quelle taille de projet ?", s3:"Envie d’aller plus loin ?", incl:"inclus dans le prix de base", per:"par unité en plus", perHour:"par heure", none:"Ce service est déjà complet. Il suffit de l’envoyer.",
+    x: { lang:{ t:"Langues supplémentaires", d:"Pour vendre à l’international" }, seo:{ t:"SEO avancé", d:"Optimisé pour Google" }, copy:{ t:"Textes qui vendent", d:"Copywriting orienté conversion" }, cms:{ t:"Espace d’édition", d:"Modifiez textes et images vous-même" }, integrations:{ t:"Intégrations", d:"WhatsApp, CRM, paiements ou automatisations" }, urgency:{ t:"Livraison express", d:"Priorité et délai réduit" }, care:{ t:"Maintenance mensuelle", d:"Mises à jour, sauvegardes et surveillance" } },
+    summary:"Votre devis", region:"Prix en", total:"Investissement estimé", totalMonthly:"Investissement mensuel", monthly:"Forfait mensuel", perMonth:"/mois", base:"Base", extra:"en plus", delivery:"Délai estimé", days:"jours ouvrés", service:"Service", start:"Démarrage immédiat",
+    wa:"Envoyer le devis sur WhatsApp", or:"ou recevez-le par e-mail", emailPh:"vous@email.com", send:"Envoyer", sent:"Bien reçu ! Je vous réponds vite.",
+    disc:"* Montants fictifs, à titre indicatif uniquement. Ils ne constituent pas une offre commerciale et peuvent être très différents du prix réel, fixé seulement après analyse de votre projet.",
+    pay:{ br:"50 % à la commande, 50 % à la livraison · Pix ou carte", intl:"50 % au démarrage, 50 % à la livraison · Wise, PayPal ou carte" } },
+  process: { kicker:"Comment ça marche", title:"Du premier message au site en ligne, sans prise de tête", steps:[
+    { t:"Échange rapide", p:"Vous m’expliquez votre objectif sur WhatsApp ou lors d’un appel de 15 minutes." },
+    { t:"Proposition claire", p:"Périmètre, délai et prix fixés par écrit. Aucune surprise." },
+    { t:"Création avec aperçus", p:"Vous suivez et validez le design et le développement à chaque étape." },
+    { t:"Livraison et suivi", p:"Site en ligne, prise en main et support après la livraison." } ] },
+  guar: [ { t:"Prix fixe", p:"Le prix convenu est le prix payé. Modifications seulement avec votre accord." },
+    { t:"Tout vous appartient", p:"Code, domaine et accès sont à votre nom." },
+    { t:"Délais tenus", p:"100 % des projets livrés à temps jusqu’ici." },
+    { t:"Support après livraison", p:"30 jours de retouches inclus après la mise en ligne." } ],
+  about: { kicker:"Qui s’occupe de votre projet", role:"Développeur Full Stack · Rio de Janeiro, Brésil", p:"Depuis plus de 6 ans, je développe des applications web, API, intégrations et automatisations — aujourd’hui aussi des systèmes critiques pour la santé et une plateforme SaaS intégrée à WhatsApp et à l’IA. Vous échangez directement avec moi, du début à la fin.", langsLabel:"Je travaille en" },
+  faq: { kicker:"Questions", title:"Questions fréquentes", items:[
+    { q:"Combien de temps faut-il ?", a:"Une landing page est prête en 1 à 2 semaines ; sites et boutiques, en 3 à 6 semaines. Le calculateur donne une estimation pour votre cas." },
+    { q:"Comment se passe le paiement ?", a:"50 % au démarrage et 50 % à la livraison, dans votre devise, via Wise, PayPal ou carte." },
+    { q:"Travaillez-vous avec des clients hors du Brésil ?", a:"Oui. Je travaille en anglais, espagnol et portugais, je m’adapte à votre fuseau horaire et je facture dans votre devise." },
+    { q:"Mon site a été piraté. Peut-on le récupérer ?", a:"Cela dépend de ce qui est disponible. Je commence par un diagnostic : avec l’accès à l’hébergement et des sauvegardes du code et de la base, les chances sont bonnes. Sans sauvegarde, je fais ce qui est techniquement possible et je vous le dis clairement avant de commencer. Ensuite, j’installe protection et sauvegardes pour réduire le risque." },
+    { q:"Pourrai-je modifier le site moi-même ?", a:"Oui, si vous le souhaitez. Je peux livrer un espace simple pour changer textes, images et produits sans dépendre de personne." },
+    { q:"Et l’hébergement et le domaine ?", a:"Je vous aide à choisir, je configure tout et je le laisse à votre nom. Ou je m’occupe de tout avec le forfait de maintenance." } ] },
+  final: { title:"Prêt à avoir un site qui travaille pour vous ?", sub:"Écrivez-moi sur WhatsApp et recevez une proposition sans engagement.", cta1:"Écrire sur WhatsApp", cta2:"Calculer mon devis" },
+  footer: { tag:"Sites, systèmes et sécurité pour les entreprises qui veulent grandir.", contact:"Contact", rights:"Tous droits réservés.", made:"Fait main, avec du code sur mesure." },
+  wa: { hi:"Bonjour Lucas ! J’ai fait une simulation sur votre site :", service:"Service", size:"Taille", extras:"Options", total:"Estimation", monthly:"Mensuel", delivery:"Délai", bye:"Pouvons-nous en parler ?", direct:"Bonjour Lucas ! Je viens de votre site et j’aimerais un devis.", security:"Bonjour Lucas ! J’ai besoin d’aide pour la sécurité de mon site." }
+},
+de: {
+  nav: { services:"Leistungen", work:"Projekte", security:"Sicherheit", pricing:"Preise", faq:"FAQ", cta:"Kostenloses Angebot" },
+  ui: { theme:"Design wechseln", menu:"Menü öffnen", float:"Schreib mir" },
+  hero: { eyebrow:"Websites, Systeme und Sicherheit · Weltweit", t1:"Ihre Website sollte", t2:"Kunden bringen.", t3:"Nicht nur existieren.",
+    sub:"Ich entwickle schnelle, sichere Websites, Landingpages, Onlineshops und Websysteme, die verkaufen — mit der Sorgfalt von jemandem, der kritische Systeme für das Gesundheitswesen baut.",
+    status:"Verfügbar für neue Projekte", cta1:"Preis sofort berechnen", cta2:"Per WhatsApp schreiben",
+    trust:["Über 6 Jahre Erfahrung","100 % der Projekte pünktlich geliefert","Kunden in Brasilien und Neuseeland"],
+    url:"ihrunternehmen.com", chart:"Besucher → Kunden", notif:"Neue Angebotsanfrage", notifSub:"per WhatsApp · gerade eben", ssl:"HTTPS · Geschützt", sslSub:"Zertifikat aktiv", backup:"Backup abgeschlossen", backupSub:"Heute, 03:00" },
+  clients:"Marken, die mir vertraut haben",
+  pain: { kicker:"Das Problem", probLabel:"Problem", solLabel:"Meine Lösung", title:"Eine schöne Website, die nicht verkauft, kostet nur Geld.", items:[
+    { t:"Zu langsam", p:"Jede Sekunde Ladezeit mehr lässt Besucher abspringen, bevor sie Ihr Angebot sehen.", fix:"Schlanker Code, optimierte Bilder und sauber konfiguriertes Hosting." },
+    { t:"Unsicher", p:"Eine gehackte Seite, Malware oder Spam bei Google zerstört Ruf und Umsatz.", fix:"Sichere Entwicklung, HTTPS, Backups und Monitoring." },
+    { t:"Konvertiert nicht", p:"Besucher verstehen nicht, was Sie anbieten, und gehen ohne Kontakt.", fix:"Verkaufsstarke Struktur, klare Texte und der richtige Call-to-Action." } ] },
+  services: { kicker:"Leistungen", title:"Alles, was Ihr Unternehmen braucht, um online zu verkaufen", sub:"Von der ersten Website bis zum individuellen System — mit einem technischen Ansprechpartner von Anfang bis Ende.", from:"ab", simulate:"Berechnen", perHour:"/Std.", perMonth:"/Monat", short1:"Websites und Landingpages", short2:"Systeme und E-Commerce",
+    items: {
+      landing:{ name:"Landingpage", desc:"Eine Seite mit Fokus auf ein Angebot, gebaut, um Anzeigen in Anfragen zu verwandeln.", out:"Für Kampagnen und Anzeigen", unit:"Abschnitte" },
+      site:{ name:"Unternehmenswebsite", desc:"Professionelle Website mit mehreren Seiten, die Vertrauen schafft und bei Google rankt.", out:"Für Firmen und Selbstständige", unit:"Seiten" },
+      ecommerce:{ name:"E-Commerce", desc:"Onlineshop mit Zahlung, Versand und Dashboard für Bestellungen.", out:"Um rund um die Uhr zu verkaufen", unit:"Produkte" },
+      system:{ name:"Websystem", desc:"Individuelle Systeme, Dashboards, Automatisierungen und KI- oder WhatsApp-Integrationen.", out:"Um Prozesse zu automatisieren", unit:"Module" },
+      design:{ name:"UI/UX-Design", desc:"Schöne, einfach bedienbare Oberflächen mit klickbarem Prototyp vor dem Code.", out:"Für Apps und digitale Produkte", unit:"Screens" },
+      consulting:{ name:"Beratung", desc:"Technisches Audit, Architektur, Performance und klare nächste Schritte.", out:"Entscheiden, bevor Sie investieren", unit:"Stunden" },
+      security:{ name:"Sicherheit und Bereinigung", desc:"Diagnose, Malware-Bereinigung und Härtung. Die Wiederherstellung hängt von verfügbaren Zugängen und Backups ab.", out:"Für gehackte oder langsame Seiten", unit:"Websites" },
+      care:{ name:"Wartung und Backup", desc:"Updates, Backups, Monitoring und kleine Anpassungen jeden Monat.", out:"Für volle Sorgenfreiheit", unit:"Websites" } } },
+  security: { kicker:"Sicherheit", title:"Sicher ab Werk. Nicht aus Glück.", sub:"Websites, die ich entwickle, sind von Anfang an geschützt. Wurde Ihre gehackt, beginne ich mit einer Diagnose und sage Ihnen ehrlich, was sich wiederherstellen lässt — bevor die Arbeit beginnt.",
+    list:["Code geschützt gegen die häufigsten Schwachstellen (OWASP)","HTTPS, Sicherheits-Header und spamgeschützte Formulare","Automatische Backups mit schneller Wiederherstellung","Bereinigung von Viren, Malware und SEO-Spam","Wiederherstellung gehackter Websites, je nach verfügbaren Zugängen und Backups","Laufende Updates und Monitoring"],
+    scanTitle:"Zuerst die Diagnose", scan:["Zugang zu Hosting und Server","Backup des Codes","Backup der Datenbank","Dateien, Plugins und Abhängigkeiten","SSL-Zertifikat und E-Mails"], scanDone:"Sie wissen, was wiederherstellbar ist, bevor ich anfange", noteTitle:"Keine Wunderversprechen", note:"Um eine Website wiederherzustellen, brauche ich Zugang zum Hosting, zum Code und idealerweise Backups von Code und Datenbank. Ohne Backup tue ich, was technisch möglich ist, und sage Ihnen das vorher. Der beste Schutz ist Vorbeugung: automatische Backups und monatliche Wartung.", cta:"Diagnose anfragen", scanning:"Wird geprüft…" },
+  work: { kicker:"Projekte", title:"Echte Projekte, live, für echte Kunden", sub:"Einige Projekte, geliefert in Brasilien und im Ausland.", items: {
+    pure:{ tag:"Website + Online-Angebote", place:"Neuseeland", desc:"Website für ein Kfz-Unternehmen mit mehrstufigem Angebotsformular und Foto-Upload." },
+    help:{ tag:"E-Commerce", place:"Brasilien", desc:"WooCommerce-Shop mit eigenem Versand-Plugin — von mir entwickelt und betreut." },
+    ital:{ tag:"Website + Landingpages", place:"Brasilien", desc:"Website einer Möbelhauskette und mehrere Kampagnen-Landingpages." },
+    rubraz:{ tag:"Websystem", place:"Brasilien", desc:"Frachtkostenrechner mit Google Maps, Login und React-Dashboard." } } },
+  calc: { kicker:"Sofort-Angebot", title:"Erfahren Sie den Preis in 30 Sekunden", sub:"Leistung wählen, Umfang einstellen und sofort den Preis sehen. Ohne Anmeldung, unverbindlich.",
+    s1:"Was brauchen Sie?", s2:"Wie groß ist das Projekt?", s3:"Noch mehr herausholen?", incl:"im Grundpreis enthalten", per:"pro Zusatzeinheit", perHour:"pro Stunde", none:"Diese Leistung ist bereits komplett. Einfach absenden.",
+    x: { lang:{ t:"Zusätzliche Sprachen", d:"Um internationale Kunden zu erreichen" }, seo:{ t:"Erweitertes SEO", d:"Optimiert für Google" }, copy:{ t:"Texte, die verkaufen", d:"Conversion-orientiertes Copywriting" }, cms:{ t:"Redaktionsbereich", d:"Texte und Bilder selbst bearbeiten" }, integrations:{ t:"Integrationen", d:"WhatsApp, CRM, Zahlungen oder Automatisierungen" }, urgency:{ t:"Express-Lieferung", d:"Priorität und kürzere Laufzeit" }, care:{ t:"Monatliche Wartung", d:"Updates, Backups und Monitoring" } },
+    summary:"Ihr Angebot", region:"Preise in", total:"Geschätzte Investition", totalMonthly:"Monatliche Investition", monthly:"Monatsplan", perMonth:"/Monat", base:"Basis", extra:"zusätzlich", delivery:"Geschätzte Dauer", days:"Werktage", service:"Leistung", start:"Sofortiger Start",
+    wa:"Angebot per WhatsApp senden", or:"oder per E-Mail erhalten", emailPh:"sie@email.com", send:"Senden", sent:"Erhalten! Ich melde mich in Kürze.",
+    disc:"* Fiktive, rein illustrative Werte. Kein verbindliches Angebot; der tatsächliche Preis kann deutlich abweichen und wird erst nach Prüfung Ihres Projekts festgelegt.",
+    pay:{ br:"50 % bei Auftrag, 50 % bei Lieferung · Pix oder Karte", intl:"50 % zum Start, 50 % bei Lieferung · Wise, PayPal oder Karte" } },
+  process: { kicker:"So funktioniert’s", title:"Vom ersten Hallo bis zur fertigen Website, ohne Stress", steps:[
+    { t:"Kurzes Gespräch", p:"Sie erzählen mir Ihr Ziel per WhatsApp oder in einem 15-minütigen Call." },
+    { t:"Klares Angebot", p:"Umfang, Zeitplan und Festpreis schriftlich. Keine Überraschungen." },
+    { t:"Umsetzung mit Vorschauen", p:"Sie verfolgen und genehmigen Design und Entwicklung in jeder Phase." },
+    { t:"Launch und Support", p:"Website live, Einweisung und Support nach dem Launch." } ] },
+  guar: [ { t:"Festpreis", p:"Der vereinbarte Preis ist der Preis, den Sie zahlen. Änderungen nur mit Ihrer Zustimmung." },
+    { t:"Alles gehört Ihnen", p:"Code, Domain und Zugänge laufen auf Ihren Namen." },
+    { t:"Termintreu", p:"Bisher 100 % der Projekte pünktlich geliefert." },
+    { t:"Support nach Launch", p:"30 Tage Anpassungen inklusive nach dem Go-live." } ],
+  about: { kicker:"Wer Ihr Projekt betreut", role:"Full-Stack-Entwickler · Rio de Janeiro, Brasilien", p:"Seit über 6 Jahren entwickle ich Webanwendungen, APIs, Integrationen und Automatisierungen — heute auch kritische Systeme im Gesundheitswesen und eine SaaS-Plattform mit WhatsApp- und KI-Integration. Sie sprechen direkt mit mir, von Anfang bis Ende.", langsLabel:"Ich arbeite auf" },
+  faq: { kicker:"Fragen", title:"Häufige Fragen", items:[
+    { q:"Wie lange dauert es?", a:"Eine Landingpage ist in etwa 1–2 Wochen fertig; Websites und Shops in 3–6 Wochen. Der Rechner zeigt eine Schätzung für Ihr Projekt." },
+    { q:"Wie läuft die Zahlung?", a:"50 % zum Start und 50 % bei Lieferung, in Ihrer Währung per Wise, PayPal oder Karte." },
+    { q:"Arbeiten Sie mit Kunden außerhalb Brasiliens?", a:"Ja. Ich arbeite auf Englisch, Spanisch und Portugiesisch, passe mich Ihrer Zeitzone an und rechne in Ihrer Währung ab." },
+    { q:"Meine Website wurde gehackt. Lässt sie sich retten?", a:"Das hängt davon ab, was verfügbar ist. Ich beginne mit einer Diagnose: Mit Hosting-Zugang und Backups von Code und Datenbank stehen die Chancen gut. Ohne Backup tue ich, was technisch möglich ist, und sage es Ihnen klar, bevor ich anfange. Danach richte ich Schutz und Backups ein, um das Risiko zu senken." },
+    { q:"Kann ich die Website selbst bearbeiten?", a:"Ja, wenn Sie möchten. Ich liefere einen einfachen Bereich, um Texte, Bilder und Produkte selbst zu ändern." },
+    { q:"Was ist mit Hosting und Domain?", a:"Ich helfe bei der Auswahl, richte alles ein und lasse es auf Ihren Namen laufen. Oder ich übernehme alles im monatlichen Wartungsplan." } ] },
+  final: { title:"Bereit für eine Website, die für Sie arbeitet?", sub:"Schreiben Sie mir per WhatsApp und erhalten Sie ein unverbindliches Angebot.", cta1:"Jetzt per WhatsApp schreiben", cta2:"Preis berechnen" },
+  footer: { tag:"Websites, Systeme und Sicherheit für Unternehmen, die wachsen wollen.", contact:"Kontakt", rights:"Alle Rechte vorbehalten.", made:"Handgemacht, mit eigenem Code." },
+  wa: { hi:"Hallo Lucas! Ich habe auf Ihrer Website ein Angebot berechnet:", service:"Leistung", size:"Umfang", extras:"Extras", total:"Schätzung", monthly:"Monatlich", delivery:"Dauer", bye:"Können wir sprechen?", direct:"Hallo Lucas! Ich komme von Ihrer Website und hätte gern ein Angebot.", security:"Hallo Lucas! Ich brauche Hilfe bei der Sicherheit meiner Website." }
+}
+};
+
+/* =====================================================================
+   LÓGICA — não precisa mexer aqui pra trocar preço ou texto
+   ===================================================================== */
+class Component extends DCLogic {
+  get lang() { return this.state.lang || this.props.startLang || "pt"; }
+  get region() { return this.state.region || CONFIG.langToRegion[this.lang] || "BR"; }
+  get service() { return this.state.service || "landing"; }
+  get units() {
+    const sv = CONFIG.services[this.service];
+    const u = this.state.units;
+    return u == null ? sv.def : Math.min(sv.max, Math.max(sv.min, u));
+  }
+  get langs() { return this.state.langs || 0; }
+  get on() { return this.state.on || {}; }
+
+  fmt(v) {
+    const R = CONFIG.regions[this.region];
+    try { return new Intl.NumberFormat(R.locale, { style: "currency", currency: R.currency, maximumFractionDigits: 0 }).format(v); }
+    catch (e) { return R.currency + " " + Math.round(v); }
+  }
+  round(v) { const r = CONFIG.roundTo; return Math.round(v / r) * r; }
+
+  calc() {
+    const t = I18N[this.lang], R = CONFIG.regions[this.region];
+    const id = this.service, sv = CONFIG.services[id], tx = t.services.items[id];
+    const [base, per] = R.prices[id];
+    const units = this.units;
+    const extraUnits = Math.max(0, units - sv.incl);
+    const unitsCost = (extraUnits / sv.step) * per;
+    const lines = [];
+    if (base > 0) lines.push({ label: t.calc.base + " · " + tx.name + (sv.incl ? " (" + sv.incl + " " + tx.unit + ")" : ""), v: base });
+    if (unitsCost > 0) lines.push({ label: (sv.incl ? "+" : "") + extraUnits + " " + tx.unit + (sv.incl ? " " + t.calc.extra : ""), v: unitsCost });
+    let sub = base + unitsCost;
+    const allowed = sv.extras;
+    const allowLang = allowed.indexOf("lang") > -1;
+    if (allowLang && this.langs > 0) {
+      const v = (base + unitsCost) * CONFIG.langExtraPct * this.langs;
+      lines.push({ label: t.calc.x.lang.t + " ×" + this.langs, v }); sub += v;
+    }
+    ["seo", "copy", "cms", "integrations"].forEach((k) => {
+      if (allowed.indexOf(k) > -1 && this.on[k]) { lines.push({ label: t.calc.x[k].t, v: R.extras[k] }); sub += R.extras[k]; }
+    });
+    const urgent = allowed.indexOf("urgency") > -1 && this.on.urgency;
+    if (urgent) { const v = sub * CONFIG.urgencyPct; lines.push({ label: t.calc.x.urgency.t + " +" + Math.round(CONFIG.urgencyPct * 100) + "%", v }); sub += v; }
+    const careOn = allowed.indexOf("care") > -1 && this.on.care;
+    const monthly = careOn ? R.prices.care[0] : 0;
+    let days = Math.ceil((sv.days + (extraUnits / sv.step) * sv.daysPer + this.langs * 2) * (urgent ? CONFIG.urgencyDays : 1));
+    const extrasList = allowed.filter((k) => k !== "lang").map((k) => {
+      let price;
+      if (k === "urgency") price = "+" + Math.round(CONFIG.urgencyPct * 100) + "%";
+      else if (k === "care") price = this.fmt(R.prices.care[0]) + t.calc.perMonth;
+      else price = "+" + this.fmt(R.extras[k]);
+      const isOn = !!this.on[k];
+      return { id: k, t: t.calc.x[k].t, d: t.calc.x[k].d, price, cls: isOn ? "xcard on" : "xcard", pressed: isOn ? "true" : "false",
+        toggle: () => this.setState({ on: Object.assign({}, this.on, { [k]: !isOn }) }) };
+    });
+    const headline = this.round(sub);
+    return {
+      headline, monthlyRaw: monthly, lines, days, sv, tx, units, extrasList, allowLang, isMonthly: !!sv.monthly, urgent,
+      perLabel: (sv.incl === 0 ? this.fmt(per) + " " + t.calc.perHour : "+" + this.fmt(per) + " " + t.calc.per + (sv.step > 1 ? " (" + sv.step + ")" : ""))
+    };
+  }
+
+  componentDidMount() {
+    this.tick();
+    this.setState({ rv: true });
+    this._rvT = setTimeout(() => {
+      const els = document.querySelectorAll(".rv:not(.on)");
+      if (!("IntersectionObserver" in window)) { els.forEach((el) => el.classList.add("on")); return; }
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("on"); this._io.unobserve(en.target); } });
+      }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+      els.forEach((el) => this._io.observe(el));
+    }, 30);
+    const reduce = typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) { this.setState({ scan: 5 }); return; }
+    this._scanT = setInterval(() => {
+      const s = this.state.scan == null ? 0 : this.state.scan;
+      this.setState({ scan: s >= 9 ? 0 : s + 1 });
+    }, 850);
+  }
+  componentDidUpdate() { this.tick(); }
+  componentWillUnmount() { cancelAnimationFrame(this._raf); clearInterval(this._scanT); clearTimeout(this._rvT); if (this._io) this._io.disconnect(); }
+  tick() {
+    const target = this.calc().headline;
+    if (this._target === target) return;
+    const first = this._target == null;
+    this._target = target;
+    cancelAnimationFrame(this._raf);
+    const from = first ? target : (this.state.display == null ? target : this.state.display);
+    if (first || from === target) { this.setState({ display: target }); return; }
+    this.setState({ flip: !this.state.flip });
+    const t0 = performance.now(), dur = 650;
+    const step = (now) => {
+      const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      this.setState({ display: Math.round(from + (target - from) * e) });
+      if (p < 1) this._raf = requestAnimationFrame(step);
+    };
+    this._raf = requestAnimationFrame(step);
+  }
+
+  wa(text) { return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(text); }
+
+  renderVals() {
+    const lang = this.lang, t = I18N[lang], R = CONFIG.regions[this.region];
+    const c = this.calc();
+    const dark = this.state.dark == null ? this.props.startTheme === "dark" : this.state.dark;
+    const pick = (id) => () => {
+      const sv = CONFIG.services[id];
+      this.setState({ service: id, units: sv.def });
+    };
+    const services = CONFIG.order.map((id) => {
+      const tx = t.services.items[id], [base, per] = R.prices[id], sv = CONFIG.services[id];
+      let from = this.fmt(base);
+      if (base === 0) from = this.fmt(per) + t.services.perHour;
+      else if (sv.monthly) from = this.fmt(base) + t.services.perMonth;
+      return { id, name: tx.name, desc: tx.desc, out: tx.out, icon: ICONS[id], from, pick: pick(id), code: "S/0" + (CONFIG.order.indexOf(id) + 1), stack: STACK[id] };
+    });
+    const chips = CONFIG.order.map((id) => ({
+      name: t.services.items[id].name, icon: ICONS[id], pick: pick(id),
+      cls: id === this.service ? "chip on" : "chip", pressed: id === this.service ? "true" : "false"
+    }));
+    const display = this.state.display == null ? c.headline : this.state.display;
+    const fmtLines = c.lines.map((l) => ({ label: l.label, val: this.fmt(this.round(l.v)) }));
+    const extrasTxt = c.lines.slice(1).map((l) => l.label).join(", ");
+    const totalTxt = c.isMonthly ? this.fmt(c.headline) + t.calc.perMonth : this.fmt(c.headline);
+    const msg = [
+      t.wa.hi, "",
+      "• " + t.wa.service + ": " + c.tx.name,
+      "• " + t.wa.size + ": " + c.units + " " + c.tx.unit,
+      extrasTxt ? "• " + t.wa.extras + ": " + extrasTxt : null,
+      "• " + t.wa.total + ": " + totalTxt + " (" + R.currency + ")",
+      c.monthlyRaw ? "• " + t.wa.monthly + ": " + this.fmt(c.monthlyRaw) + t.calc.perMonth : null,
+      c.isMonthly ? null : "• " + t.wa.delivery + ": ~" + c.days + " " + t.calc.days,
+      "", t.wa.bye
+    ].filter((x) => x !== null).join("\n");
+    const open = this.state.faq == null ? 0 : this.state.faq;
+    const gIcons = [ICONS.tag, ICONS.lock, ICONS.clock, ICONS.heart];
+    const W = (s, cls, off, base, step) => s.split(" ").map((x, i) => ({ t: x, cls: cls || "w", d: ((base || 0) + ((off || 0) + i) * (step || 0.05)).toFixed(3) + "s" }));
+    const ha = W(t.hero.t1, "w", 0, 0.15, 0.07), hb = W(t.hero.t2, "w ac", ha.length, 0.15, 0.07), hc = W(t.hero.t3, "w mut", ha.length + hb.length, 0.15, 0.07);
+    return {
+      t, lang, region: this.region, accent: this.props.accent || "#1D94E3",
+      themeClass: dark ? "dark" : "", isDark: dark, isLight: !dark, rvClass: this.state.rv ? "js-rv" : "",
+      heroLabel: t.hero.t1 + " " + t.hero.t2 + " " + t.hero.t3,
+      wh: { a: ha, b: hb, c: hc },
+      wt: { pain: W(t.pain.title), services: W(t.services.title), security: W(t.security.title), work: W(t.work.title), calc: W(t.calc.title), process: W(t.process.title), faq: W(t.faq.title), final: W(t.final.title, "w", 0, 0.1, 0.05) },
+      toggleTheme: () => this.setState({ dark: !dark }),
+      menuOpen: !!this.state.menu,
+      toggleMenu: () => this.setState({ menu: !this.state.menu }),
+      closeMenu: () => this.setState({ menu: false }),
+      onLang: (e) => { const l = e.target.value; this.setState({ lang: l, region: CONFIG.langToRegion[l] || this.region }); },
+      onRegion: (e) => this.setState({ region: e.target.value }),
+      waDirect: this.wa(t.wa.direct),
+      waSecurity: this.wa(t.wa.security),
+      pains: t.pain.items.map((p, i) => Object.assign({ n: "0" + (i + 1), icon: ["M12 14l-4-4 M3.5 17a9 9 0 1 1 17 0", "M5 11h14v10H5z M8 11V7a4 4 0 0 1 7.6-1.7", "M9 4H5v16h4 M15 8l4 4-4 4 M19 12H9"][i] }, p)),
+      services, chips,
+      scan: t.security.scan.map((label, i) => {
+        const s = this.state.scan == null ? 0 : this.state.scan, done = i < s, active = i === s;
+        return { label, done, active, idle: !done && !active, cls: done ? "scanrow done" : active ? "scanrow active" : "scanrow" };
+      }),
+      scanPct: Math.min(100, ((this.state.scan || 0) / 5) * 100) + "%",
+      scanCount: Math.min(5, this.state.scan || 0) + "/5",
+      scanDone: (this.state.scan || 0) >= 5, scanWait: (this.state.scan || 0) < 5,
+      clock: (() => { try { return new Intl.DateTimeFormat("pt-BR", { hour: "2-digit", minute: "2-digit", timeZone: "America/Sao_Paulo" }).format(new Date()); } catch (e) { return ""; } })(),
+      spot: (e) => { const el = e.currentTarget, r = el.getBoundingClientRect(); el.style.setProperty("--mx", (e.clientX - r.left) + "px"); el.style.setProperty("--my", (e.clientY - r.top) + "px"); },
+      work: WORK.map((w) => Object.assign({ name: w.name, img: w.img }, t.work.items[w.key])),
+      steps: t.process.steps.map((s, i) => Object.assign({ n: i + 1 }, s)),
+      guar: t.guar.map((g, i) => Object.assign({ icon: gIcons[i] }, g)),
+      faqs: t.faq.items.map((f, i) => ({ q: f.q, a: f.a, open: i === open, expanded: i === open ? "true" : "false", cls: i === open ? "qa open" : "qa",
+        toggle: () => this.setState({ faq: i === open ? -1 : i }) })),
+      pulseCls: this.state.flip ? "pa" : "pb",
+      calc: {
+        units: c.units, min: c.sv.min, max: c.sv.max, step: c.sv.step,
+        unitLabel: c.tx.unit,
+        inclLabel: c.sv.incl ? c.sv.incl + " " + c.tx.unit + " " + t.calc.incl : "",
+        perLabel: c.perLabel,
+        allowLang: c.allowLang, langs: this.langs, langPct: Math.round(CONFIG.langExtraPct * 100) + "%",
+        extras: c.extrasList, noExtras: c.extrasList.length === 0 && !c.allowLang,
+        display: this.fmt(display),
+        headLabel: c.isMonthly ? t.calc.totalMonthly : t.calc.total,
+        headSuffix: c.isMonthly ? t.calc.perMonth : "",
+        hasMonthly: c.monthlyRaw > 0, monthlyFmt: this.fmt(c.monthlyRaw),
+        lines: fmtLines,
+        daysLabel: c.isMonthly ? t.calc.start : "~" + c.days + " " + t.calc.days,
+        serviceName: c.tx.name,
+        regionLabel: R.currency,
+        payNote: t.calc.pay[R.pay],
+        waLink: this.wa(msg)
+      },
+      onUnits: (e) => this.setState({ units: Number(e.target.value) }),
+      inc: () => this.setState({ units: Math.min(c.sv.max, c.units + c.sv.step) }),
+      dec: () => this.setState({ units: Math.max(c.sv.min, c.units - c.sv.step) }),
+      langInc: () => this.setState({ langs: Math.min(CONFIG.langExtraMax, this.langs + 1) }),
+      langDec: () => this.setState({ langs: Math.max(0, this.langs - 1) }),
+      email: this.state.email || "",
+      onEmail: (e) => this.setState({ email: e.target.value }),
+      send: () => { if ((this.state.email || "").indexOf("@") > 0) this.setState({ sent: true }); },
+      sent: !!this.state.sent, notSent: !this.state.sent
+    };
+  }
+}
+</script>
+</body>
+</html>
