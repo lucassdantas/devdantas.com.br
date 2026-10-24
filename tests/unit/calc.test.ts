@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import pt from "@/i18n/pt";
 import type { RegionId, ServiceId } from "@/config/pricing";
-import { calculateQuote, roundTo, type ExtrasState } from "./calc";
+import { calculateQuote, roundTo, type ExtrasState } from "@/lib/calc";
 
 const q = (service: ServiceId, units: number | null, extras: ExtrasState, langs: number, region: RegionId) =>
   calculateQuote(service, units, extras, langs, region, pt);

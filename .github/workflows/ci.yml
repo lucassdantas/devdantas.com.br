@@ -1,0 +1,44 @@
+# Roda em todo push e pull request. Se algo quebrar, o GitHub marca o commit com ❌.
+# Na Vercel, ative "Settings → Git → Ignored Build Step" ou proteja a branch main
+# exigindo este check para nada quebrado ir para o ar (veja docs/operacao/deploy.md).
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Tipos
+        run: npm run typecheck
+      - name: Testes unitários e de componentes
+        run: npm test
+      - name: Build
+        run: npm run build
+      - name: Testes de integração (site construído)
+        run: npm run test:integration
+      - name: Navegador do Playwright
+        run: npx playwright install --with-deps chromium
+      - name: Testes E2E
+        run: npm run test:e2e
+      - name: Relatório do Playwright (se falhar)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
