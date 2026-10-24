@@ -46,6 +46,11 @@ Os componentes não precisam ser tocados.
 2. Edite só o texto entre aspas. Faça o mesmo nos outros idiomas.
 3. Se faltar ou sobrar uma chave em algum idioma, o `npm run build` acusa o erro.
 
+**SEO:** em cada idioma, `meta.title` é o título no Google (até ~60 caracteres, com o que as
+pessoas pesquisam), `meta.ogTitle` é o título curto que aparece ao compartilhar o link
+(WhatsApp, LinkedIn) e `meta.description` é o resumo do Google (~155 caracteres).
+Os dados estruturados (serviços, FAQ, você) saem desses mesmos textos — `src/lib/jsonld.ts`.
+
 > ⚠️ `security.noteTitle` / `security.note` ("Sem promessa milagrosa") e `calc.disc`
 > (aviso de valores fictícios) são proteção legal/comercial. Mude com cuidado.
 

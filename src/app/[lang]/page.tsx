@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
-import { isLocale, site } from "@/config/site";
+import { isLocale } from "@/config/site";
 import { getDictionary } from "@/i18n";
+import { buildJsonLd } from "@/lib/jsonld";
 import About from "@/components/About";
 import Calculator from "@/components/Calculator";
 import Clients from "@/components/Clients";
@@ -32,24 +33,7 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
     wa: t.wa,
   };
 
-  // Dados estruturados para o Google (sem avaliações/notas).
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "@id": site.domain + "/#business",
-    name: site.brand,
-    url: site.domain + "/" + lang,
-    description: t.meta.description,
-    image: site.domain + "/icon-512.png",
-    logo: site.domain + "/icon-512.png",
-    email: site.email,
-    telephone: "+" + site.whatsapp,
-    address: { "@type": "PostalAddress", addressLocality: site.city, addressRegion: "RJ", addressCountry: "BR" },
-    areaServed: [{ "@type": "Country", name: "Brasil" }, { "@type": "Place", name: "Worldwide" }],
-    knowsLanguage: site.workLanguageTags,
-    founder: { "@type": "Person", name: site.owner, jobTitle: t.about.role, sameAs: [site.linkedin] },
-    sameAs: [site.linkedin],
-  };
+  const jsonLd = buildJsonLd(lang, t);
 
   return (
     <QuoteProvider lang={lang} strings={strings}>

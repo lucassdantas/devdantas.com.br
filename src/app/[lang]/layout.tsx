@@ -26,23 +26,27 @@ export async function generateMetadata({ params }: Omit<Props, "children">): Pro
   const { lang } = await params;
   if (!isLocale(lang)) return {};
   const t = getDictionary(lang);
-  const og = { url: "/og/og-" + lang + ".png", width: 1200, height: 630, alt: t.meta.title };
+  const og = { url: "/og/og-" + lang + ".png", width: 1200, height: 630, type: "image/png", alt: t.meta.ogTitle };
   return {
     metadataBase: new URL(site.domain),
     title: t.meta.title,
     description: t.meta.description,
+    applicationName: site.brand,
+    authors: [{ name: site.owner, url: site.linkedin }],
+    creator: site.owner,
     alternates: { canonical: "/" + lang, languages: languageAlternates() },
     openGraph: {
       type: "website",
       url: "/" + lang,
       siteName: site.brand,
-      title: t.meta.title,
+      title: t.meta.ogTitle,
       description: t.meta.description,
       locale: site.ogLocale[lang],
       alternateLocale: LOCALES.filter((l) => l !== lang).map((l) => site.ogLocale[l]),
       images: [og],
     },
-    twitter: { card: "summary_large_image", title: t.meta.title, description: t.meta.description, images: [og.url] },
+    twitter: { card: "summary_large_image", title: t.meta.ogTitle, description: t.meta.description, images: [{ url: og.url, alt: og.alt }] },
+    robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
     icons,
     formatDetection: { telephone: false },
   };

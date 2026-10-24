@@ -6,9 +6,11 @@
    ===================================================================== */
 
 const pt = {
-  // Título e descrição da página (Google, abas do navegador e compartilhamento).
+  // title = título no Google e na aba (até ~60 caracteres, com palavras que as pessoas buscam);
+  // ogTitle = título curto ao compartilhar no WhatsApp/LinkedIn; description = texto do Google (~155).
   meta: {
-    title: "Dantas Studio — Sites que vendem",
+    title: "Criação de sites, landing pages e e-commerce | Dantas Studio",
+    ogTitle: "Dantas Studio — Sites que vendem",
     description: "Sites, landing pages, e-commerces e sistemas rápidos, seguros e pensados para vender. Orçamento instantâneo para clientes no Brasil e no exterior.",
   },
   // Links do menu e botão de orçamento.

@@ -3,7 +3,8 @@ import type { Dictionary } from "./pt";
 
 const es: Dictionary = {
   meta: {
-    title: "Dantas Studio — Webs que venden",
+    title: "Diseño de webs, landing pages y e-commerce | Dantas Studio",
+    ogTitle: "Dantas Studio — Webs que venden",
     description: "Webs, landing pages, tiendas online y sistemas rápidos, seguros y pensados para vender. Presupuesto al instante para clientes de todo el mundo.",
   },
   nav: {
