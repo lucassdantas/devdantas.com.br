@@ -75,7 +75,7 @@ Rode depois de trocar o título do hero ou um print. Os arquivos gerados vão pa
 
 1. Crie uma conta em [formspree.io](https://formspree.io) e um formulário novo.
 2. Copie o ID (o final de `https://formspree.io/f/SEU_ID`).
-3. Na Vercel, defina `NEXT_PUBLIC_FORMSPREE_ID` e faça um novo deploy.
+3. Coloque o ID em `formspreeId` (`src/config/site.ts`) — ou na variável `NEXT_PUBLIC_FORMSPREE_ID` na Vercel, que tem prioridade.
 
 Você recebe o e-mail do visitante (dá para responder direto) com o resumo do orçamento.
 Há um campo invisível (`_gotcha`) contra robôs. Sem o ID configurado, o site mostra uma mensagem
@@ -86,8 +86,8 @@ de erro sugerindo o WhatsApp.
 1. Suba este projeto para um repositório no GitHub.
 2. Na Vercel: **Add New → Project → Import** o repositório. As configurações já vêm do
    `vercel.json` (build `npm run build`, saída `out/`) — não precisa mudar nada.
-3. Em **Settings → Environment Variables**, adicione `NEXT_PUBLIC_WHATSAPP` e
-   `NEXT_PUBLIC_FORMSPREE_ID` (ambiente Production). Faça **Redeploy**.
+3. (Opcional) Em **Settings → Environment Variables**, adicione `NEXT_PUBLIC_WHATSAPP` e/ou
+   `NEXT_PUBLIC_FORMSPREE_ID` para sobrescrever o que está em `site.ts`. Depois, **Redeploy**.
 4. Em **Settings → Domains**, adicione o domínio e siga as instruções de DNS.
 5. Atualize `domain` em `src/config/site.ts` com o domínio final (usado em canonical,
    sitemap e Open Graph) e faça commit.
@@ -127,7 +127,7 @@ Procure por `TODO(Lucas)` no código:
 
 - [ ] WhatsApp real (`NEXT_PUBLIC_WHATSAPP` ou `site.ts`)
 - [ ] E-mail e domínio final (`site.ts`)
-- [ ] ID do Formspree (`NEXT_PUBLIC_FORMSPREE_ID`)
+- [x] ID do Formspree (`meaaojba`, em `site.ts`)
 - [ ] Foto na seção "Sobre" (`site.ts` → `photo`)
 - [ ] Revisar preços (`pricing.ts`)
 - [ ] Revisar "100% das entregas no prazo", "30 dias de ajustes", condições de pagamento

@@ -33,9 +33,9 @@ export const site = {
   // TODO(Lucas): e-mail de contato do rodapé.
   email: "contato@dantasstudio.com",
 
-  // TODO(Lucas): ID do Formspree (formspree.io/f/SEU_ID). Defina NEXT_PUBLIC_FORMSPREE_ID.
-  // Sem ID, o envio por e-mail mostra a mensagem de erro e sugere o WhatsApp.
-  formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID || "",
+  // ID do Formspree (o final de formspree.io/f/SEU_ID). Não é segredo: aparece no site.
+  // A variável NEXT_PUBLIC_FORMSPREE_ID, se definida, tem prioridade.
+  formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID || "meaaojba",
   /** Assunto do e-mail que você recebe quando alguém pede o orçamento por e-mail. */
   quoteMailSubject: "Novo orçamento pelo site",
 
