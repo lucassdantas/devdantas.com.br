@@ -51,6 +51,24 @@ for (const f of fs.readdirSync(srcDir).filter((f) => f.endsWith(".jpg"))) {
   console.log("webp", path.basename(out), fs.statSync(out).size);
 }
 
+/* ---------- sua foto (seção "Sobre") ----------
+   Coloque o arquivo em dantas-studio-handoff/assets/lucas.jpg (ou .jpeg/.png/.webp).
+   Gera public/lucas-400 e lucas-800 em AVIF e WebP, já no corte 4:5 do design e sem
+   metadados (GPS etc.). O navegador baixa só o menor arquivo que serve para a tela. */
+{
+  const dir = p("dantas-studio-handoff/assets");
+  const src = fs.readdirSync(dir).find((f) => /^lucas\.(jpe?g|png|webp)$/i.test(f));
+  if (src) {
+    for (const w of [400, 800]) {
+      const img = () => sharp(path.join(dir, src)).rotate().resize({ width: w, height: Math.round((w * 5) / 4), fit: "cover", position: "north" });
+      const avif = p("public", `lucas-${w}.avif`), webp = p("public", `lucas-${w}.webp`);
+      await img().avif({ quality: 52, effort: 9 }).toFile(avif);
+      await img().webp({ quality: 76, effort: 6 }).toFile(webp);
+      console.log("foto", w + "px", "avif", fs.statSync(avif).size, "webp", fs.statSync(webp).size);
+    }
+  }
+}
+
 /* ---------- ícone: quadrado azul + "d" branco + ponto azul-claro ---------- */
 function iconSvg() {
   const S = 512, size = S * 60 / 96, em = size;
