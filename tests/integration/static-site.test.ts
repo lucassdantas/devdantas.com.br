@@ -160,7 +160,7 @@ describe("arquivos do site", () => {
     const { doc } = load("pt.html");
     const files = new Set([...doc.querySelectorAll("script[src]")].map((s) => s.getAttribute("src")!));
     const bytes = [...files].reduce((n, src) => n + fs.statSync(path.join(OUT, src)).size, 0);
-    // Hoje ~ 600 KB sem compressão (~180 KB com brotli). Se passar disso, o PageSpeed corre risco.
+    // Hoje ~600 KB sem compressão (~160 KB com brotli). Se passar disso, o PageSpeed corre risco.
     expect(bytes).toBeLessThan(750 * 1024);
   });
 });
