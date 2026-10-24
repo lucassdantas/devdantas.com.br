@@ -61,7 +61,7 @@ Passo a passo (Turnstile na Cloudflare, Formspree, Vercel, domínio com DNS "DNS
 
 Procure por `TODO(Lucas)` no código:
 
-- [ ] Foto na seção "Sobre"
+- [x] Foto na seção "Sobre"
 - [ ] WhatsApp real (`site.ts`)
 - [x] Turnstile: Site Key em `site.ts`
 - [ ] Turnstile: gerar nova Secret Key (a atual foi exposta) e cadastrar na Vercel

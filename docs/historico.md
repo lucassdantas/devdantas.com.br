@@ -38,9 +38,12 @@ Linha do tempo das entregas. O detalhe de cada mudança está no `git log`; o po
 - Site Key real no código; aviso "Protegido pelo Cloudflare Turnstile" com link da política de privacidade (5 idiomas).
 - Corrigido o campo de e-mail achatado no celular (bug do CSS do design; ADR-0011).
 
+### 7. Foto no ar
+- Foto do Lucas no "Sobre": 187 KB → 20 KB (celular, AVIF) / 49 KB (desktop retina), lazy, sem metadados.
+- Domínio principal `devdantas.com.br` (o `www` redireciona); variáveis da função configuradas na Vercel.
+
 ## Pendências
 
-- [ ] Foto do Lucas em `dantas-studio-handoff/assets/lucas.jpg` → `npm run assets` → `site.photo = "/lucas"`.
 - [ ] WhatsApp real, revisão de preços e das garantias ("100% no prazo", "30 dias de ajustes", "Figma").
 - [ ] Gerar nova Secret Key do Turnstile (a atual foi exposta no chat) e cadastrar na Vercel + Formspree (ID novo) — [operacao/deploy.md](operacao/deploy.md).
 - [ ] Primeiro deploy e checklist pós-deploy (PageSpeed real, securityheaders, Rich Results).

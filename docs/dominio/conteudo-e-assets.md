@@ -17,7 +17,7 @@ marca), então o resultado não depende das fontes instaladas no computador.
 
 1. Salve como `dantas-studio-handoff/assets/lucas.jpg` (ou `.png`/`.webp`).
 2. `npm run assets` → gera 4 arquivos: 400 e 800 px, AVIF e WebP, no corte 4:5, sem metadados
-   (GPS etc.). Uma foto de 2,5 MB vira ~23 KB (celular) e ~63 KB (desktop retina).
+   (GPS etc.). A foto atual (187 KB) virou ~20 KB no celular e ~49 KB no desktop retina.
 3. Em `src/config/site.ts`: `photo: "/lucas"`. `photoFocus` controla o ponto que fica sempre visível
    (no celular o quadro é horizontal; `"50% 30%"` mantém o rosto).
 4. Sem foto (`photo: null`), aparecem as iniciais.

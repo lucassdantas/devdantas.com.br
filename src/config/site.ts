@@ -49,10 +49,10 @@ export const site = {
   /** Redes sociais (rodapé e dados estruturados). */
   linkedin: "https://www.linkedin.com/in/lucas-de-sousa-dantas",
 
-  // TODO(Lucas): sua foto na seção "Sobre". Salve em dantas-studio-handoff/assets/lucas.jpg,
-  // rode `npm run assets` e troque null por "/lucas" (vira lucas-400/800 .avif/.webp).
+  // Foto da seção "Sobre": original em dantas-studio-handoff/assets/lucas.jpg; `npm run assets`
+  // gera public/lucas-400/800 .avif/.webp. Para trocar, substitua o arquivo e rode de novo.
   // Com null, aparecem as iniciais.
-  photo: null as string | null,
+  photo: "/lucas" as string | null,
   /** Ponto da foto que fica sempre visível no corte (o rosto). No celular o quadro é horizontal. */
   photoFocus: "50% 30%",
   photoInitials: "LD",
