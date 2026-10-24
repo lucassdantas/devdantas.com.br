@@ -23,6 +23,7 @@ marcada como *Substituída*.
 | [0015](0015-testes-em-quatro-camadas.md) | Testes em quatro camadas + CI                       | Aceita     |
 | [0016](0016-css-inline-rejeitado.md) | CSS inline no HTML (rejeitada após medição)             | Rejeitada  |
 | [0017](0017-foto-responsiva.md) | Foto em AVIF/WebP responsivo e lazy                          | Aceita     |
+| [0018](0018-valores-publicos-no-codigo.md) | Valores públicos no código; variável só para segredo | Aceita |
 
 ## Modelo
 

@@ -23,12 +23,12 @@ export const site = {
   timeZone: "America/Sao_Paulo",
   utcLabel: "UTC−3",
 
-  // TODO(Lucas): domínio final, sem barra no fim. Usado em canonical, sitemap e Open Graph.
+  /** Domínio, sem barra no fim. Usado em canonical, sitemap e Open Graph. */
   domain: "https://devdantas.com.br",
 
-  // TODO(Lucas): WhatsApp com DDI + DDD + número, só dígitos.
-  // Pode ser definido pela variável NEXT_PUBLIC_WHATSAPP (tem prioridade).
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || "5521999999999",
+  // TODO(Lucas): seu WhatsApp com DDI + DDD + número, só dígitos (ex.: 5521987654321).
+  // Fica direto aqui porque é público de qualquer jeito (aparece nos links do site).
+  whatsapp: "5521999999999",
 
   // TODO(Lucas): e-mail de contato do rodapé.
   email: "contato@dantasstudio.com",
@@ -39,10 +39,11 @@ export const site = {
    */
   quoteEndpoint: "/api/orcamento",
 
-  // TODO(Lucas): Site Key do Cloudflare Turnstile (pública). Defina NEXT_PUBLIC_TURNSTILE_SITE_KEY na Vercel.
-  // O padrão abaixo é a chave de TESTE da Cloudflare (sempre passa, invisível) — em produção,
-  // sem a chave real, a função recusa o envio.
-  turnstileSiteKey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000BB",
+  // TODO(Lucas): "Site Key" do widget do Cloudflare Turnstile (é pública, pode ficar no código).
+  // A "Secret Key" do mesmo widget NÃO vem para cá: vai na variável TURNSTILE_SECRET_KEY da Vercel.
+  // O valor abaixo é a chave de TESTE da Cloudflare (sempre passa, invisível): serve para rodar
+  // no computador; em produção, com a Secret Key real, a função recusa até você trocar aqui.
+  turnstileSiteKey: "1x00000000000000000000BB",
   /** Assunto do e-mail que você recebe quando alguém pede o orçamento por e-mail. */
   quoteMailSubject: "Novo orçamento pelo site",
 

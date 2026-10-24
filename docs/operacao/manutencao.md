@@ -11,8 +11,7 @@ Detalhes: [calculadora-e-precos.md](../dominio/calculadora-e-precos.md).
 ⚠️ `security.noteTitle/note` e `calc.disc` são proteção legal — os testes travam mudança sem querer.
 
 ## Trocar WhatsApp, e-mail, LinkedIn
-Variável `NEXT_PUBLIC_WHATSAPP` na Vercel (ou `site.whatsapp`), `site.email`, `site.linkedin` em
-`src/config/site.ts`.
+`site.whatsapp`, `site.email`, `site.linkedin` em `src/config/site.ts`.
 
 ## Colocar/trocar a foto
 `dantas-studio-handoff/assets/lucas.jpg` → `npm run assets` → `photo: "/lucas"` em `site.ts`.

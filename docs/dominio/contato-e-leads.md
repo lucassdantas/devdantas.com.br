@@ -26,7 +26,7 @@ Olá, Lucas! Fiz uma simulação no seu site:
 Podemos conversar?
 ```
 
-O número vem de `NEXT_PUBLIC_WHATSAPP` (se definida) ou de `site.whatsapp`.
+O número fica em `site.whatsapp` (`src/config/site.ts`) — é público, então não é variável ([ADR-0018](../decisoes/0018-valores-publicos-no-codigo.md)).
 
 ## E-mail
 
@@ -87,15 +87,15 @@ Para o visitante, qualquer erro mostra a mesma mensagem (`calc.error`), que suge
 
 ### Variáveis
 
-| Variável                         | Onde é usada           | Pública? |
-| -------------------------------- | ---------------------- | -------- |
-| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | navegador (widget)     | sim      |
-| `TURNSTILE_SECRET_KEY`           | função                 | **não**  |
-| `FORMSPREE_FORM_ID`              | função                 | **não**  |
+| Valor                  | Onde fica                          | Público? |
+| ---------------------- | ---------------------------------- | -------- |
+| Site Key do Turnstile  | `site.turnstileSiteKey` (código)    | sim      |
+| `TURNSTILE_SECRET_KEY` | variável na Vercel (só a função)   | **não**  |
+| `FORMSPREE_FORM_ID`    | variável na Vercel (só a função)   | **não**  |
 
-Sem `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, o site usa a chave de **teste** da Cloudflare
-(`1x00000000000000000000BB`, sempre passa). Em produção isso não funciona com o segredo real,
-e a função recusa: é proposital, para não ir ao ar sem proteção.
+Enquanto `turnstileSiteKey` for a chave de **teste** da Cloudflare (`1x00000000000000000000BB`,
+sempre passa), o formulário funciona no computador mas não em produção (o token de teste não vale
+para a Secret Key real, e a função recusa). É proposital: não dá para ir ao ar sem proteção.
 
 Histórico: começou com o navegador postando direto no Formspree; mudou para a função +
 Turnstile para esconder o ID e barrar spam — [ADR-0013](../decisoes/0013-funcao-turnstile-formspree.md).

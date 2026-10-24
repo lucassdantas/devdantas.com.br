@@ -32,7 +32,7 @@ Regra: **preço, texto, WhatsApp e idiomas mudam só em `src/config/` e `src/i18
 | --------------------------------------- | -------------------------------------------------------- |
 | Preços, moedas, extras, prazos          | `src/config/pricing.ts`                                  |
 | Qualquer texto (e títulos do Google)    | `src/i18n/pt.ts` + `en.ts`, `es.ts`, `fr.ts`, `de.ts`    |
-| WhatsApp, e-mail, LinkedIn, domínio     | `src/config/site.ts` (ou variáveis na Vercel)            |
+| WhatsApp, e-mail, LinkedIn, domínio     | `src/config/site.ts`                                     |
 | Foto do "Sobre"                         | `dantas-studio-handoff/assets/lucas.jpg` → `npm run assets` → `site.photo = "/lucas"` |
 | Prints dos cases, ícones, imagens OG    | `npm run assets`                                         |
 
@@ -43,14 +43,14 @@ Receitas passo a passo (idioma novo, case novo, serviço novo…): [docs/operaca
 
 ## Variáveis de ambiente
 
-Veja `.env.example`. Na Vercel: **Settings → Environment Variables**, depois **Redeploy**.
+Só os **segredos** ficam em variável (veja `.env.example`). Valores públicos — WhatsApp e a Site Key
+do Turnstile — ficam em `src/config/site.ts`. Na Vercel: **Settings → Environment Variables**, depois
+**Redeploy** (passo a passo em [docs/operacao/deploy.md](docs/operacao/deploy.md#4-vercel)).
 
-| Variável                         | Para quê                                   | Secreta? |
-| -------------------------------- | ------------------------------------------ | -------- |
-| `NEXT_PUBLIC_WHATSAPP`           | Número do WhatsApp (DDI + DDD + número)    | não      |
-| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Site Key do Cloudflare Turnstile           | não      |
-| `TURNSTILE_SECRET_KEY`           | Secret Key do Turnstile (só a função lê)   | **sim**  |
-| `FORMSPREE_FORM_ID`              | ID do formulário Formspree (só a função lê) | **sim** |
+| Variável               | Para quê                                    |
+| ---------------------- | ------------------------------------------- |
+| `TURNSTILE_SECRET_KEY` | Secret Key do Turnstile (só a função lê)    |
+| `FORMSPREE_FORM_ID`    | ID do formulário Formspree (só a função lê) |
 
 ## Deploy
 
@@ -62,8 +62,9 @@ Passo a passo (Turnstile na Cloudflare, Formspree, Vercel, domínio com DNS "DNS
 Procure por `TODO(Lucas)` no código:
 
 - [ ] Foto na seção "Sobre"
-- [ ] WhatsApp real
-- [ ] Turnstile (Site Key + Secret Key) e Formspree (**ID novo**: o primeiro ficou no histórico do Git) na Vercel
+- [ ] WhatsApp real (`site.ts`)
+- [ ] Turnstile: Site Key em `site.ts`, Secret Key na Vercel
+- [ ] Formspree: **ID novo** (o primeiro ficou no histórico do Git) na Vercel
 - [ ] E-mail de contato (`site.ts`)
 - [ ] Revisar preços (`pricing.ts`)
 - [ ] Revisar "100% das entregas no prazo", "30 dias de ajustes", condições de pagamento

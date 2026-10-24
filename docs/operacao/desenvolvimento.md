@@ -33,8 +33,6 @@ cp .env.example .env.local   # opcional (veja abaixo)
 
 | Variável                         | Sem ela…                                                         |
 | -------------------------------- | ---------------------------------------------------------------- |
-| `NEXT_PUBLIC_WHATSAPP`           | usa o número de `site.ts`                                        |
-| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | usa a chave de teste da Cloudflare (sempre passa, invisível)     |
 | `TURNSTILE_SECRET_KEY`           | o `npm start` usa o segredo de teste da Cloudflare               |
 | `FORMSPREE_FORM_ID`              | a função responde `not_configured` — **nenhum e-mail sai**        |
 
@@ -42,7 +40,8 @@ Para testar um envio real no computador: coloque `FORMSPREE_FORM_ID` no `.env.lo
 `npm run build && npm start`, abra http://localhost:4173/pt e envie pelo formulário (com as chaves
 de teste do Turnstile o desafio passa sozinho).
 
-> Variáveis `NEXT_PUBLIC_*` entram no código **na hora do build**: mudou, rode o build de novo.
+> WhatsApp e Site Key do Turnstile não são variáveis: ficam em `src/config/site.ts` (são públicos).
+> Com a Site Key de teste que está lá, o Turnstile passa sozinho no computador.
 
 ## Estrutura e convenções
 
