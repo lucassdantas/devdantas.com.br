@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { REGIONS, REGION_IDS, SERVICES, SERVICE_IDS, STACK, DEFAULT_SERVICE, type ExtraId } from "@/config/pricing";
+import { DEFAULT_SERVICE, EXTRAS_BRL, FOREIGN_MARKUP, FX_BRL, PRICES_BRL, REGIONS, REGION_IDS, SERVICES, SERVICE_IDS, STACK, fromBRL, roundPrice, type ExtraId } from "@/config/pricing";
 import { LOCALES, site } from "@/config/site";
 
 /* Pega erros de digitação em config/ antes de irem para o ar. */
@@ -75,5 +75,52 @@ describe("site.ts", () => {
 
   it("o ID do Formspree não está no código do navegador", () => {
     expect(JSON.stringify(site)).not.toMatch(/formspree/i);
+  });
+});
+
+describe("preços coerentes entre moedas", () => {
+  const FOREIGN = [["US", "USD"], ["EU", "EUR"], ["UK", "GBP"]] as const;
+
+  it("cada moeda estrangeira vale o mesmo que o real + a margem (com tolerância do arredondamento)", () => {
+    for (const [region, cur] of FOREIGN) {
+      for (const id of SERVICE_IDS) {
+        PRICES_BRL[id].forEach((brl, i) => {
+          if (brl === 0) return expect(REGIONS[region].prices[id][i]).toBe(0);
+          const backToBrl = REGIONS[region].prices[id][i] * FX_BRL[cur];
+          const expected = brl * (1 + FOREIGN_MARKUP);
+          // arredondar para 5/10 muda até ~2,5 unidades da moeda; abaixo de 100, até 5 unidades
+          const tol = (REGIONS[region].prices[id][i] < 100 ? 2.5 : 5) * FX_BRL[cur];
+          expect(Math.abs(backToBrl - expected), `${region}.${id}[${i}]`).toBeLessThanOrEqual(tol);
+        });
+      }
+    }
+  });
+
+  it("pagar em real nunca sai mais barato que pagar em moeda estrangeira (convertida)", () => {
+    for (const [region, cur] of FOREIGN) {
+      for (const id of SERVICE_IDS) {
+        const [brl] = PRICES_BRL[id];
+        if (brl === 0) continue;
+        // o estrangeiro paga no mínimo o equivalente ao preço em real (a margem cobre o arredondamento)
+        expect(REGIONS[region].prices[id][0] * FX_BRL[cur], `${region}.${id}`).toBeGreaterThanOrEqual(brl);
+      }
+    }
+  });
+
+  it("uma moeda, um preço: não existem duas regiões com a mesma moeda", () => {
+    const currencies = REGION_IDS.map((r) => REGIONS[r].currency);
+    expect(new Set(currencies).size).toBe(currencies.length);
+  });
+
+  it("o Brasil usa exatamente a tabela base", () => {
+    expect(REGIONS.BR.prices).toBe(PRICES_BRL);
+    expect(REGIONS.BR.extras).toBe(EXTRAS_BRL);
+  });
+
+  it("arredondamento de vitrine", () => {
+    expect(roundPrice(376.4)).toBe(380);
+    expect(roundPrice(53.5)).toBe(55);
+    expect(roundPrice(1.2)).toBe(5);
+    expect(fromBRL(0, "USD")).toBe(0);
   });
 });

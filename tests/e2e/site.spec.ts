@@ -67,10 +67,10 @@ test.describe("navegação e preferências", () => {
     test.skip(isMobile, "o seletor da nav fica no menu no celular");
     await page.goto("/pt");
     await page.locator("#region").selectOption("EU");
-    await expect(page.locator(".scard .price b").first()).toHaveText(/750\s€/);
+    await expect(page.locator(".scard .price b").first()).toHaveText(/340\s€/);
     await page.reload();
     await expect(page.locator("#region")).toHaveValue("EU");
-    await expect(page.locator(".scard .price b").first()).toHaveText(/750\s€/);
+    await expect(page.locator(".scard .price b").first()).toHaveText(/340\s€/);
   });
 
   test("menu mobile: abre, troca a moeda e fecha ao navegar", async ({ page, isMobile }) => {
@@ -81,7 +81,7 @@ test.describe("navegação e preferências", () => {
     await menu.getByLabel("Moeda").selectOption("UK");
     await menu.getByRole("link", { name: "FAQ" }).click();
     await expect(menu).toBeHidden();
-    await expect(page.locator(".mbar b")).toHaveText("£650");
+    await expect(page.locator(".mbar b")).toHaveText("£290");
   });
 });
 

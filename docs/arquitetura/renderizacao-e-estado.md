@@ -58,7 +58,7 @@ entre o HTML e o primeiro render no navegador, seguimos estas regras:
 | Chave       | Valor                    | Quem grava                 |
 | ----------- | ------------------------ | -------------------------- |
 | `ds-theme`  | `"dark"` / `"light"`     | Nav (botão de tema)        |
-| `ds-region` | `BR` `US` `EU` `UK` `LATAM` | Nav (seletor de moeda)  |
+| `ds-region` | `BR` `US` `EU` `UK` | Nav (seletor de moeda)  |
 | `ds-lang`   | `pt` `en` `es` `fr` `de` | Nav (seletor de idioma); lido pelo redirecionamento de `/` |
 
 Todo acesso fica em `try/catch` (navegação privada ou cookies bloqueados não quebram o site).

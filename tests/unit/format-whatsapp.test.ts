@@ -54,8 +54,8 @@ describe("WhatsApp", () => {
   it("serviço mensal: total com /mês e sem prazo", () => {
     const q = calculateQuote("care", 2, {}, 0, "US", en);
     const msg = buildQuoteMessage(q, "US", en);
-    // 99 + 35 = 134 → arredonda para 130
-    expect(msg).toContain("• Estimate: $130/mo (USD)");
+    // 60 + 20 (1 site a mais) = 80
+    expect(msg).toContain("• Estimate: $80/mo (USD)");
     expect(msg).not.toContain("Timeline");
   });
 

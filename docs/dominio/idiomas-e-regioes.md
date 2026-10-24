@@ -36,7 +36,7 @@ A região é **independente do idioma** ([ADR-0004](../decisoes/0004-regiao-inde
 | ------ | ------------- |
 | pt     | BR            |
 | en     | US            |
-| es     | LATAM         |
+| es     | US (dólar)    |
 | fr, de | EU            |
 
 O visitante pode escolher qualquer moeda; a escolha fica em `ds-region`. Um alemão pode ver em

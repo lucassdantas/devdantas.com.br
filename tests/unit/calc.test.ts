@@ -105,14 +105,15 @@ describe("calculateQuote (BR)", () => {
 
 describe("arredondamento", () => {
   it("arredonda o total de 10 em 10", () => {
-    // US: 790 × 0,2 = 158 → 948 → 950
-    expect(q("landing", 5, {}, 1, "US").total).toBe(950);
+    // US: 380 × 0,2 = 76 → 456 → 460
+    expect(q("landing", 5, {}, 1, "US").total).toBe(460);
     expect(roundTo(944)).toBe(940);
     expect(roundTo(945)).toBe(950);
   });
 
   it("usa a tabela da região escolhida", () => {
-    expect(q("site", 5, {}, 0, "EU").total).toBe(1190);
-    expect(q("consulting", 2, {}, 0, "UK").total).toBe(100);
+    expect(q("site", 5, {}, 0, "EU").total).toBe(550);
+    // 2 horas × £40
+    expect(q("consulting", 2, {}, 0, "UK").total).toBe(80);
   });
 });

@@ -1,13 +1,18 @@
 /* =====================================================================
-   PREÇOS — regiões, moedas e regras dos serviços.
-   Trocar um preço? Mexa só neste arquivo. A calculadora, os cards de
-   serviço ("a partir de") e a mensagem do WhatsApp se atualizam sozinhos.
+   PREÇOS — uma tabela só, em REAL; as outras moedas são calculadas.
+   Trocar um preço? Mexa em PRICES_BRL / EXTRAS_BRL. A calculadora, os cards
+   de serviço ("a partir de") e a mensagem do WhatsApp se atualizam sozinhos,
+   em todas as moedas.
+
+   Moeda estrangeira = preço em real ÷ câmbio × (1 + FOREIGN_MARKUP),
+   arredondado. Assim o valor é o mesmo para você em qualquer moeda e ninguém
+   ganha pagando em real (veja docs/decisoes/0019-precos-base-em-real.md).
    ===================================================================== */
 
 export const SERVICE_IDS = ["landing", "site", "ecommerce", "system", "design", "consulting", "security", "care"] as const;
 export type ServiceId = (typeof SERVICE_IDS)[number];
 
-export const REGION_IDS = ["BR", "US", "EU", "UK", "LATAM"] as const;
+export const REGION_IDS = ["BR", "US", "EU", "UK"] as const;
 export type RegionId = (typeof REGION_IDS)[number];
 
 /** Extras com preço fixo (somados ao subtotal). */
@@ -35,33 +40,58 @@ export type Region = {
   extras: Record<FixedExtraId, number>;
 };
 
-// TODO(Lucas): os valores abaixo são estimativas — revise antes de publicar.
+/**
+ * TABELA BASE, EM REAL. É a única que você mantém.
+ * PRICES_BRL[serviço] = [preço base, preço por pacote adicional]
+ */
+export const PRICES_BRL: Record<ServiceId, [number, number]> = {
+  landing: [1800, 250], site: [2900, 350], ecommerce: [5900, 300], system: [9900, 1800],
+  design: [2400, 300], consulting: [0, 250], security: [690, 450], care: [290, 90],
+};
+export const EXTRAS_BRL: Record<FixedExtraId, number> = { seo: 600, copy: 800, cms: 900, integrations: 1200 };
+
+/**
+ * Câmbio comercial (quantos reais vale 1 unidade da moeda).
+ * Atualize de vez em quando (ex.: uma vez por mês) — veja docs/operacao/manutencao.md.
+ * Fonte: dólar/euro/libra comercial em 22/10/2026.
+ */
+export const FX_BRL = { USD: 5.05, EUR: 5.67, GBP: 6.77 } as const;
+export const FX_DATE = "2026-10-22";
+
+/**
+ * Margem sobre o câmbio para quem paga em moeda estrangeira. Cobre o que você perde ao receber
+ * de fora: taxa da plataforma e spread (Wise ~1%, PayPal/cartão 4–8%), IOF (0% se o câmbio for
+ * classificado como exportação de serviço; 0,38% se não) e a oscilação do câmbio entre a entrada
+ * de 50% e a entrega. Confirme com seu contador.
+ */
+export const FOREIGN_MARKUP = 0.08;
+
+/** Arredondamento "de vitrine": de 10 em 10 a partir de 100; de 5 em 5 abaixo disso. */
+export function roundPrice(value: number): number {
+  return value >= 100 ? Math.round(value / 10) * 10 : Math.max(5, Math.round(value / 5) * 5);
+}
+
+/** Converte um valor da tabela em real para a moeda estrangeira (com a margem). */
+export function fromBRL(brl: number, currency: keyof typeof FX_BRL): number {
+  if (brl === 0) return 0;
+  return roundPrice((brl / FX_BRL[currency]) * (1 + FOREIGN_MARKUP));
+}
+
+function convert(currency: keyof typeof FX_BRL): Pick<Region, "prices" | "extras"> {
+  const map = <K extends string>(o: Record<K, number>) =>
+    Object.fromEntries(Object.entries<number>(o).map(([k, v]) => [k, fromBRL(v, currency)])) as Record<K, number>;
+  const prices = Object.fromEntries(
+    SERVICE_IDS.map((id) => [id, [fromBRL(PRICES_BRL[id][0], currency), fromBRL(PRICES_BRL[id][1], currency)]]),
+  ) as Record<ServiceId, [number, number]>;
+  return { prices, extras: map(EXTRAS_BRL) };
+}
+
+// TODO(Lucas): revise os valores de PRICES_BRL / EXTRAS_BRL antes de publicar (vieram do design).
 export const REGIONS: Record<RegionId, Region> = {
-  BR: {
-    currency: "BRL", locale: "pt-BR", pay: "br", short: "R$ BRL", long: "Brasil · R$",
-    prices: { landing: [1800, 250], site: [2900, 350], ecommerce: [5900, 300], system: [9900, 1800], design: [2400, 300], consulting: [0, 250], security: [690, 450], care: [290, 90] },
-    extras: { seo: 600, copy: 800, cms: 900, integrations: 1200 },
-  },
-  US: {
-    currency: "USD", locale: "en-US", pay: "intl", short: "$ USD", long: "USA · US$",
-    prices: { landing: [790, 90], site: [1290, 150], ecommerce: [2690, 150], system: [4500, 800], design: [990, 120], consulting: [0, 60], security: [290, 190], care: [99, 35] },
-    extras: { seo: 250, copy: 350, cms: 390, integrations: 490 },
-  },
-  EU: {
-    currency: "EUR", locale: "de-DE", pay: "intl", short: "€ EUR", long: "Europe · €",
-    prices: { landing: [750, 85], site: [1190, 140], ecommerce: [2490, 140], system: [4200, 750], design: [920, 110], consulting: [0, 55], security: [270, 180], care: [95, 32] },
-    extras: { seo: 230, copy: 320, cms: 360, integrations: 450 },
-  },
-  UK: {
-    currency: "GBP", locale: "en-GB", pay: "intl", short: "£ GBP", long: "UK · £",
-    prices: { landing: [650, 75], site: [1050, 120], ecommerce: [2190, 120], system: [3700, 650], design: [800, 95], consulting: [0, 48], security: [240, 160], care: [85, 28] },
-    extras: { seo: 200, copy: 280, cms: 310, integrations: 390 },
-  },
-  LATAM: {
-    currency: "USD", locale: "es-419", pay: "intl", short: "$ LatAm", long: "LatAm · US$",
-    prices: { landing: [490, 60], site: [790, 90], ecommerce: [1590, 90], system: [2900, 500], design: [590, 70], consulting: [0, 35], security: [190, 120], care: [59, 20] },
-    extras: { seo: 150, copy: 200, cms: 240, integrations: 300 },
-  },
+  BR: { currency: "BRL", locale: "pt-BR", pay: "br", short: "R$ BRL", long: "Brasil · R$", prices: PRICES_BRL, extras: EXTRAS_BRL },
+  US: { currency: "USD", locale: "en-US", pay: "intl", short: "$ USD", long: "USD · US$", ...convert("USD") },
+  EU: { currency: "EUR", locale: "de-DE", pay: "intl", short: "€ EUR", long: "Europe · €", ...convert("EUR") },
+  UK: { currency: "GBP", locale: "en-GB", pay: "intl", short: "£ GBP", long: "UK · £", ...convert("GBP") },
 };
 
 export type ServiceRule = {

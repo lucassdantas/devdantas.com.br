@@ -24,6 +24,7 @@ marcada como *Substituída*.
 | [0016](0016-css-inline-rejeitado.md) | CSS inline no HTML (rejeitada após medição)             | Rejeitada  |
 | [0017](0017-foto-responsiva.md) | Foto em AVIF/WebP responsivo e lazy                          | Aceita     |
 | [0018](0018-valores-publicos-no-codigo.md) | Valores públicos no código; variável só para segredo | Aceita |
+| [0019](0019-precos-base-em-real.md) | Preços: uma tabela em real, moedas pelo câmbio + 8% | Aceita |
 
 ## Modelo
 

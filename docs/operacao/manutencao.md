@@ -3,7 +3,12 @@
 Depois de qualquer mudança: `npm test` (e, antes de publicar, `npm run test:all`).
 
 ## Trocar um preço
-`src/config/pricing.ts` → `REGIONS.<região>.prices.<serviço> = [base, por pacote]` ou `extras`.
+`src/config/pricing.ts` → `PRICES_BRL.<serviço> = [base, por pacote]` ou `EXTRAS_BRL`. Só em real: dólar,
+euro e libra são recalculados sozinhos.
+
+## Atualizar o câmbio
+Em `src/config/pricing.ts`, troque `FX_BRL` (dólar, euro e libra comercial do dia) e `FX_DATE`. Vale fazer
+uma vez por mês ou quando o câmbio mexer bastante. A margem para receber de fora é `FOREIGN_MARKUP` (8%).
 Detalhes: [calculadora-e-precos.md](../dominio/calculadora-e-precos.md).
 
 ## Trocar um texto
@@ -30,7 +35,9 @@ Detalhes: [conteudo-e-assets.md](../dominio/conteudo-e-assets.md#foto-do-sobre).
 5. `npm run test:all` — os testes já percorrem `LOCALES`, então cobrem o idioma novo sozinhos.
 
 ## Adicionar uma moeda/região
-1. `src/config/pricing.ts`: inclua em `REGION_IDS` e em `REGIONS` (moeda, locale, `pay`, rótulos, preços).
+1. `src/config/pricing.ts`: adicione o câmbio em `FX_BRL` (ex.: `CAD: 3.70`), inclua a região em
+   `REGION_IDS` e em `REGIONS` com `...convert("CAD")` (moeda, locale, `pay`, rótulos). Os preços saem
+   sozinhos da tabela em real. Uma moeda por região (o teste de coerência cobra isso).
 2. Se precisar de outra nota de pagamento, crie a chave em `calc.pay` em todos os idiomas.
 
 ## Adicionar um serviço

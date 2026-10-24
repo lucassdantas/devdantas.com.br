@@ -7,20 +7,29 @@ Arquivos: `src/config/pricing.ts` (dados) · `src/lib/calc.ts` (cálculo) · `sr
 
 ## Dados
 
-### Por região (`REGIONS`)
+### Uma tabela só, em real ([ADR-0019](../decisoes/0019-precos-base-em-real.md))
 
-Cada região tem moeda, locale de formatação, tipo de nota de pagamento e:
+- `PRICES_BRL[serviço] = [base, por pacote]` e `EXTRAS_BRL = { seo, copy, cms, integrations }`:
+  **a única tabela que se mantém**.
+- As outras moedas são calculadas: `preço em real ÷ câmbio × (1 + FOREIGN_MARKUP)`, arredondado
+  (de 10 em 10 a partir de 100; de 5 em 5 abaixo).
+- `FX_BRL` = câmbio comercial (`USD 5,05 · EUR 5,67 · GBP 6,77` em 22/10/2026); `FOREIGN_MARKUP = 0,08`.
 
-- `prices[serviço] = [base, por pacote]`
-- `extras = { seo, copy, cms, integrations }` (valores fixos)
+Os 8% cobrem o custo de receber de fora: taxa e spread da plataforma (Wise ~1%, PayPal/cartão 4–8%),
+IOF (zero se o câmbio for classificado como exportação de serviço; 0,38% se cair como "entrada não
+especificada") e a oscilação do câmbio entre a entrada de 50% e a entrega. Resultado: você recebe o
+mesmo em reais, qualquer que seja a moeda, e **pagar em real nunca sai mais barato** para um
+estrangeiro (há teste para isso). Tributação depende do seu regime — confirme com o contador.
 
-| Região | Moeda | Formato      | Pagamento |
-| ------ | ----- | ------------ | --------- |
-| BR     | BRL   | `R$ 1.800`   | Pix ou cartão |
-| US     | USD   | `$790`       | Wise, PayPal ou cartão |
-| EU     | EUR   | `750 €`      | idem |
-| UK     | GBP   | `£650`       | idem |
-| LATAM  | USD   | `USD 490`    | idem |
+| Região | Moeda | Landing  | Site    | E-commerce | Sistema | Pagamento |
+| ------ | ----- | -------- | ------- | ---------- | ------- | --------- |
+| BR     | BRL   | R$ 1.800 | R$ 2.900 | R$ 5.900  | R$ 9.900 | Pix ou cartão |
+| US     | USD   | $380     | $620    | $1,260     | $2,120  | Wise, PayPal ou cartão |
+| EU     | EUR   | 340 €    | 550 €   | 1.120 €    | 1.890 € | idem |
+| UK     | GBP   | £290     | £460    | £940       | £1,580  | idem |
+
+Não existe mais a região "LatAm": era um segundo preço em dólar para o mesmo serviço. Quem fala
+espanhol vê dólar, com o mesmo preço dos EUA.
 
 ### Por serviço (`SERVICES`, igual em todas as regiões)
 

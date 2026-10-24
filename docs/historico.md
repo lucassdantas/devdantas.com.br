@@ -42,6 +42,12 @@ Linha do tempo das entregas. O detalhe de cada mudança está no `git log`; o po
 - Foto do Lucas no "Sobre": 187 KB → 20 KB (celular, AVIF) / 49 KB (desktop retina), lazy, sem metadados.
 - Domínio principal `devdantas.com.br` (o `www` redireciona); variáveis da função configuradas na Vercel.
 
+## 2026-10-24
+
+### Preços coerentes
+- Uma tabela em real; dólar, euro e libra pelo câmbio + 8% (ADR-0019). Região LatAm removida.
+- Landing: R$ 1.800 · US$ 380 · 340 € · £290.
+
 ## Pendências
 
 - [ ] WhatsApp real, revisão de preços e das garantias ("100% no prazo", "30 dias de ajustes", "Figma").

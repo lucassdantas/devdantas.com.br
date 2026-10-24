@@ -68,14 +68,14 @@ describe("nav", () => {
     renderWithQuote(<><Nav t={t} /><ServiceActions id="landing" from="" perHour="" perMonth="" simulate="" /></>);
     expect(norm(document.querySelector(".price b")?.textContent)).toBe("R$ 1.800");
     await user.selectOptions(screen.getByLabelText(pt.ui.currency), "EU");
-    expect(norm(document.querySelector(".price b")?.textContent)).toBe("750 €");
+    expect(norm(document.querySelector(".price b")?.textContent)).toBe("340 €");
     expect(localStorage.getItem("ds-region")).toBe("EU");
   });
 
   it("moeda salva é restaurada ao abrir a página", () => {
     localStorage.setItem("ds-region", "UK");
     renderWithQuote(<ServiceActions id="landing" from="" perHour="" perMonth="" simulate="" />);
-    expect(norm(document.querySelector(".price b")?.textContent)).toBe("£650");
+    expect(norm(document.querySelector(".price b")?.textContent)).toBe("£290");
   });
 
   it("botão de tema alterna a classe dark e salva", async () => {

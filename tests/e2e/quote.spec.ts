@@ -30,7 +30,7 @@ test.describe("calculadora", () => {
 
   test("em inglês, a moeda padrão é dólar e a mensagem sai em inglês", async ({ page }) => {
     await page.goto("/en#orcamento");
-    await expect(total(page)).toHaveText("$790");
+    await expect(total(page)).toHaveText("$380");
     const href = await page.locator("aside.sum a.btn-wa").getAttribute("href");
     expect(decodeURIComponent(href!)).toContain("Hi Lucas!");
   });

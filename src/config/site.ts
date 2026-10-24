@@ -64,7 +64,7 @@ export const site = {
   defaultLocale: "pt" as Locale,
 
   /** Região/moeda padrão de cada idioma. O visitante pode trocar no seletor. */
-  langToRegion: { pt: "BR", en: "US", es: "LATAM", fr: "EU", de: "EU" } satisfies Record<Locale, RegionId>,
+  langToRegion: { pt: "BR", en: "US", es: "US", fr: "EU", de: "EU" } satisfies Record<Locale, RegionId>,
 
   /** Tag BCP 47 de cada idioma (atributo lang, hreflang e Open Graph). */
   htmlLang: { pt: "pt-BR", en: "en", es: "es", fr: "fr", de: "de" } satisfies Record<Locale, string>,
