@@ -47,11 +47,20 @@ describe("POST /api/orcamento", () => {
     expect(payload).not.toHaveProperty("token");
   });
 
-  it("recusa sem configuração (não envia nada)", async () => {
+  it("recusa sem configuração (não envia nada) e diz qual variável falta", async () => {
     const up = upstream();
-    const res = await handleQuote(req(VALID), {}, up.fn);
+    const res = await handleQuote(req(VALID), { FORMSPREE_FORM_ID: "abc" }, up.fn);
     expect(res.status).toBe(500);
+    expect(await res.json()).toEqual({ error: "not_configured", missing: ["TURNSTILE_SECRET_KEY"] });
     expect(up.calls).toHaveLength(0);
+  });
+
+  it("ignora espaços e quebras de linha coladas junto com os valores", async () => {
+    const up = upstream();
+    const res = await handleQuote(req(VALID), { TURNSTILE_SECRET_KEY: "  segredo-ts\n", FORMSPREE_FORM_ID: " abc123 " }, up.fn);
+    expect(res.status).toBe(200);
+    expect((up.calls[0].init.body as URLSearchParams).get("secret")).toBe("segredo-ts");
+    expect(up.calls[1].url).toBe(FORMSPREE_URL + "abc123");
   });
 
   it("só aceita POST", async () => {

@@ -50,6 +50,7 @@ describe("servidor local (imita a Vercel)", () => {
   it("/api/orcamento sem configuração recusa (e não envia nada)", async () => {
     const r = await fetch(BASE + "/api/orcamento", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ email: "a@b.co", token: "x" }) });
     expect(r.status).toBe(500);
-    expect(await r.json()).toEqual({ error: "not_configured" });
+    // o servidor local usa o segredo de teste do Turnstile; só o Formspree fica faltando
+    expect(await r.json()).toEqual({ error: "not_configured", missing: ["FORMSPREE_FORM_ID"] });
   });
 });

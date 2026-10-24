@@ -66,11 +66,14 @@ export function resetRateLimit(): void {
 export async function handleQuote(req: Request, env: Env = process.env, fetchImpl: Fetch = fetch): Promise<Response> {
   if (req.method !== "POST") return json(405, { error: "method_not_allowed" });
 
-  const secret = env.TURNSTILE_SECRET_KEY;
-  const formId = env.FORMSPREE_FORM_ID;
+  // trim: colar no painel da Vercel às vezes traz espaço ou quebra de linha junto
+  const secret = (env.TURNSTILE_SECRET_KEY || "").trim();
+  const formId = (env.FORMSPREE_FORM_ID || "").trim();
   if (!secret || !formId) {
-    console.error("api/orcamento: defina TURNSTILE_SECRET_KEY e FORMSPREE_FORM_ID");
-    return json(500, { error: "not_configured" });
+    // Só os NOMES das variáveis que faltam (já são públicos no repositório), nunca valores.
+    const missing = [!secret && "TURNSTILE_SECRET_KEY", !formId && "FORMSPREE_FORM_ID"].filter(Boolean);
+    console.error("api/orcamento: faltam as variáveis", missing.join(", "));
+    return json(500, { error: "not_configured", missing });
   }
 
   const raw = await req.text();

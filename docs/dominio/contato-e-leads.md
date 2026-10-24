@@ -87,7 +87,7 @@ idioma do visitante (`calc.captcha`, `calc.captchaLink`, `calc.captchaUrl` em `i
 | 405    | `method_not_allowed`  | Não é POST                                      |
 | 413    | `too_large`           | Corpo > 8 KB                                    |
 | 429    | `rate_limited`        | Mais de 5 envios em 10 min do mesmo IP          |
-| 500    | `not_configured`      | Faltam `FORMSPREE_FORM_ID` ou `TURNSTILE_SECRET_KEY` |
+| 500    | `not_configured`      | Faltam `FORMSPREE_FORM_ID` ou `TURNSTILE_SECRET_KEY`; o campo `missing` diz quais (só os nomes) |
 | 502    | `captcha_unavailable` / `send_failed` | Cloudflare ou Formspree fora / recusou |
 
 Para o visitante, qualquer erro mostra a mesma mensagem (`calc.error`), que sugere o WhatsApp.
