@@ -7,7 +7,7 @@ HTML estático, sem banco, sem login, uma função só.
 
 | Header                       | Valor (resumo)                                                  |
 | ---------------------------- | --------------------------------------------------------------- |
-| `Content-Security-Policy`    | `default-src 'self'`; scripts do site + `challenges.cloudflare.com`; `connect-src 'self'`; `frame-src` só Cloudflare; `frame-ancestors 'none'`; `object-src 'none'`; `base-uri 'self'`; `upgrade-insecure-requests` |
+| `Content-Security-Policy`    | `default-src 'self'`; scripts do site + `challenges.cloudflare.com`; `connect-src 'self' data:` (o `data:` é usado pelo script do Turnstile); `frame-src` só Cloudflare; `frame-ancestors 'none'`; `object-src 'none'`; `base-uri 'self'`; `upgrade-insecure-requests` |
 | `Strict-Transport-Security`  | 2 anos, `includeSubDomains; preload`                            |
 | `X-Content-Type-Options`     | `nosniff`                                                       |
 | `X-Frame-Options`            | `DENY`                                                          |
@@ -60,6 +60,14 @@ Teste: E2E "carrega sem erros, sem violação de CSP e sem terceiros".
 ## Links externos
 
 Todos com `target="_blank" rel="noopener noreferrer"` (conferido nos testes de integração).
+
+## Proxy da Cloudflare
+
+O domínio está na Cloudflare. Com o registro em **proxy (nuvem laranja)**, a Cloudflare pode alterar
+o HTML e injetar scripts próprios (ex.: Web Analytics `static.cloudflareinsights.com`, Rocket Loader,
+ofuscação de e-mail), que a CSP bloqueia — e mudar scripts quebraria os hashes da CSP. Recomendado:
+**DNS only (nuvem cinza)**. Se quiser manter o proxy: desligue Web Analytics automático, Rocket Loader
+e Email Obfuscation para o domínio.
 
 ## Checklist depois do deploy
 
