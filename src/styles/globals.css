@@ -460,7 +460,8 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 /* barra de progresso da nav: fallback para navegadores sem animation-timeline */
 @supports not (animation-timeline:scroll()){.nav:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--brand);transform-origin:left;transform:scaleX(var(--sp,0))}}
 /* foto opcional na seção "Sobre" */
-.ph img{position:absolute;inset:2px;width:calc(100% - 4px);height:calc(100% - 4px);border-radius:26px;object-fit:cover;z-index:1}
+.ph picture{position:absolute;inset:2px;border-radius:26px;overflow:hidden;z-index:1}
+.ph picture img{display:block;width:100%;height:100%;object-fit:cover}
 .ph.has-photo .mono{padding:6px 10px;border-radius:8px;background:rgba(11,21,36,.72)}
 /* formulário de e-mail */
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
@@ -477,3 +478,5 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 @media (max-width:640px){.track span{opacity:.88}}
 /* next/image escreve width/height no <img>; o aspect-ratio do design manda na altura */
 .shot{height:auto}
+/* Turnstile: vazio na maioria das vezes; só ocupa espaço se a Cloudflare pedir um desafio */
+.ts iframe{max-width:100%}

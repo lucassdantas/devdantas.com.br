@@ -1,13 +1,12 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
 import { REGIONS, RULES, SERVICE_IDS } from "@/config/pricing";
-import { site } from "@/config/site";
 import type { Dictionary } from "@/i18n";
 import { roundTo } from "@/lib/calc";
 import { formatMoney } from "@/lib/format";
 import { ICONS } from "@/lib/icons";
 import WaIcon, { CheckIcon, PathIcon } from "./Icons";
+import MailForm from "./MailForm";
 import { useDisplay, useQuote } from "./QuoteProvider";
 
 export type CalculatorStrings = {
@@ -20,68 +19,6 @@ function Total({ suffix }: { suffix: string }) {
   const { region } = useQuote();
   const { display, flip } = useDisplay();
   return <b className={flip ? "pa" : "pb"}>{formatMoney(display, region)}<span>{suffix}</span></b>;
-}
-
-type MailStatus = "idle" | "sending" | "sent" | "error";
-
-function MailForm({ t }: { t: Dictionary["calc"] }) {
-  const { lang, region, quote, message } = useQuote();
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<MailStatus>("idle");
-
-  const send = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    if (data.get("_gotcha")) { setStatus("sent"); return; } // robô preencheu o campo invisível
-    if (email.indexOf("@") < 1 || status === "sending") return;
-    if (!site.formspreeId) {
-      console.warn("NEXT_PUBLIC_FORMSPREE_ID não configurado");
-      setStatus("error");
-      return;
-    }
-    setStatus("sending");
-    try {
-      const res = await fetch("https://formspree.io/f/" + encodeURIComponent(site.formspreeId), {
-        method: "POST",
-        headers: { Accept: "application/json", "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          _subject: site.quoteMailSubject + " · " + quote.service + " · " + formatMoney(quote.total, region),
-          message,
-          service: quote.service,
-          units: quote.units,
-          total: quote.total,
-          monthly: quote.monthly,
-          currency: REGIONS[region].currency,
-          region,
-          lang,
-          _gotcha: "",
-        }),
-      });
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      setStatus("sent");
-    } catch {
-      setStatus("error");
-    }
-  };
-
-  if (status === "sent") {
-    return <div className="sent" role="status"><CheckIcon size={20} width={2.6} />{t.sent}</div>;
-  }
-  return (
-    <>
-      <form className="mail" onSubmit={send}>
-        <label className="sr-only" htmlFor="email">{t.emailLabel}</label>
-        <input id="email" name="email" type="email" required autoComplete="email" placeholder={t.emailPh} value={email} onChange={(e) => setEmail(e.target.value)} />
-        <div className="hp" aria-hidden="true">
-          <label htmlFor="company-website">Website</label>
-          <input id="company-website" name="_gotcha" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
-        </div>
-        <button type="submit" disabled={status === "sending"}>{status === "sending" ? t.sending : t.send}</button>
-      </form>
-      {status === "error" && <p className="mailerr" role="alert">{t.error}</p>}
-    </>
-  );
 }
 
 export default function CalculatorWidget({ t }: { t: CalculatorStrings }) {

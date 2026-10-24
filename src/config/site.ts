@@ -33,18 +33,28 @@ export const site = {
   // TODO(Lucas): e-mail de contato do rodapé.
   email: "contato@dantasstudio.com",
 
-  // ID do Formspree (o final de formspree.io/f/SEU_ID). Não é segredo: aparece no site.
-  // A variável NEXT_PUBLIC_FORMSPREE_ID, se definida, tem prioridade.
-  formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID || "meaaojba",
+  /**
+   * Envio por e-mail: o navegador manda para a nossa função (api/orcamento.ts), que confere
+   * o Turnstile e repassa ao Formspree. O ID do Formspree fica só no servidor (FORMSPREE_FORM_ID).
+   */
+  quoteEndpoint: "/api/orcamento",
+
+  // TODO(Lucas): Site Key do Cloudflare Turnstile (pública). Defina NEXT_PUBLIC_TURNSTILE_SITE_KEY na Vercel.
+  // O padrão abaixo é a chave de TESTE da Cloudflare (sempre passa, invisível) — em produção,
+  // sem a chave real, a função recusa o envio.
+  turnstileSiteKey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "1x00000000000000000000BB",
   /** Assunto do e-mail que você recebe quando alguém pede o orçamento por e-mail. */
   quoteMailSubject: "Novo orçamento pelo site",
 
   /** Redes sociais (rodapé e dados estruturados). */
   linkedin: "https://www.linkedin.com/in/lucas-de-sousa-dantas",
 
-  // TODO(Lucas): sua foto na seção "Sobre". Coloque o arquivo em public/ (ex.: public/lucas.jpg,
-  // proporção 4:5) e escreva "/lucas.jpg" aqui. Com null, aparecem as iniciais.
+  // TODO(Lucas): sua foto na seção "Sobre". Salve em dantas-studio-handoff/assets/lucas.jpg,
+  // rode `npm run assets` e troque null por "/lucas" (vira lucas-400/800 .avif/.webp).
+  // Com null, aparecem as iniciais.
   photo: null as string | null,
+  /** Ponto da foto que fica sempre visível no corte (o rosto). No celular o quadro é horizontal. */
+  photoFocus: "50% 30%",
   photoInitials: "LD",
 
   /** Cor de destaque da marca (a "--brand" do design). */

@@ -31,7 +31,7 @@ for (const file of htmlFiles(out)) {
   for (const m of html.matchAll(INLINE)) {
     hashes.add("'sha256-" + crypto.createHash("sha256").update(m[1], "utf8").digest("base64") + "'");
   }
-  const policy = ["script-src 'self'", ...hashes].join(" ") + "; object-src 'none'; base-uri 'self'";
+  const policy = ["script-src 'self' https://challenges.cloudflare.com", ...hashes].join(" ") + "; object-src 'none'; base-uri 'self'";
   const meta = `<meta http-equiv="Content-Security-Policy" content="${policy}"/>`;
   // A <meta> precisa vir antes de qualquer <script>.
   const charset = html.match(/<meta charSet="utf-8"\s*\/?>/i);
