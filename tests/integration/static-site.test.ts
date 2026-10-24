@@ -191,3 +191,49 @@ describe("vercel.json", () => {
     expect(csp).not.toContain("formspree"); // o navegador não fala com o Formspree
   });
 });
+
+describe.each(LOCALES)("política de privacidade /%s/privacy", (lang) => {
+  const t = getDictionary(lang);
+  let doc: Document;
+  let html: string;
+  beforeAll(() => ({ doc, html } = load(lang + "/privacy.html")));
+
+  it("existe, no idioma certo, com título, canonical e hreflang", () => {
+    expect(doc.documentElement.lang).toBe(site.htmlLang[lang]);
+    expect(doc.querySelector("h1")?.textContent).toBe(t.privacy.title);
+    expect(doc.title).toContain(t.privacy.title);
+    expect(doc.querySelector('link[rel="canonical"]')?.getAttribute("href")).toBe(site.domain + "/" + lang + "/privacy");
+    expect(doc.querySelectorAll('link[rel="alternate"][hreflang]').length).toBe(LOCALES.length + 1);
+  });
+
+  it("todas as seções, sem placeholder sobrando e com o e-mail de contato", () => {
+    expect(doc.querySelectorAll("article section")).toHaveLength(t.privacy.sections.length);
+    const text = doc.querySelector("article")!.textContent!;
+    expect(text).not.toMatch(/\{(email|owner|brand|city)\}|\]\(/);
+    expect(doc.querySelector(`article a[href="mailto:${site.email}"]`)).not.toBeNull();
+    expect(text).toContain("Formspree");
+    expect(text).toContain("Turnstile");
+  });
+
+  it("links do rodapé voltam para a página do idioma (não para âncoras locais)", () => {
+    for (const a of doc.querySelectorAll('footer a[href*="#"]')) expect(a.getAttribute("href")).toMatch(new RegExp("^/" + lang + "#"));
+  });
+
+  it("tem CSP com hash", () => {
+    expect(html).toContain('http-equiv="Content-Security-Policy"');
+  });
+});
+
+describe("links pessoais e da política na página principal", () => {
+  it.each(LOCALES)("/%s tem LinkedIn, GitHub e o link da política no rodapé", (lang) => {
+    const { doc } = load(lang + ".html");
+    expect(doc.querySelectorAll(`a[href="${site.linkedin}"]`).length).toBeGreaterThanOrEqual(2);
+    expect(doc.querySelectorAll(`a[href="${site.github}"]`).length).toBeGreaterThanOrEqual(2);
+    expect(doc.querySelector(`footer a[href="/${lang}/privacy"]`)?.textContent).toBe(getDictionary(lang).footer.privacy);
+  });
+
+  it("sitemap inclui as políticas", () => {
+    const xml = read("sitemap.xml");
+    for (const l of LOCALES) expect(xml).toContain(`<loc>${site.domain}/${l}/privacy</loc>`);
+  });
+});

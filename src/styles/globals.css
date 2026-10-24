@@ -486,3 +486,22 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .tsnote a:hover{color:#E8EEF6}
 /* celular: com .mail em coluna, o flex:1 do design anulava a altura de 52px do campo de e-mail */
 @media (max-width:640px){.mail input{flex:none}}
+/* extras da calculadora: o ✓ só aparece marcado (no tema escuro ele ficava visível desmarcado) */
+.xcard .box svg{opacity:0;transform:scale(.5);transition:opacity .2s,transform .25s cubic-bezier(.2,.8,.2,1.4)}
+.xcard.on .box svg{opacity:1;transform:none}
+/* LinkedIn e GitHub na seção "Sobre" */
+.social{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.social a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:12px;border:1.5px solid var(--line);color:var(--ink);font-weight:700;font-size:14px;text-decoration:none;transition:border-color .25s,transform .25s}
+.social a:hover{border-color:var(--brandInk);transform:translateY(-2px)}
+.social svg{color:var(--brandInk)}
+.copy a{color:inherit;text-underline-offset:2px}
+.copy a:hover{color:var(--brandInk)}
+/* página de política de privacidade */
+.legal-back{margin-left:auto;min-height:44px;padding:0 16px;font-size:14.5px}
+.legal article{max-width:760px}
+.legal-updated{margin-top:12px;color:var(--ink2);font-size:11.5px}
+.legal section{margin-top:40px}
+.legal section h2{font-size:22px;letter-spacing:-.02em}
+.legal section p{color:var(--ink2);margin-top:12px}
+.legal a{color:var(--brandInk);text-underline-offset:2px}
+@media (max-width:640px){.legal section{margin-top:32px}.legal section h2{font-size:19px}}

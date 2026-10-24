@@ -315,6 +315,7 @@ const pt = {
     contact: "Contato",
     rights: "Todos os direitos reservados.",
     made: "Feito à mão, com código próprio.",
+    privacy: "Política de privacidade",
   },
   // Mensagens que vão prontas para o WhatsApp.
   wa: {
@@ -328,6 +329,68 @@ const pt = {
     bye: "Podemos conversar?",
     direct: "Olá, Lucas! Vim pelo seu site e quero um orçamento.",
     security: "Olá, Lucas! Preciso de ajuda com a segurança do meu site.",
+  },
+  // Página /<idioma>/privacy. {email} {owner} {brand} {city} viram os valores de site.ts; [texto](url) vira link.
+  // TODO(Lucas): revise com seu contador/advogado (principalmente o prazo de guarda de 2 anos).
+  privacy: {
+    title: "Política de privacidade",
+    description: "Como o Dantas Studio trata os seus dados: o que é coletado, por quê, com quem é compartilhado, por quanto tempo e como exercer seus direitos (LGPD e GDPR).",
+    updated: "Atualizada em 24 de outubro de 2026.",
+    back: "Voltar ao site",
+    intro: "Esta política explica, de forma direta, quais dados pessoais este site trata e como. Ela vale para o site {brand} em todos os idiomas.",
+    sections: [
+      {
+        h: "Quem é o responsável",
+        p: [
+          "O controlador dos dados é {owner} ({brand}), desenvolvedor ({city}, Brasil). Para qualquer assunto sobre privacidade, escreva para {email}.",
+        ],
+      },
+      {
+        h: "O que coletamos e por quê",
+        p: [
+          "Pedido de orçamento por e-mail: se você usar o formulário da calculadora, recebemos o seu e-mail e o resumo da simulação (serviço, tamanho, extras, valor estimado, moeda e idioma). Usamos só para responder ao seu pedido. Base legal: procedimentos preliminares a um contrato, feitos a seu pedido (LGPD art. 7º, V; GDPR art. 6(1)(b)).",
+          "Proteção contra spam: ao usar o formulário, o Cloudflare Turnstile processa sinais técnicos (como endereço IP e dados do navegador) para confirmar que você é uma pessoa. Base legal: legítimo interesse em proteger o site (LGPD art. 7º, IX; GDPR art. 6(1)(f)). Veja a [política do Turnstile](https://www.cloudflare.com/pt-br/turnstile-privacy-policy/).",
+          "Registros técnicos: a hospedagem (Vercel) e a rede (Cloudflare) registram dados como IP, data, página acessada e navegador, para manter o site seguro e funcionando. Base legal: legítimo interesse.",
+          "WhatsApp: os botões de WhatsApp só abrem uma conversa no aplicativo. O que você enviar lá segue a política do WhatsApp (Meta).",
+        ],
+      },
+      {
+        h: "O que não fazemos",
+        p: [
+          "Não usamos cookies de rastreamento, ferramentas de analytics nem publicidade, e não vendemos dados. Suas preferências (tema, moeda e idioma) ficam guardadas apenas no seu navegador e não são enviadas para nós.",
+        ],
+      },
+      {
+        h: "Com quem compartilhamos",
+        p: [
+          "Só com os serviços necessários para o site funcionar, que tratam os dados em nosso nome: Formspree (entrega do e-mail), Cloudflare (proteção contra spam e rede) e Vercel (hospedagem). Eles podem processar dados fora do Brasil, como nos Estados Unidos, com as salvaguardas contratuais previstas na LGPD e no GDPR.",
+        ],
+      },
+      {
+        h: "Por quanto tempo guardamos",
+        p: [
+          "E-mails de orçamento ficam guardados enquanto conversamos e por até 2 anos depois, para histórico de atendimento — ou pelo prazo exigido por lei, se virarem contrato. Registros técnicos seguem os prazos da Vercel e da Cloudflare.",
+        ],
+      },
+      {
+        h: "Seus direitos",
+        p: [
+          "Você pode pedir a qualquer momento: confirmação de que tratamos seus dados, acesso, correção, exclusão, portabilidade, informações sobre compartilhamento e se opor a um tratamento. Basta escrever para {email}; respondemos em até 15 dias. Você também pode reclamar à ANPD (Brasil) ou à autoridade de proteção de dados do seu país.",
+        ],
+      },
+      {
+        h: "Segurança",
+        p: [
+          "O site usa HTTPS, cabeçalhos de segurança e acesso restrito às contas que guardam os dados. Nenhum sistema é 100% seguro, mas adotamos as medidas razoáveis para proteger suas informações.",
+        ],
+      },
+      {
+        h: "Mudanças nesta política",
+        p: [
+          "Se esta política mudar, a nova versão será publicada nesta página com a data atualizada.",
+        ],
+      },
+    ],
   },
 };
 

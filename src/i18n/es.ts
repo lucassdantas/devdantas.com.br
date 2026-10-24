@@ -294,6 +294,7 @@ const es: Dictionary = {
     contact: "Contacto",
     rights: "Todos los derechos reservados.",
     made: "Hecho a mano, con código propio.",
+    privacy: "Política de privacidad",
   },
   wa: {
     hi: "¡Hola, Lucas! Hice una simulación en tu web:",
@@ -306,6 +307,66 @@ const es: Dictionary = {
     bye: "¿Podemos hablar?",
     direct: "¡Hola, Lucas! Vengo de tu web y quiero un presupuesto.",
     security: "¡Hola, Lucas! Necesito ayuda con la seguridad de mi web.",
+  },
+  privacy: {
+    title: "Política de privacidad",
+    description: "Cómo Dantas Studio trata tus datos: qué se recopila, por qué, con quién se comparte, cuánto tiempo se guarda y cómo ejercer tus derechos (RGPD y LGPD).",
+    updated: "Actualizada el 24 de octubre de 2026.",
+    back: "Volver al sitio",
+    intro: "Esta política explica, de forma directa, qué datos personales trata este sitio y cómo. Se aplica al sitio de {brand} en todos los idiomas.",
+    sections: [
+      {
+        h: "Quién es el responsable",
+        p: [
+          "El responsable del tratamiento es {owner} ({brand}), desarrollador en {city}, Brasil. Para cualquier asunto de privacidad, escribe a {email}.",
+        ],
+      },
+      {
+        h: "Qué recopilamos y por qué",
+        p: [
+          "Presupuesto por e-mail: si usas el formulario de la calculadora, recibimos tu e-mail y el resumen de la simulación (servicio, tamaño, extras, valor estimado, moneda e idioma). Lo usamos solo para responder a tu solicitud. Base legal: medidas precontractuales a tu solicitud (RGPD art. 6(1)(b); LGPD art. 7, V).",
+          "Protección contra spam: al usar el formulario, Cloudflare Turnstile procesa señales técnicas (como la dirección IP y datos del navegador) para confirmar que eres una persona. Base legal: interés legítimo en proteger el sitio (RGPD art. 6(1)(f); LGPD art. 7, IX). Consulta la [política de Turnstile](https://www.cloudflare.com/es-la/turnstile-privacy-policy/).",
+          "Registros técnicos: el hosting (Vercel) y la red (Cloudflare) registran datos como IP, fecha, página visitada y navegador, para mantener el sitio seguro y funcionando. Base legal: interés legítimo.",
+          "WhatsApp: los botones de WhatsApp solo abren una conversación en la aplicación. Lo que envíes allí se rige por la política de WhatsApp (Meta).",
+        ],
+      },
+      {
+        h: "Lo que no hacemos",
+        p: [
+          "No usamos cookies de seguimiento, herramientas de analítica ni publicidad, y no vendemos datos. Tus preferencias (tema, moneda e idioma) se guardan solo en tu navegador y nunca se nos envían.",
+        ],
+      },
+      {
+        h: "Con quién compartimos",
+        p: [
+          "Solo con los servicios necesarios para que el sitio funcione, que tratan los datos en nuestro nombre: Formspree (entrega del e-mail), Cloudflare (protección contra spam y red) y Vercel (hosting). Pueden tratar datos fuera de tu país, como en Estados Unidos, con las garantías contractuales que exigen el RGPD y la LGPD.",
+        ],
+      },
+      {
+        h: "Cuánto tiempo los guardamos",
+        p: [
+          "Los e-mails de presupuesto se guardan mientras conversamos y hasta 2 años después, como historial de atención — o durante el plazo que exija la ley si se convierten en contrato. Los registros técnicos siguen los plazos de Vercel y Cloudflare.",
+        ],
+      },
+      {
+        h: "Tus derechos",
+        p: [
+          "Puedes pedir en cualquier momento: confirmación de que tratamos tus datos, acceso, rectificación, supresión, portabilidad, información sobre con quién se comparten y oponerte a un tratamiento. Escribe a {email}; respondemos en un plazo de 15 días. También puedes reclamar ante la autoridad de protección de datos de tu país (o la ANPD de Brasil).",
+        ],
+      },
+      {
+        h: "Seguridad",
+        p: [
+          "El sitio usa HTTPS, cabeceras de seguridad y acceso restringido a las cuentas que guardan los datos. Ningún sistema es 100% seguro, pero adoptamos medidas razonables para proteger tu información.",
+        ],
+      },
+      {
+        h: "Cambios en esta política",
+        p: [
+          "Si esta política cambia, la nueva versión se publicará en esta página con la fecha actualizada.",
+        ],
+      },
+    ],
   },
 };
 

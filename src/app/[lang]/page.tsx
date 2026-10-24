@@ -51,7 +51,7 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
         <Faq t={t.faq} />
         <FinalCta t={t.final} waText={t.wa.direct} />
       </main>
-      <Footer t={t} />
+      <Footer t={t} lang={lang} />
       <MobileBar total={t.calc.total} totalMonthly={t.calc.totalMonthly} perMonth={t.calc.perMonth} />
       <WhatsAppFloat label={t.ui.float} waText={t.wa.direct} />
       <Reveal />

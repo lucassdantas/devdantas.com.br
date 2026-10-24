@@ -32,7 +32,8 @@ Regra: **preço, texto, WhatsApp e idiomas mudam só em `src/config/` e `src/i18
 | --------------------------------------- | -------------------------------------------------------- |
 | Preços, moedas, extras, prazos          | `src/config/pricing.ts`                                  |
 | Qualquer texto (e títulos do Google)    | `src/i18n/pt.ts` + `en.ts`, `es.ts`, `fr.ts`, `de.ts`    |
-| WhatsApp, e-mail, LinkedIn, domínio     | `src/config/site.ts`                                     |
+| WhatsApp, e-mail, LinkedIn, GitHub, domínio | `src/config/site.ts`                                 |
+| Política de privacidade                 | `src/i18n/*.ts` → `privacy` (página `/<idioma>/privacy`) |
 | Foto do "Sobre"                         | `dantas-studio-handoff/assets/lucas.jpg` → `npm run assets` → `site.photo = "/lucas"` |
 | Prints dos cases, ícones, imagens OG    | `npm run assets`                                         |
 
@@ -68,5 +69,6 @@ Procure por `TODO(Lucas)` no código:
 - [ ] Formspree: **ID novo** (o primeiro ficou no histórico do Git) na Vercel
 - [ ] E-mail de contato (`site.ts`)
 - [ ] Revisar preços (`pricing.ts`)
+- [ ] Revisar a política de privacidade (`i18n/*.ts` → `privacy`), principalmente o prazo de guarda de 2 anos
 - [ ] Revisar "100% das entregas no prazo", "30 dias de ajustes", condições de pagamento
       e "Figma" no card de Design (`i18n/*.ts`, `pricing.ts` → `STACK`)

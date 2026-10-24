@@ -135,3 +135,24 @@ test.describe("layout e acessibilidade básica", () => {
     await expect(page.locator(".qbtn").first()).toHaveAttribute("aria-expanded", "false");
   });
 });
+
+test.describe("política de privacidade", () => {
+  test("abre pelo rodapé, sem erros, e volta para o site", async ({ page }) => {
+    await page.goto("/pt");
+    await page.locator("footer").getByRole("link", { name: "Política de privacidade" }).click();
+    await expect(page).toHaveURL(/\/pt\/privacy$/);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Política de privacidade");
+    await page.getByRole("link", { name: /Voltar ao site/ }).click();
+    await expect(page).toHaveURL(/\/pt$/);
+  });
+
+  test("extras: o ✓ só aparece quando o item está marcado", async ({ page }) => {
+    await page.emulateMedia({ colorScheme: "dark" });
+    await page.goto("/pt#orcamento");
+    const card = page.locator(".xcard").first();
+    const check = card.locator(".box svg");
+    await expect(check).toHaveCSS("opacity", "0");
+    await card.click();
+    await expect(check).toHaveCSS("opacity", "1");
+  });
+});

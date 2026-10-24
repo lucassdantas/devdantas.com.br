@@ -301,6 +301,7 @@ const de: Dictionary = {
     contact: "Kontakt",
     rights: "Alle Rechte vorbehalten.",
     made: "Handgemacht, mit eigenem Code.",
+    privacy: "Datenschutzerklärung",
   },
   wa: {
     hi: "Hallo Lucas! Ich habe auf Ihrer Website ein Angebot berechnet:",
@@ -313,6 +314,66 @@ const de: Dictionary = {
     bye: "Können wir sprechen?",
     direct: "Hallo Lucas! Ich komme von Ihrer Website und hätte gern ein Angebot.",
     security: "Hallo Lucas! Ich brauche Hilfe bei der Sicherheit meiner Website.",
+  },
+  privacy: {
+    title: "Datenschutzerklärung",
+    description: "Wie Dantas Studio mit Ihren Daten umgeht: was erhoben wird, warum, an wen es weitergegeben wird, wie lange es gespeichert wird und wie Sie Ihre Rechte ausüben (DSGVO und LGPD).",
+    updated: "Stand: 24. Oktober 2026.",
+    back: "Zurück zur Website",
+    intro: "Diese Erklärung beschreibt verständlich, welche personenbezogenen Daten diese Website verarbeitet und wie. Sie gilt für die Website von {brand} in allen Sprachen.",
+    sections: [
+      {
+        h: "Verantwortlicher",
+        p: [
+          "Verantwortlich ist {owner} ({brand}), Entwickler in {city}, Brasilien. Bei allen Fragen zum Datenschutz schreiben Sie an {email}.",
+        ],
+      },
+      {
+        h: "Was wir erheben und warum",
+        p: [
+          "Angebotsanfrage per E-Mail: Wenn Sie das Formular des Rechners nutzen, erhalten wir Ihre E-Mail-Adresse und die Zusammenfassung Ihrer Berechnung (Leistung, Umfang, Extras, geschätzter Preis, Währung und Sprache). Wir nutzen sie nur, um Ihre Anfrage zu beantworten. Rechtsgrundlage: vorvertragliche Maßnahmen auf Ihre Anfrage (DSGVO Art. 6 Abs. 1 lit. b; LGPD Art. 7, V).",
+          "Spam-Schutz: Wenn Sie das Formular nutzen, verarbeitet Cloudflare Turnstile technische Signale (wie IP-Adresse und Browserdaten), um zu bestätigen, dass Sie ein Mensch sind. Rechtsgrundlage: berechtigtes Interesse am Schutz der Website (DSGVO Art. 6 Abs. 1 lit. f; LGPD Art. 7, IX). Siehe die [Datenschutzerklärung von Turnstile](https://www.cloudflare.com/de-de/turnstile-privacy-policy/).",
+          "Technische Protokolle: Hosting (Vercel) und Netzwerk (Cloudflare) protokollieren Daten wie IP, Datum, aufgerufene Seite und Browser, um die Website sicher und funktionsfähig zu halten. Rechtsgrundlage: berechtigtes Interesse.",
+          "WhatsApp: Die WhatsApp-Buttons öffnen nur einen Chat in der App. Was Sie dort senden, unterliegt der Datenschutzerklärung von WhatsApp (Meta).",
+        ],
+      },
+      {
+        h: "Was wir nicht tun",
+        p: [
+          "Wir verwenden keine Tracking-Cookies, keine Analyse- oder Werbetools und verkaufen keine Daten. Ihre Einstellungen (Design, Währung und Sprache) werden nur in Ihrem Browser gespeichert und nie an uns gesendet.",
+        ],
+      },
+      {
+        h: "An wen wir Daten weitergeben",
+        p: [
+          "Nur an Dienste, die für den Betrieb der Website nötig sind und die Daten in unserem Auftrag verarbeiten: Formspree (Zustellung der E-Mail), Cloudflare (Spam-Schutz und Netzwerk) und Vercel (Hosting). Sie können Daten außerhalb Ihres Landes verarbeiten, etwa in den USA, mit den vertraglichen Garantien nach DSGVO und LGPD.",
+        ],
+      },
+      {
+        h: "Speicherdauer",
+        p: [
+          "Angebots-E-Mails werden während unseres Austauschs und bis zu 2 Jahre danach als Verlauf gespeichert — oder so lange, wie das Gesetz es verlangt, wenn daraus ein Vertrag wird. Technische Protokolle folgen den Fristen von Vercel und Cloudflare.",
+        ],
+      },
+      {
+        h: "Ihre Rechte",
+        p: [
+          "Sie können jederzeit verlangen: Bestätigung, ob wir Ihre Daten verarbeiten, Auskunft, Berichtigung, Löschung, Datenübertragbarkeit, Informationen über Weitergaben sowie der Verarbeitung widersprechen. Schreiben Sie an {email}; wir antworten innerhalb von 15 Tagen. Sie können sich auch bei der Datenschutzaufsichtsbehörde Ihres Landes (oder der ANPD in Brasilien) beschweren.",
+        ],
+      },
+      {
+        h: "Sicherheit",
+        p: [
+          "Die Website nutzt HTTPS, Sicherheits-Header und einen eingeschränkten Zugang zu den Konten, in denen Daten gespeichert sind. Kein System ist 100 % sicher, aber wir treffen angemessene Maßnahmen zum Schutz Ihrer Daten.",
+        ],
+      },
+      {
+        h: "Änderungen",
+        p: [
+          "Wenn sich diese Erklärung ändert, wird die neue Fassung auf dieser Seite mit aktualisiertem Datum veröffentlicht.",
+        ],
+      },
+    ],
   },
 };
 

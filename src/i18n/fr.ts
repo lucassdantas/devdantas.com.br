@@ -298,6 +298,7 @@ const fr: Dictionary = {
     contact: "Contact",
     rights: "Tous droits réservés.",
     made: "Fait main, avec du code sur mesure.",
+    privacy: "Politique de confidentialité",
   },
   wa: {
     hi: "Bonjour Lucas ! J’ai fait une simulation sur votre site :",
@@ -310,6 +311,66 @@ const fr: Dictionary = {
     bye: "Pouvons-nous en parler ?",
     direct: "Bonjour Lucas ! Je viens de votre site et j’aimerais un devis.",
     security: "Bonjour Lucas ! J’ai besoin d’aide pour la sécurité de mon site.",
+  },
+  privacy: {
+    title: "Politique de confidentialité",
+    description: "Comment Dantas Studio traite vos données : ce qui est collecté, pourquoi, avec qui c’est partagé, combien de temps c’est conservé et comment exercer vos droits (RGPD et LGPD).",
+    updated: "Mise à jour le 24 octobre 2026.",
+    back: "Retour au site",
+    intro: "Cette politique explique simplement quelles données personnelles ce site traite et comment. Elle s’applique au site {brand} dans toutes les langues.",
+    sections: [
+      {
+        h: "Responsable du traitement",
+        p: [
+          "Le responsable du traitement est {owner} ({brand}), développeur basé à {city}, Brésil. Pour toute question de confidentialité, écrivez à {email}.",
+        ],
+      },
+      {
+        h: "Ce que nous collectons et pourquoi",
+        p: [
+          "Demande de devis par e-mail : si vous utilisez le formulaire du calculateur, nous recevons votre e-mail et le résumé de la simulation (service, taille, options, montant estimé, devise et langue). Nous l’utilisons uniquement pour répondre à votre demande. Base légale : mesures précontractuelles prises à votre demande (RGPD art. 6(1)(b) ; LGPD art. 7, V).",
+          "Protection contre le spam : lorsque vous utilisez le formulaire, Cloudflare Turnstile traite des signaux techniques (comme l’adresse IP et des données du navigateur) pour confirmer que vous êtes une personne. Base légale : intérêt légitime à protéger le site (RGPD art. 6(1)(f) ; LGPD art. 7, IX). Voir la [politique de Turnstile](https://www.cloudflare.com/fr-fr/turnstile-privacy-policy/).",
+          "Journaux techniques : l’hébergeur (Vercel) et le réseau (Cloudflare) enregistrent des données comme l’IP, la date, la page consultée et le navigateur, pour garder le site sûr et fonctionnel. Base légale : intérêt légitime.",
+          "WhatsApp : les boutons WhatsApp ouvrent seulement une conversation dans l’application. Ce que vous y envoyez relève de la politique de WhatsApp (Meta).",
+        ],
+      },
+      {
+        h: "Ce que nous ne faisons pas",
+        p: [
+          "Nous n’utilisons ni cookies de suivi, ni outils d’analyse, ni publicité, et nous ne vendons pas de données. Vos préférences (thème, devise et langue) sont stockées uniquement dans votre navigateur et ne nous sont jamais envoyées.",
+        ],
+      },
+      {
+        h: "Avec qui nous partageons",
+        p: [
+          "Uniquement avec les services nécessaires au fonctionnement du site, qui traitent les données pour notre compte : Formspree (envoi de l’e-mail), Cloudflare (protection anti-spam et réseau) et Vercel (hébergement). Ils peuvent traiter des données hors de votre pays, par exemple aux États-Unis, avec les garanties contractuelles exigées par le RGPD et la LGPD.",
+        ],
+      },
+      {
+        h: "Durée de conservation",
+        p: [
+          "Les e-mails de devis sont conservés pendant nos échanges et jusqu’à 2 ans ensuite, comme historique — ou pendant la durée exigée par la loi s’ils deviennent un contrat. Les journaux techniques suivent les durées de Vercel et de Cloudflare.",
+        ],
+      },
+      {
+        h: "Vos droits",
+        p: [
+          "Vous pouvez demander à tout moment : la confirmation que nous traitons vos données, l’accès, la rectification, l’effacement, la portabilité, des informations sur le partage, et vous opposer à un traitement. Écrivez à {email} ; nous répondons sous 15 jours. Vous pouvez aussi saisir l’autorité de protection des données de votre pays (en France, la CNIL) ou l’ANPD au Brésil.",
+        ],
+      },
+      {
+        h: "Sécurité",
+        p: [
+          "Le site utilise HTTPS, des en-têtes de sécurité et un accès restreint aux comptes qui conservent les données. Aucun système n’est sûr à 100 %, mais nous prenons des mesures raisonnables pour protéger vos informations.",
+        ],
+      },
+      {
+        h: "Modifications",
+        p: [
+          "Si cette politique change, la nouvelle version sera publiée sur cette page avec une date mise à jour.",
+        ],
+      },
+    ],
   },
 };
 

@@ -52,7 +52,7 @@ export function buildJsonLd(lang: Locale, t: Dictionary) {
         areaServed: [{ "@type": "Country", name: "Brasil" }, { "@type": "Place", name: "Worldwide" }],
         knowsLanguage: site.workLanguageTags,
         founder: { "@id": ids.person },
-        sameAs: [site.linkedin],
+        sameAs: [site.linkedin, site.github],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: t.services.kicker,
@@ -69,7 +69,7 @@ export function buildJsonLd(lang: Locale, t: Dictionary) {
         jobTitle: t.about.role,
         worksFor: { "@id": ids.business },
         knowsAbout: site.facts,
-        sameAs: [site.linkedin],
+        sameAs: [site.linkedin, site.github],
       },
       {
         "@type": "FAQPage",

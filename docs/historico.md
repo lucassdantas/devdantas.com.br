@@ -48,8 +48,14 @@ Linha do tempo das entregas. O detalhe de cada mudança está no `git log`; o po
 - Uma tabela em real; dólar, euro e libra pelo câmbio + 8% (ADR-0019). Região LatAm removida.
 - Landing: R$ 1.800 · US$ 380 · 340 € · £290.
 
+### Privacidade e links
+- Página de política de privacidade em 5 idiomas (`/<idioma>/privacy`), linkada no rodapé e no sitemap; textos em `i18n → privacy`.
+- LinkedIn e GitHub no "Sobre", no rodapé e nos dados estruturados.
+- ✓ dos extras da calculadora só aparece quando marcado (ADR-0011).
+
 ## Pendências
 
 - [ ] WhatsApp real, revisão de preços e das garantias ("100% no prazo", "30 dias de ajustes", "Figma").
 - [ ] Gerar nova Secret Key do Turnstile (a atual foi exposta no chat) e cadastrar na Vercel + Formspree (ID novo) — [operacao/deploy.md](operacao/deploy.md).
+- [ ] Revisar a política de privacidade com contador/advogado (prazo de guarda de 2 anos, regime).
 - [ ] Primeiro deploy e checklist pós-deploy (PageSpeed real, securityheaders, Rich Results).

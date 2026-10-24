@@ -57,6 +57,13 @@ invisível, limite por IP, validação e tamanho máximo, ID escondido.
 Nenhum script de terceiro é carregado ao abrir a página (sem analytics, sem fontes externas).
 Teste: E2E "carrega sem erros, sem violação de CSP e sem terceiros".
 
+## Política de privacidade
+
+Página `/<idioma>/privacy` (5 idiomas, link no rodapé), com controlador, dados tratados e bases legais
+(LGPD/GDPR), operadores (Formspree, Cloudflare, Vercel), prazo de guarda e direitos. Textos em
+`i18n → privacy`; `{email}`, `{owner}`, `{brand}`, `{city}` vêm de `site.ts` e `[texto](url)` vira link.
+Se o site passar a usar analytics, cookies ou outro serviço, **atualize a política junto**.
+
 ## Links externos
 
 Todos com `target="_blank" rel="noopener noreferrer"` (conferido nos testes de integração).

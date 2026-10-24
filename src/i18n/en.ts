@@ -298,6 +298,7 @@ const en: Dictionary = {
     contact: "Contact",
     rights: "All rights reserved.",
     made: "Handcrafted with custom code.",
+    privacy: "Privacy policy",
   },
   wa: {
     hi: "Hi Lucas! I ran a quote on your website:",
@@ -310,6 +311,66 @@ const en: Dictionary = {
     bye: "Can we talk?",
     direct: "Hi Lucas! I found your website and I’d like a quote.",
     security: "Hi Lucas! I need help with my website’s security.",
+  },
+  privacy: {
+    title: "Privacy policy",
+    description: "How Dantas Studio handles your data: what is collected, why, who it is shared with, how long it is kept and how to exercise your rights (GDPR and LGPD).",
+    updated: "Last updated: October 24, 2026.",
+    back: "Back to the website",
+    intro: "This policy explains, plainly, which personal data this website processes and how. It applies to the {brand} website in every language.",
+    sections: [
+      {
+        h: "Who is responsible",
+        p: [
+          "The data controller is {owner} ({brand}), a developer based in {city}, Brazil. For any privacy matter, write to {email}.",
+        ],
+      },
+      {
+        h: "What we collect and why",
+        p: [
+          "Quote request by email: if you use the calculator form, we receive your email and a summary of your estimate (service, size, extras, estimated price, currency and language). We use it only to reply to your request. Legal basis: steps taken at your request before entering into a contract (GDPR art. 6(1)(b); LGPD art. 7, V).",
+          "Spam protection: when you use the form, Cloudflare Turnstile processes technical signals (such as IP address and browser data) to confirm you are a person. Legal basis: legitimate interest in protecting the website (GDPR art. 6(1)(f); LGPD art. 7, IX). See the [Turnstile privacy policy](https://www.cloudflare.com/turnstile-privacy-policy/).",
+          "Technical logs: the hosting (Vercel) and network (Cloudflare) providers record data such as IP, date, page visited and browser, to keep the website secure and running. Legal basis: legitimate interest.",
+          "WhatsApp: the WhatsApp buttons only open a chat in the app. Whatever you send there is governed by WhatsApp's (Meta) policy.",
+        ],
+      },
+      {
+        h: "What we don't do",
+        p: [
+          "We don't use tracking cookies, analytics or advertising tools, and we don't sell data. Your preferences (theme, currency and language) are stored only in your browser and are never sent to us.",
+        ],
+      },
+      {
+        h: "Who we share data with",
+        p: [
+          "Only the services needed to run the website, which process data on our behalf: Formspree (email delivery), Cloudflare (spam protection and network) and Vercel (hosting). They may process data outside your country, such as in the United States, under the contractual safeguards required by the GDPR and LGPD.",
+        ],
+      },
+      {
+        h: "How long we keep it",
+        p: [
+          "Quote emails are kept while we talk and for up to 2 years afterwards, as a service record — or for the period required by law if they become a contract. Technical logs follow Vercel's and Cloudflare's retention periods.",
+        ],
+      },
+      {
+        h: "Your rights",
+        p: [
+          "You can ask at any time for: confirmation that we process your data, access, correction, deletion, portability, information about sharing, and to object to processing. Just write to {email}; we reply within 15 days. You may also complain to your local data protection authority (or Brazil's ANPD).",
+        ],
+      },
+      {
+        h: "Security",
+        p: [
+          "The website uses HTTPS, security headers and restricted access to the accounts that store data. No system is 100% secure, but we take reasonable measures to protect your information.",
+        ],
+      },
+      {
+        h: "Changes to this policy",
+        p: [
+          "If this policy changes, the new version will be published on this page with an updated date.",
+        ],
+      },
+    ],
   },
 };
 

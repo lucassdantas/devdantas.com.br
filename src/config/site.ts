@@ -47,7 +47,8 @@ export const site = {
   quoteMailSubject: "Novo orçamento pelo site",
 
   /** Redes sociais (rodapé e dados estruturados). */
-  linkedin: "https://www.linkedin.com/in/lucas-de-sousa-dantas",
+  linkedin: "https://www.linkedin.com/in/lucas-de-sousa-dantas/",
+  github: "https://github.com/lucassdantas",
 
   // Foto da seção "Sobre": original em dantas-studio-handoff/assets/lucas.jpg; `npm run assets`
   // gera public/lucas-400/800 .avif/.webp. Para trocar, substitua o arquivo e rode de novo.

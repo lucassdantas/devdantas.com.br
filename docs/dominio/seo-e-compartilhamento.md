@@ -36,7 +36,7 @@ Teste: `tests/unit/seo.test.ts`.
 
 ## Sitemap, robots, raiz
 
-- `sitemap.xml`: as 5 URLs, cada uma com os alternates de idioma.
+- `sitemap.xml`: as 5 páginas principais (com os alternates de idioma) e as 5 políticas de privacidade.
 - `robots.txt`: libera tudo e aponta o sitemap.
 - `/` tem `noindex, follow` (só redireciona). A 404 também é `noindex`.
 
