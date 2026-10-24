@@ -140,6 +140,11 @@ export default function MailForm({ t }: { t: Dictionary["calc"] }) {
           <button type="submit" disabled={status === "sending"}>{status === "sending" ? t.sending : t.send}</button>
         </form>
         <div className="ts" ref={ts.box}></div>
+        {/* Aviso exigido pela LGPD/GDPR: o Turnstile processa dados do visitante (IP, navegador). */}
+        <p className="disc tsnote">
+          {t.captcha}{" "}
+          <a href={t.captchaUrl} target="_blank" rel="noopener noreferrer">{t.captchaLink}</a>
+        </p>
       </div>
       {status === "error" && <p className="mailerr" role="alert">{t.error}</p>}
     </>

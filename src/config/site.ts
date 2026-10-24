@@ -39,11 +39,10 @@ export const site = {
    */
   quoteEndpoint: "/api/orcamento",
 
-  // TODO(Lucas): "Site Key" do widget do Cloudflare Turnstile (é pública, pode ficar no código).
+  // "Site Key" do widget do Cloudflare Turnstile (é pública, pode ficar no código).
   // A "Secret Key" do mesmo widget NÃO vem para cá: vai na variável TURNSTILE_SECRET_KEY da Vercel.
-  // O valor abaixo é a chave de TESTE da Cloudflare (sempre passa, invisível): serve para rodar
-  // no computador; em produção, com a Secret Key real, a função recusa até você trocar aqui.
-  turnstileSiteKey: "1x00000000000000000000BB",
+  // Chave de teste da Cloudflare (sempre passa, invisível), se precisar: 1x00000000000000000000BB
+  turnstileSiteKey: "0x4AAAAAAFjWZExqM2tg6xj0",
   /** Assunto do e-mail que você recebe quando alguém pede o orçamento por e-mail. */
   quoteMailSubject: "Novo orçamento pelo site",
 

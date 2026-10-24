@@ -242,6 +242,9 @@ const pt = {
     sending: "Enviando…",
     error: "Não foi possível enviar agora. Tente de novo ou fale no WhatsApp.",
     emailLabel: "E-mail",
+    captcha: "Protegido pelo Cloudflare Turnstile.",
+    captchaLink: "Política de privacidade",
+    captchaUrl: "https://www.cloudflare.com/pt-br/turnstile-privacy-policy/",
   },
   // Seção 06: as 4 etapas.
   process: {

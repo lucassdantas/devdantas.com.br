@@ -34,9 +34,13 @@ Linha do tempo das entregas. O detalhe de cada mudança está no `git log`; o po
 - WhatsApp e Site Key do Turnstile saem das variáveis e vão para `site.ts` (são públicos);
   na Vercel ficam só os 2 segredos (ADR-0018). Passo a passo da Vercel e da Cloudflare em `operacao/deploy.md`.
 
+### 6. Turnstile configurado
+- Site Key real no código; aviso "Protegido pelo Cloudflare Turnstile" com link da política de privacidade (5 idiomas).
+- Corrigido o campo de e-mail achatado no celular (bug do CSS do design; ADR-0011).
+
 ## Pendências
 
 - [ ] Foto do Lucas em `dantas-studio-handoff/assets/lucas.jpg` → `npm run assets` → `site.photo = "/lucas"`.
 - [ ] WhatsApp real, revisão de preços e das garantias ("100% no prazo", "30 dias de ajustes", "Figma").
-- [ ] Turnstile (Site Key em `site.ts`, Secret Key na Vercel) + Formspree (ID novo) na Vercel — [operacao/deploy.md](operacao/deploy.md).
+- [ ] Gerar nova Secret Key do Turnstile (a atual foi exposta no chat) e cadastrar na Vercel + Formspree (ID novo) — [operacao/deploy.md](operacao/deploy.md).
 - [ ] Primeiro deploy e checklist pós-deploy (PageSpeed real, securityheaders, Rich Results).

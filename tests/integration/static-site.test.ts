@@ -73,9 +73,11 @@ describe.each(LOCALES)("página /%s", (lang) => {
   });
 
   it("textos legais estão na página", () => {
+    expect(doc.querySelector(".tsnote a")?.getAttribute("href")).toBe(t.calc.captchaUrl);
+    expect(t.calc.captchaUrl).toMatch(/^https:\/\/www\.cloudflare\.com\/([a-z]{2}-[a-z]{2}\/)?turnstile-privacy-policy\/$/);
     expect(doc.querySelector(".note b")?.textContent).toBe(t.security.noteTitle);
     expect(doc.querySelector(".note p")?.textContent).toBe(t.security.note);
-    expect(doc.querySelector(".disc")?.textContent).toBe(t.calc.disc);
+    expect(doc.querySelector(".disc:not(.tsnote)")?.textContent).toBe(t.calc.disc);
   });
 
   it("toda âncora interna aponta para um elemento existente", () => {

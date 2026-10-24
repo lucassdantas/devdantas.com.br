@@ -101,6 +101,9 @@ test.describe("layout e acessibilidade básica", () => {
     await expect(page.locator(".mbar")).toBeVisible();
     await expect(page.locator(".wa-float")).toBeHidden();
     expect(norm(await page.locator(".mbar b").textContent())).toBe("R$ 1.800");
+    // o campo de e-mail não pode ficar achatado no formulário em coluna
+    const box = await page.locator("#email").boundingBox();
+    expect(box!.height).toBeGreaterThanOrEqual(48);
   });
 
   test("desktop: botão flutuante do WhatsApp visível", async ({ page, isMobile }) => {

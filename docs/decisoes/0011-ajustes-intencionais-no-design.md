@@ -18,6 +18,7 @@ alvos de 44px) e um erro de lógica obrigaram exceções mínimas.
 | `aria-live` só com o valor final (região escondida) | Com `aria-live` no resumo inteiro, o leitor de tela leria cada passo da contagem |
 | `color-scheme: dark` no tema escuro | As listas nativas dos `<select>` ficavam claras no modo escuro |
 | FAQ com todas as respostas no HTML (`hidden`) | No design só a aberta existia; assim o Google lê todas |
+| Campo de e-mail com `flex: none` no celular | Com o formulário em coluna, o `flex: 1` do design achatava o campo e cortava o texto |
 
 ## Consequências
 Diferenças visuais imperceptíveis; ganhos de acessibilidade e correção. Todas estão comentadas no fim

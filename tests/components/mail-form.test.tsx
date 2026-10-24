@@ -100,3 +100,13 @@ describe("envio por e-mail", () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 });
+
+describe("aviso do Turnstile", () => {
+  it("mostra o aviso com o link da política de privacidade da Cloudflare", () => {
+    renderWithQuote(<MailForm t={pt.calc} />);
+    const link = screen.getByRole("link", { name: pt.calc.captchaLink });
+    expect(link).toHaveAttribute("href", "https://www.cloudflare.com/pt-br/turnstile-privacy-policy/");
+    expect(link).toHaveAttribute("rel", "noopener noreferrer");
+    expect(screen.getByText(pt.calc.captcha, { exact: false })).toBeInTheDocument();
+  });
+});

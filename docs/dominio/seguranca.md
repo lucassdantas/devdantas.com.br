@@ -50,7 +50,7 @@ invisível, limite por IP, validação e tamanho máximo, ID escondido.
 
 | Serviço     | Quando                         | Dados                      |
 | ----------- | ------------------------------ | -------------------------- |
-| Cloudflare Turnstile | ao usar o formulário de e-mail | sinais do navegador para o desafio |
+| Cloudflare Turnstile | ao usar o formulário de e-mail | IP, navegador e sinais para o desafio (aviso + link da política junto do formulário) |
 | Formspree   | ao enviar (pelo servidor)      | e-mail do visitante + resumo |
 | WhatsApp    | ao clicar (link)               | o que o visitante enviar    |
 

@@ -480,3 +480,9 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .shot{height:auto}
 /* Turnstile: vazio na maioria das vezes; só ocupa espaço se a Cloudflare pedir um desafio */
 .ts iframe{max-width:100%}
+/* aviso do Turnstile, logo abaixo do campo de e-mail (mesmo estilo do aviso de valores) */
+.tsnote{margin-top:10px}
+.tsnote a{color:#C9D4E3;text-decoration:underline;text-underline-offset:2px}
+.tsnote a:hover{color:#E8EEF6}
+/* celular: com .mail em coluna, o flex:1 do design anulava a altura de 52px do campo de e-mail */
+@media (max-width:640px){.mail input{flex:none}}

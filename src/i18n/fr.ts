@@ -231,6 +231,9 @@ const fr: Dictionary = {
     sending: "Envoi…",
     error: "Envoi impossible pour le moment. Réessayez ou écrivez-moi sur WhatsApp.",
     emailLabel: "E-mail",
+    captcha: "Protégé par Cloudflare Turnstile.",
+    captchaLink: "Politique de confidentialité",
+    captchaUrl: "https://www.cloudflare.com/fr-fr/turnstile-privacy-policy/",
   },
   process: {
     kicker: "Comment ça marche",

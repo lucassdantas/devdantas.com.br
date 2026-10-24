@@ -63,7 +63,8 @@ Procure por `TODO(Lucas)` no código:
 
 - [ ] Foto na seção "Sobre"
 - [ ] WhatsApp real (`site.ts`)
-- [ ] Turnstile: Site Key em `site.ts`, Secret Key na Vercel
+- [x] Turnstile: Site Key em `site.ts`
+- [ ] Turnstile: gerar nova Secret Key (a atual foi exposta) e cadastrar na Vercel
 - [ ] Formspree: **ID novo** (o primeiro ficou no histórico do Git) na Vercel
 - [ ] E-mail de contato (`site.ts`)
 - [ ] Revisar preços (`pricing.ts`)

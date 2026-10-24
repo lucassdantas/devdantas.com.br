@@ -61,6 +61,13 @@ sequenceDiagram
   mensal, moeda, região e idioma.
 - **Responder** vai direto para o visitante (`_replyto`).
 
+### Aviso de privacidade
+
+O Turnstile processa dados do visitante (IP, navegador), e você é o controlador desses dados (LGPD/GDPR).
+Por isso, abaixo do campo de e-mail aparece *"Protegido pelo Cloudflare Turnstile. Política de privacidade"*,
+com link para a [política do Turnstile](https://www.cloudflare.com/pt-br/turnstile-privacy-policy/) no
+idioma do visitante (`calc.captcha`, `calc.captchaLink`, `calc.captchaUrl` em `i18n`).
+
 ### Proteções contra spam (em camadas)
 
 1. **Turnstile** — prova de que é uma pessoa; o token vale para um envio e é conferido no servidor.
